@@ -1,4 +1,4 @@
-Notas
+NOTAS
 ---
 
 # Encender la interfaz
@@ -10,7 +10,7 @@ sudo ip link set enp1s0 up
 ```bash
 ip link show enp1s0
 ```
-# Debería decir: state UP instead of DOWN
+Debería decir: state UP instead of DOWN
 
 # Información del módulo SFP
 ```bash
@@ -21,7 +21,7 @@ sudo ethtool -m enp1s0
 ```bash
 sudo ethtool enp1s0
 ```
-# Buscar: "Link detected: yes" y "Speed: 10000Mb/s"
+Buscar: "Link detected: yes" y "Speed: 10000Mb/s"
 
 # Asignar IP en subred privada
 ```bash
@@ -37,4 +37,4 @@ ip addr show enp1s0
 ```bash
 ping -c 5 -I enp1s0 10.0.0.1
 ```
-# Deberías ver respuestas successful
+Deberías ver respuestas successful
