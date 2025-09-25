@@ -45,3 +45,22 @@ Ping a sí mismo (prueba loopback)
 ping -c 5 -I enp1s0 10.0.0.1
 ```
 Deberías ver respuestas successful
+
+Procedimiento CORRECTO para cambiar transceptores
+---
+1. Apagar la interfaz primero
+```bash
+sudo ip link set enp1s0 down
+```
+2. Esperar 2-3 segundos
+3. Retirar el transceptor actual
+4. Insertar el nuevo transceptor
+5. Encender la interfaz
+```bash
+sudo ip link set enp1s0 up
+```
+6. Verificar nuevo enlace
+```bash
+sudo ethtool enp1s0
+```
+
