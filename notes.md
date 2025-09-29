@@ -30,7 +30,7 @@ Buscar: "Link detected: yes" y "Speed: 10000Mb/s"
 Asignar IP en subred privada
 ---
 ```bash
-sudo ip addr add 10.0.0.1/24 dev enp1s0
+sudo ip addr add 192.168.1.100/24 dev enp1s0
 ```
 
 Verificar configuración
