@@ -30,7 +30,7 @@ Buscar: "Link detected: yes" y "Speed: 10000Mb/s"
 Asignar IP en subred privada
 ---
 ```bash
-sudo ip addr add 10.0.0.1/30 dev enp1s0
+sudo ip addr add 10.0.0.1/24 dev enp1s0
 ```
 
 Verificar configuración
@@ -63,4 +63,10 @@ sudo ip link set enp1s0 up
 ```bash
 sudo ethtool enp1s0
 ```
+sudo ip addr flush dev enp1s0
 
+Eliminar todas las IPs de enp1s0
+---
+```bash
+sudo ip addr flush dev enp1s0
+```
