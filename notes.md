@@ -70,3 +70,8 @@ Eliminar todas las IPs de enp1s0
 ```bash
 sudo ip addr flush dev enp1s0
 ```
+Enviar mensaje simple a la FPGA
+---
+```bash
+echo "HOLA_FPGA" | nc -u 192.168.1.128 1234
+```
