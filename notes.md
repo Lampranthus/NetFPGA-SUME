@@ -39,12 +39,12 @@ Verificar configuración
 ip addr show enp1s0
 ```
 
-Ping a sí mismo (prueba loopback)
+Probar broadcast
 ---
 ```bash
-ping -c 5 -I enp1s0 10.0.0.1
+echo "TEST" | nc -u -b 192.168.1.255 1234
 ```
-Deberías ver respuestas successful
+Deberías ver el mensaje UDP enviado a 192.168.1.255 al puerto 1234
 
 Procedimiento CORRECTO para cambiar transceptores
 ---
