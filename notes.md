@@ -75,3 +75,13 @@ Enviar mensaje simple a la FPGA
 ```bash
 echo "HOLA_FPGA" | nc -u 192.168.1.128 1234
 ```
+Jumbo Frames
+---
+```bash
+sudo ip link set dev enp1s0 mtu 9000
+```
+Enviar paquete de datos
+---
+```bash
+dd if=/dev/zero bs=8192 count=111500 | pv -brt | socat -u - "UDP-SENDTO:192.168.1.128:1234"
+```
