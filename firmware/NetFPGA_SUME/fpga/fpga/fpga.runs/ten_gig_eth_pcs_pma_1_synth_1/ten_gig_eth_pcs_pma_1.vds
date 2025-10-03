@@ -1,0 +1,469 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Sep  3 18:14:39 2025
+# Process ID         : 147348
+# Current directory  : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1
+# Command line       : vivado -log ten_gig_eth_pcs_pma_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ten_gig_eth_pcs_pma_1.tcl
+# Log file           : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/ten_gig_eth_pcs_pma_1.vds
+# Journal file       : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/vivado.jou
+# Running On         : lampranthus
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : AMD Ryzen 5 5500U with Radeon Graphics
+# CPU Frequency      : 3892.767 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16052 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20347 MB
+# Available Virtual  : 9376 MB
+#-----------------------------------------------------------
+source ten_gig_eth_pcs_pma_1.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ten_gig_eth_pcs_pma_1
+Command: synth_design -top ten_gig_eth_pcs_pma_1 -part xc7vx690tffg1761-3 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Synthesis license expires in 25 day(s)
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 227998
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2276.746 ; gain = 420.711 ; free physical = 341 ; free virtual = 6827
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.v:57]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_block' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_block.v:58]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_local_clock_and_reset' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_local_clock_and_reset.v:58]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_sim_speedup_controller' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_sim_speedup_controller.v:61]
+INFO: [Synth 8-6157] synthesizing module 'LUT1' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84087]
+INFO: [Synth 8-6155] done synthesizing module 'LUT1' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84087]
+INFO: [Synth 8-6157] synthesizing module 'LDCE' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:83800]
+INFO: [Synth 8-6155] done synthesizing module 'LDCE' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:83800]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_sim_speedup_controller' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_sim_speedup_controller.v:61]
+INFO: [Synth 8-6157] synthesizing module 'BUFH' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6155] done synthesizing module 'BUFH' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_local_clock_and_reset' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_local_clock_and_reset.v:58]
+INFO: [Synth 8-6157] synthesizing module 'MUXCY_L' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:90780]
+INFO: [Synth 8-6155] done synthesizing module 'MUXCY_L' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:90780]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst__parameterized1' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_ff_synchronizer_rst__parameterized1' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ff_synchronizer_rst.v:61]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_cable_pull_logic' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_cable_pull_logic.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_cable_pull_logic' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_cable_pull_logic.v:58]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_multi_GT' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_multi_gt.v:52]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_GT' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_gt.v:55]
+INFO: [Synth 8-6157] synthesizing module 'GTHE2_CHANNEL' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:45433]
+INFO: [Synth 8-6155] done synthesizing module 'GTHE2_CHANNEL' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:45433]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_GT' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_gt.v:55]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_multi_GT' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_gtwizard_gth_10gbaser_multi_gt.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1_block' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_block.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.v:57]
+WARNING: [Synth 8-7129] Port reset in module ten_gig_eth_pcs_pma_v6_0_28_drp_ipif is either unconnected or has no load
+WARNING: [Synth 8-7129] Port re in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[15] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[14] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[13] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[12] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[11] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[10] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[9] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[8] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[7] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[6] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[5] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[4] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[3] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[2] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[1] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[7] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[6] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[5] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[4] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[3] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[2] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[1] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[5] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[4] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[3] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[2] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[1] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_clear in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port re in module ten_gig_eth_pcs_pma_v6_0_28_g_register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hold in module ten_gig_eth_pcs_pma_v6_0_28_g_register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_we in module ten_gig_eth_pcs_pma_v6_0_28_g_register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port backdoor_d[0] in module ten_gig_eth_pcs_pma_v6_0_28_g_register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port areset_clk156 in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[20] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[19] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[18] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[17] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[16] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[15] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[14] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[13] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[12] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[11] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[10] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[9] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[8] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[7] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[6] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[5] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[4] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[3] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[2] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[1] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addr[0] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rnw in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[15] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[14] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[13] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[12] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[11] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[10] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[9] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[8] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[7] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[6] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[5] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[4] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[3] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[2] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[1] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata[0] in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cs in module ten_gig_eth_pcs_pma_v6_0_28_common_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port kr_pmd_status_core_i[3] in module ten_gig_eth_pcs_pma_v6_0_28_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port kr_pmd_status_core_i[2] in module ten_gig_eth_pcs_pma_v6_0_28_ieee_registers is either unconnected or has no load
+WARNING: [Synth 8-7129] Port kr_pmd_status_core_i[1] in module ten_gig_eth_pcs_pma_v6_0_28_ieee_registers is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2405.684 ; gain = 549.648 ; free physical = 200 ; free virtual = 6550
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2420.527 ; gain = 564.492 ; free physical = 200 ; free virtual = 6543
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2420.527 ; gain = 564.492 ; free physical = 200 ; free virtual = 6543
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2426.465 ; gain = 0.000 ; free physical = 201 ; free virtual = 6544
+INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'inst'
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:53]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:55]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:57]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:60]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:62]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:64]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:67]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -of [filter [all_fanout -flat -endpoints_only -from [get_pins -filter NAME=~*/Q -of_objects [get_cells -hierarchical -filter {NAME =~ *rxratecounter_i*rxusrclk2_en156*}]]] {NAME =~ *WE}]'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:69]
+WARNING: [Designutils 20-1567] Use of 'set_multicycle_path' with '-hold' is not supported by synthesis. The constraint will not be passed to synthesis. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:70]
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ten_gig_eth_pcs_pma_1_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ten_gig_eth_pcs_pma_1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ten_gig_eth_pcs_pma_1_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ten_gig_eth_pcs_pma_1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2564.246 ; gain = 0.000 ; free physical = 194 ; free virtual = 6497
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 44 instances were transformed.
+  MUXCY_L => MUXCY: 44 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2564.246 ; gain = 0.000 ; free physical = 194 ; free virtual = 6498
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2564.246 ; gain = 708.211 ; free physical = 192 ; free virtual = 6497
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx690tffg1761-3
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2572.250 ; gain = 716.215 ; free physical = 192 ; free virtual = 6497
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2572.250 ; gain = 716.215 ; free physical = 184 ; free virtual = 6498
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'mcp1_state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_idle_delete'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_tx_pcs_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'mcp1_state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_block_lock_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'mcp1_state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_ber_mon_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'mcp1_state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_pcs_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_cs_ipif_access'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ten_gig_eth_pcs_pma_v6_0_28_drp_ipif'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                STRAIGHT |                              000 |                              000
+                 DELETE3 |                              001 |                              010
+                 DELETE1 |                              010 |                              001
+                 TWISTED |                              011 |                              100
+        POSSIBLE_DELETE4 |                              100 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'mcp1_state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_idle_delete'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 TX_INIT |                              000 |                              000
+                    TX_E |                              001 |                              100
+                    TX_C |                              010 |                              001
+                    TX_D |                              011 |                              010
+                    TX_T |                              100 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_tx_pcs_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               LOCK_INIT |                               00 |                               00
+               RESET_CNT |                               01 |                               01
+   TEST_VALID_INVALID_SH |                               10 |                               10
+                    SLIP |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'mcp1_state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_block_lock_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             BER_MT_INIT |                              000 |                              000
+             START_TIMER |                              001 |                              001
+             BER_TEST_SH |                              010 |                              010
+              BER_BAD_SH |                              011 |                              011
+                  HI_BER |                              100 |                              100
+                GOOD_BER |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'mcp1_state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_ber_mon_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 RX_INIT |                              000 |                              000
+                    RX_E |                              001 |                              100
+                    RX_T |                              010 |                              011
+                    RX_C |                              011 |                              001
+                    RX_D |                              100 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'mcp1_state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_rx_pcs_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+                  RDREQ1 |                               01 |                              001
+              RDPENDING1 |                               10 |                              010
+                 RDRESP1 |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_cs_ipif_access'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                     REQ |                               01 |                               01
+                     GNT |                               10 |                               10
+                    GNT1 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ten_gig_eth_pcs_pma_v6_0_28_drp_ipif'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2572.250 ; gain = 716.215 ; free physical = 188 ; free virtual = 6498
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 3600 (col length:200)
+BRAMs: 2940 (col length: RAMB18 200 RAMB36 100)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2572.250 ; gain = 716.215 ; free physical = 210 ; free virtual = 6454
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3321] set_false_path : Empty from list for constraint at line 75 of /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc:75]
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 2605.250 ; gain = 749.215 ; free physical = 183 ; free virtual = 6342
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 2702.523 ; gain = 846.488 ; free physical = 187 ; free virtual = 6197
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 2710.531 ; gain = 854.496 ; free physical = 191 ; free virtual = 6174
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 179 ; free virtual = 6094
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 179 ; free virtual = 6094
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 259 ; free virtual = 6122
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 260 ; free virtual = 6123
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 241 ; free virtual = 6104
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 246 ; free virtual = 6109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |BUFH          |     1|
+|2     |CARRY4        |    54|
+|3     |GTHE2_CHANNEL |     1|
+|4     |LUT1          |   113|
+|5     |LUT2          |   314|
+|6     |LUT3          |   368|
+|7     |LUT4          |   363|
+|8     |LUT5          |   292|
+|9     |LUT6          |   807|
+|10    |MUXCY_L       |    44|
+|11    |RAM32M        |    23|
+|12    |RAM32X1D      |     2|
+|13    |FDCE          |    15|
+|14    |FDPE          |    67|
+|15    |FDRE          |  2613|
+|16    |FDSE          |   190|
+|17    |LDCE          |     1|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.344 ; gain = 961.309 ; free physical = 246 ; free virtual = 6109
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 601 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 2817.344 ; gain = 817.590 ; free physical = 244 ; free virtual = 6110
+Synthesis Optimization Complete : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2817.352 ; gain = 961.309 ; free physical = 244 ; free virtual = 6111
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2817.352 ; gain = 0.000 ; free physical = 394 ; free virtual = 6276
+INFO: [Netlist 29-17] Analyzing 123 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2873.371 ; gain = 0.000 ; free physical = 524 ; free virtual = 6400
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 41 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 16 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 23 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+Synth Design complete | Checksum: b24340ec
+INFO: [Common 17-83] Releasing license: Synthesis
+68 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:27 ; elapsed = 00:01:26 . Memory (MB): peak = 2873.371 ; gain = 1481.934 ; free physical = 525 ; free virtual = 6400
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1947.294; main = 1855.245; forked = 208.375
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3627.535; main = 2873.375; forked = 917.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2897.383 ; gain = 0.000 ; free physical = 525 ; free virtual = 6401
+INFO: [Common 17-1381] The checkpoint '/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/ten_gig_eth_pcs_pma_1.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP ten_gig_eth_pcs_pma_1, cache-ID = b46aa77a939c03b0
+INFO: [Coretcl 2-1174] Renamed 105 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2897.383 ; gain = 0.000 ; free physical = 508 ; free virtual = 6397
+INFO: [Common 17-1381] The checkpoint '/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_1_synth_1/ten_gig_eth_pcs_pma_1.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ten_gig_eth_pcs_pma_1_utilization_synth.rpt -pb ten_gig_eth_pcs_pma_1_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Sep  3 18:16:17 2025...

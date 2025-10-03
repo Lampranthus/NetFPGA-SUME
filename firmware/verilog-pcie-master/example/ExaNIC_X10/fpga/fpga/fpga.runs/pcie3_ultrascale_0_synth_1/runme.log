@@ -1,0 +1,672 @@
+
+*** Running vivado
+    with args -log pcie3_ultrascale_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pcie3_ultrascale_0.tcl
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Sep  3 20:06:47 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source pcie3_ultrascale_0.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: pcie3_ultrascale_0
+Command: synth_design -top pcie3_ultrascale_0 -part xcku035-fbva676-2-e -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcku035'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku035'
+INFO: [Device 21-403] Loading part xcku035-fbva676-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4417
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2247.141 ; gain = 379.859 ; free physical = 6124 ; free virtual = 13312
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/synth/pcie3_ultrascale_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_core_top' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:61]
+WARNING: [Synth 8-11581] system task call 'printtimescale' not supported [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1746]
+INFO: [Synth 8-251] Ref Clk Freq: 0 	 User Clk Freq: 3 	 PCIE Link Speed: 3 [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1747]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_wrapper' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_wrapper.v:133]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_txeq' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_txeq.v:73]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync_cell' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync_cell.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync_cell' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync_cell.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized1' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized1' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-226] default block is never used [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_txeq.v:292]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_txeq' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_txeq.v:73]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_rxeq' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rxeq.v:71]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized2' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized2' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-226] default block is never used [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rxeq.v:230]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_rxeq' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rxeq.v:71]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gtwizard_top' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_gtwizard_top.v:70]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gt' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt.v:53]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gt_gtwizard_top' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gtwizard_top.v:173]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gt_gtwizard_gthe3' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gtwizard_gthe3.v:141]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gt_gthe3_common_wrapper' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gthe3_common_wrapper.v:56]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_19_gthe3_common' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/gtwizard_ultrascale_v1_7_gthe3_common.v:53]
+INFO: [Synth 8-6157] synthesizing module 'GTHE3_COMMON' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:47426]
+INFO: [Synth 8-6155] done synthesizing module 'GTHE3_COMMON' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:47426]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_19_gthe3_common' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/gtwizard_ultrascale_v1_7_gthe3_common.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gt_gthe3_common_wrapper' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gthe3_common_wrapper.v:56]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_gt_gthe3_channel_wrapper' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gthe3_channel_wrapper.v:56]
+INFO: [Synth 8-6157] synthesizing module 'gtwizard_ultrascale_v1_7_19_gthe3_channel' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/gtwizard_ultrascale_v1_7_gthe3_channel.v:53]
+INFO: [Synth 8-6157] synthesizing module 'GTHE3_CHANNEL' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:46374]
+INFO: [Synth 8-6155] done synthesizing module 'GTHE3_CHANNEL' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:46374]
+INFO: [Synth 8-6155] done synthesizing module 'gtwizard_ultrascale_v1_7_19_gthe3_channel' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/gtwizard_ultrascale_v1_7_gthe3_channel.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gt_gthe3_channel_wrapper' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gthe3_channel_wrapper.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gt_gtwizard_gthe3' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gtwizard_gthe3.v:141]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gt_gtwizard_top' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt_gtwizard_top.v:173]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gt' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_gtwizard_top' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_gtwizard_top.v:70]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_clk' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_clk.v:72]
+INFO: [Synth 8-6157] synthesizing module 'BUFG_GT' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2853]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG_GT' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2853]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_clk' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_clk.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_rst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rst.v:68]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized3' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync_cell__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync_cell.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync_cell__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync_cell.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized3' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized4' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized4' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized5' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_sync__parameterized5' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_sync.v:72]
+INFO: [Synth 8-226] default block is never used [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rst.v:319]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_rst' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rst.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_phy_wrapper' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_wrapper.v:133]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_top' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_top.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_init_ctrl' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_init_ctrl.v:59]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_init_ctrl.v:150]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_init_ctrl' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_init_ctrl.v:59]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_tph_tbl' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_tph_tbl.v:61]
+INFO: [Synth 8-6157] synthesizing module 'RAMB36E2' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:143879]
+INFO: [Synth 8-6155] done synthesizing module 'RAMB36E2' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:143879]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_tph_tbl' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_tph_tbl.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pipe_pipeline' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_pipeline.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pipe_lane' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_lane.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pipe_lane' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_lane.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pipe_misc' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_misc.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pipe_misc' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_misc.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pipe_pipeline' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pipe_pipeline.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_wrapper' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_wrapper.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_rep' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_rep.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_rep_8k' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_rep_8k.v:61]
+INFO: [Synth 8-6157] synthesizing module 'RAMB36E2__parameterized0' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:143879]
+INFO: [Synth 8-6155] done synthesizing module 'RAMB36E2__parameterized0' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:143879]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_rep_8k' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_rep_8k.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_rep' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_rep.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_req' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_req.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_req_8k' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_req_8k.v:61]
+INFO: [Synth 8-6157] synthesizing module 'RAMB18E2' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:142735]
+INFO: [Synth 8-6155] done synthesizing module 'RAMB18E2' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:142735]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_req_8k' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_req_8k.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_req' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_req.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_cpl' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_cpl.v:61]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_bram_16k' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_16k.v:61]
+INFO: [Synth 8-6157] synthesizing module 'RAMB18E2__parameterized0' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:142735]
+INFO: [Synth 8-6155] done synthesizing module 'RAMB18E2__parameterized0' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:142735]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_16k' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_16k.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram_cpl' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram_cpl.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_bram' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_bram.v:61]
+INFO: [Synth 8-6157] synthesizing module 'PCIE_3_1' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:115531]
+INFO: [Synth 8-6155] done synthesizing module 'PCIE_3_1' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:115531]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_wrapper' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_wrapper.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_top' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_top.v:61]
+INFO: [Synth 8-6157] synthesizing module 'BUFG_GT_SYNC' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2875]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG_GT_SYNC' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2875]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (0#1) [/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst__parameterized0' [/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst__parameterized0' (0#1) [/tools/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-6157] synthesizing module 'pcie3_ultrascale_0_rxcdrhold' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_rxcdrhold.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_rxcdrhold' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_rxcdrhold.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0_pcie3_uscale_core_top' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:61]
+INFO: [Synth 8-6155] done synthesizing module 'pcie3_ultrascale_0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/synth/pcie3_ultrascale_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element txpreset_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rxeq.v:210]
+WARNING: [Synth 8-6014] Unused sequential element txcoeff_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rxeq.v:211]
+WARNING: [Synth 8-6014] Unused sequential element cpllpd_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rst.v:307]
+WARNING: [Synth 8-6014] Unused sequential element cpllpd_r_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_phy_rst.v:513]
+WARNING: [Synth 8-3848] Net rxdfeagchold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1154]
+WARNING: [Synth 8-3848] Net rxdfecfokhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1155]
+WARNING: [Synth 8-3848] Net rxdfelfhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1156]
+WARNING: [Synth 8-3848] Net rxdfekhhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1157]
+WARNING: [Synth 8-3848] Net rxdfetap2hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1158]
+WARNING: [Synth 8-3848] Net rxdfetap3hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1159]
+WARNING: [Synth 8-3848] Net rxdfetap4hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1160]
+WARNING: [Synth 8-3848] Net rxdfetap5hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1161]
+WARNING: [Synth 8-3848] Net rxdfetap6hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1162]
+WARNING: [Synth 8-3848] Net rxdfetap7hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1163]
+WARNING: [Synth 8-3848] Net rxdfetap8hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1164]
+WARNING: [Synth 8-3848] Net rxdfetap9hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1165]
+WARNING: [Synth 8-3848] Net rxdfetap10hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1166]
+WARNING: [Synth 8-3848] Net rxdfetap11hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1167]
+WARNING: [Synth 8-3848] Net rxdfetap12hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1168]
+WARNING: [Synth 8-3848] Net rxdfetap13hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1169]
+WARNING: [Synth 8-3848] Net rxdfetap14hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1170]
+WARNING: [Synth 8-3848] Net rxdfetap15hold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1171]
+WARNING: [Synth 8-3848] Net rxdfeuthold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1172]
+WARNING: [Synth 8-3848] Net rxdfevphold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1173]
+WARNING: [Synth 8-3848] Net rxoshold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1174]
+WARNING: [Synth 8-3848] Net rxlpmgchold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1175]
+WARNING: [Synth 8-3848] Net rxlpmhfhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1176]
+WARNING: [Synth 8-3848] Net rxlpmlfhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1177]
+WARNING: [Synth 8-3848] Net rxlpmoshold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1178]
+WARNING: [Synth 8-3848] Net cpllpd_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1203]
+WARNING: [Synth 8-3848] Net cpllreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1204]
+WARNING: [Synth 8-3848] Net dmonfiforeset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1205]
+WARNING: [Synth 8-3848] Net dmonitorclk_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1206]
+WARNING: [Synth 8-3848] Net drpclk_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1207]
+WARNING: [Synth 8-3848] Net drpaddr_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1208]
+WARNING: [Synth 8-3848] Net drpdi_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1209]
+WARNING: [Synth 8-3848] Net drpen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1210]
+WARNING: [Synth 8-3848] Net drpwe_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1211]
+WARNING: [Synth 8-3848] Net eyescanreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1212]
+WARNING: [Synth 8-3848] Net gthrxn_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1213]
+WARNING: [Synth 8-3848] Net gthrxp_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1214]
+WARNING: [Synth 8-3848] Net gtrefclk0_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1215]
+WARNING: [Synth 8-3848] Net gtrxreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1216]
+WARNING: [Synth 8-3848] Net gttxreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1217]
+WARNING: [Synth 8-3848] Net gtwiz_reset_rx_done_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1218]
+WARNING: [Synth 8-3848] Net gtwiz_reset_tx_done_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1219]
+WARNING: [Synth 8-3848] Net gtwiz_userclk_rx_active_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1220]
+WARNING: [Synth 8-3848] Net gtwiz_userclk_tx_active_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1221]
+WARNING: [Synth 8-3848] Net gtwiz_userclk_tx_reset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1222]
+WARNING: [Synth 8-3848] Net loopback_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1223]
+WARNING: [Synth 8-3848] Net pcieeqrxeqadaptdone_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1224]
+WARNING: [Synth 8-3848] Net pcierstidle_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1225]
+WARNING: [Synth 8-3848] Net pciersttxsyncstart_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1226]
+WARNING: [Synth 8-3848] Net pcieuserratedone_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1227]
+WARNING: [Synth 8-3848] Net pcsrsvdin_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1228]
+WARNING: [Synth 8-3848] Net rx8b10ben_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1229]
+WARNING: [Synth 8-3848] Net rxbufreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1230]
+WARNING: [Synth 8-3848] Net rxcdrhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1231]
+WARNING: [Synth 8-3848] Net rxcommadeten_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1232]
+WARNING: [Synth 8-3848] Net rxlpmen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1233]
+WARNING: [Synth 8-3848] Net rxmcommaalignen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1234]
+WARNING: [Synth 8-3848] Net rxpcommaalignen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1235]
+WARNING: [Synth 8-3848] Net rxpd_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1236]
+WARNING: [Synth 8-3848] Net rxpolarity_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1237]
+WARNING: [Synth 8-3848] Net rxprbscntreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1238]
+WARNING: [Synth 8-3848] Net rxprbssel_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1239]
+WARNING: [Synth 8-3848] Net rxprogdivreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1240]
+WARNING: [Synth 8-3848] Net rxrate_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1241]
+WARNING: [Synth 8-3848] Net rxratemode_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1242]
+WARNING: [Synth 8-3848] Net rxslide_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1243]
+WARNING: [Synth 8-3848] Net rxuserrdy_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1244]
+WARNING: [Synth 8-3848] Net rxusrclk2_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1245]
+WARNING: [Synth 8-3848] Net rxusrclk_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1246]
+WARNING: [Synth 8-3848] Net tx8b10ben_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1247]
+WARNING: [Synth 8-3848] Net txctrl0_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1248]
+WARNING: [Synth 8-3848] Net txctrl1_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1249]
+WARNING: [Synth 8-3848] Net txctrl2_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1250]
+WARNING: [Synth 8-3848] Net txdata_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1251]
+WARNING: [Synth 8-3848] Net txdeemph_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1252]
+WARNING: [Synth 8-3848] Net txdetectrx_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1253]
+WARNING: [Synth 8-3848] Net txdiffctrl_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1254]
+WARNING: [Synth 8-3848] Net txdlybypass_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1255]
+WARNING: [Synth 8-3848] Net txdlyen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1256]
+WARNING: [Synth 8-3848] Net txdlyhold_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1257]
+WARNING: [Synth 8-3848] Net txdlyovrden_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1258]
+WARNING: [Synth 8-3848] Net txdlysreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1259]
+WARNING: [Synth 8-3848] Net txdlyupdown_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1260]
+WARNING: [Synth 8-3848] Net txelecidle_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1261]
+WARNING: [Synth 8-3848] Net txinhibit_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1262]
+WARNING: [Synth 8-3848] Net txmaincursor_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1263]
+WARNING: [Synth 8-3848] Net txmargin_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1264]
+WARNING: [Synth 8-3848] Net txoutclksel_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1265]
+WARNING: [Synth 8-3848] Net txpd_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1266]
+WARNING: [Synth 8-3848] Net txphalign_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1267]
+WARNING: [Synth 8-3848] Net txphalignen_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1268]
+WARNING: [Synth 8-3848] Net txphdlypd_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1269]
+WARNING: [Synth 8-3848] Net txphdlyreset_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1270]
+WARNING: [Synth 8-3848] Net txphdlytstclk_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1271]
+WARNING: [Synth 8-3848] Net txphinit_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1272]
+WARNING: [Synth 8-3848] Net txphovrden_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1273]
+WARNING: [Synth 8-3848] Net txpostcursor_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1274]
+WARNING: [Synth 8-3848] Net txprbsforceerr_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1275]
+WARNING: [Synth 8-3848] Net txprbssel_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1276]
+WARNING: [Synth 8-3848] Net txprecursor_in in module/entity pcie3_ultrascale_0_pcie3_uscale_core_top does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0_pcie3_uscale_core_top.v:1277]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-7129] Port reset_i in module pcie3_ultrascale_0_bram_16k is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset_i in module pcie3_ultrascale_0_bram_req_8k is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset_i in module pcie3_ultrascale_0_bram_rep_8k is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rden_i[1] in module pcie3_ultrascale_0_bram_rep_8k is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rden_i[0] in module pcie3_ultrascale_0_bram_rep_8k is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[7] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[6] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[5] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[4] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[3] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[2] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[1] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RST_RXPROGDIVRESETDONE[0] in module pcie3_ultrascale_0_phy_rst is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[79] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[78] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[77] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[76] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[75] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[74] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[73] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[72] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[71] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[70] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[69] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[68] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[67] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[66] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[65] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[64] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[63] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[62] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[61] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[60] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[59] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[58] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[57] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[56] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[55] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[54] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[53] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[52] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[51] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[50] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[49] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[48] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[47] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[46] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[45] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[44] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[43] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[42] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[41] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[40] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[39] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[38] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[37] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[36] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[35] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[34] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[33] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[32] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[31] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[30] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[29] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[28] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[27] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[26] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[25] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[24] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[23] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[22] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[21] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[20] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[19] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[18] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[17] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[16] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[15] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[14] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[13] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[12] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[11] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[10] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[9] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[8] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[7] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[6] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[5] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[4] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[3] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[2] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[1] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_CHANNEL_TSTIN[0] in module gtwizard_ultrascale_v1_7_19_gthe3_channel is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGBYPASSB[0] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGMONITORENB[0] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGPDB[0] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGRCALOVRD[4] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGRCALOVRD[3] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGRCALOVRD[2] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+WARNING: [Synth 8-7129] Port GTHE3_COMMON_BGRCALOVRD[1] in module gtwizard_ultrascale_v1_7_19_gthe3_common is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2379.078 ; gain = 511.797 ; free physical = 6015 ; free virtual = 13200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2385.016 ; gain = 517.734 ; free physical = 6015 ; free virtual = 13200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2385.016 ; gain = 517.734 ; free physical = 6015 ; free virtual = 13200
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2387.984 ; gain = 0.000 ; free physical = 6042 ; free virtual = 13227
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/synth/pcie3_ultrascale_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/synth/pcie3_ultrascale_0_ooc.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/synth/pcie3_ultrascale_0_ooc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pcie3_ultrascale_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pcie3_ultrascale_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt.xdc] for cell 'inst/pcie3_ultrascale_0_gt_top_i/gt_wizard.gtwizard_top_i/pcie3_ultrascale_0_gt_i/inst'
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt.xdc] for cell 'inst/pcie3_ultrascale_0_gt_top_i/gt_wizard.gtwizard_top_i/pcie3_ultrascale_0_gt_i/inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/ip_0/synth/pcie3_ultrascale_0_gt.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pcie3_ultrascale_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pcie3_ultrascale_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0-PCIE_X0Y0.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0-PCIE_X0Y0.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0-PCIE_X0Y0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pcie3_ultrascale_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pcie3_ultrascale_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pcie3_ultrascale_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pcie3_ultrascale_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-1714] 2 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2519.734 ; gain = 0.000 ; free physical = 6184 ; free virtual = 13381
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2519.734 ; gain = 0.000 ; free physical = 6184 ; free virtual = 13381
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2519.734 ; gain = 652.453 ; free physical = 6180 ; free virtual = 13380
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcku035-fbva676-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2527.738 ; gain = 660.457 ; free physical = 6180 ; free virtual = 13380
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property keep_hierarchy = soft for inst. (constraint file  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.gen/sources_1/ip/pcie3_ultrascale_0/source/pcie3_ultrascale_0-PCIE_X0Y0.xdc, line 154).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/pcie3_ultrascale_0_gt_top_i/\gt_wizard.gtwizard_top_i /pcie3_ultrascale_0_gt_i/inst. (constraint file  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/dont_touch.xdc, line 13).
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/dont_touch.xdc, line 17).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/pcie3_ultrascale_0_gt_top_i/\gt_wizard.gtwizard_top_i /pcie3_ultrascale_0_gt_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/user_lnk_up_cdc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for inst/user_reset_cdc. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2527.738 ; gain = 660.457 ; free physical = 6180 ; free virtual = 13380
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'fsm_reg' in module 'pcie3_ultrascale_0_phy_txeq'
+INFO: [Synth 8-802] inferred FSM for state register 'fsm_reg' in module 'pcie3_ultrascale_0_phy_rxeq'
+INFO: [Synth 8-802] inferred FSM for state register 'fsm_reg' in module 'pcie3_ultrascale_0_phy_rst'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                FSM_IDLE |                              000 |                              000
+              FSM_PRESET |                              001 |                              001
+               FSM_COEFF |                              010 |                              010
+               FSM_REMAP |                              011 |                              011
+               FSM_QUERY |                              100 |                              100
+                FSM_DONE |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fsm_reg' using encoding 'sequential' in module 'pcie3_ultrascale_0_phy_txeq'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                FSM_IDLE |                            00001 |                              000
+              FSM_PRESET |                            00010 |                              001
+             FSM_TXCOEFF |                            00100 |                              010
+               FSM_ADAPT |                            01000 |                              011
+                FSM_DONE |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fsm_reg' using encoding 'one-hot' in module 'pcie3_ultrascale_0_phy_rxeq'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+         FSM_GTPOWERGOOD |                         00000001 |                              001
+             FSM_PLLLOCK |                         00000010 |                              010
+  FSM_TXPROGDIVRESETDONE |                         00000100 |                              011
+           FSM_RESETDONE |                         00001000 |                              100
+        FSM_TXSYNC_START |                         00010000 |                              101
+         FSM_TXSYNC_DONE |                         00100000 |                              110
+           FSM_PHYSTATUS |                         01000000 |                              111
+                FSM_IDLE |                         10000000 |                              000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fsm_reg' using encoding 'one-hot' in module 'pcie3_ultrascale_0_phy_rst'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2527.738 ; gain = 660.457 ; free physical = 6181 ; free virtual = 13382
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   19 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 18    
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 16    
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 16    
+	               18 Bit    Registers := 24    
+	                9 Bit    Registers := 2     
+	                7 Bit    Registers := 10    
+	                6 Bit    Registers := 22    
+	                5 Bit    Registers := 16    
+	                4 Bit    Registers := 84    
+	                3 Bit    Registers := 283   
+	                2 Bit    Registers := 79    
+	                1 Bit    Registers := 194   
++---Muxes : 
+	   3 Input   20 Bit        Muxes := 1     
+	   2 Input   19 Bit        Muxes := 16    
+	   6 Input   19 Bit        Muxes := 8     
+	   2 Input    9 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 7     
+	   5 Input    5 Bit        Muxes := 8     
+	   4 Input    5 Bit        Muxes := 8     
+	   2 Input    5 Bit        Muxes := 24    
+	   6 Input    3 Bit        Muxes := 16    
+	   4 Input    3 Bit        Muxes := 9     
+	   2 Input    3 Bit        Muxes := 29    
+	   5 Input    3 Bit        Muxes := 8     
+	   6 Input    2 Bit        Muxes := 8     
+	   5 Input    2 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    1 Bit        Muxes := 18    
+	   2 Input    1 Bit        Muxes := 58    
+	   6 Input    1 Bit        Muxes := 16    
+	   5 Input    1 Bit        Muxes := 40    
+	   8 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1700 (col length:120)
+BRAMs: 1080 (col length: RAMB18 120 RAMB36 60)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2527.738 ; gain = 660.457 ; free physical = 6153 ; free virtual = 13356
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 3223.977 ; gain = 1356.695 ; free physical = 5462 ; free virtual = 12676
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 3252.984 ; gain = 1385.703 ; free physical = 5441 ; free virtual = 12655
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 3278.016 ; gain = 1410.734 ; free physical = 5405 ; free virtual = 12625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5282 ; free virtual = 12495
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5282 ; free virtual = 12495
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-----------------------------------------+---------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name                              | RTL Name                                                      | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-----------------------------------------+---------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|pcie3_ultrascale_0_pcie3_uscale_core_top | pcie3_ultrascale_0_gt_top_i/phy_rst_i/txprogdivreset_r_reg[3] | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|pcie3_ultrascale_0_pcie3_uscale_core_top | pcie3_ultrascale_0_gt_top_i/phy_rst_i/gtreset_r_reg[3]        | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|pcie3_ultrascale_0_pcie3_uscale_core_top | pcie3_ultrascale_0_gt_top_i/phy_rst_i/userrdy_r_reg[3]        | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|pcie3_ultrascale_0_pcie3_uscale_core_top | pcie3_ultrascale_0_gt_top_i/phy_rst_i/cpllreset_r_reg[3]      | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++-----------------------------------------+---------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |BUFG_GT       |     5|
+|2     |BUFG_GT_SYNC  |     1|
+|3     |CARRY8        |    27|
+|4     |GTHE3_CHANNEL |     8|
+|5     |GTHE3_COMMON  |     2|
+|6     |LUT1          |    34|
+|7     |LUT2          |    36|
+|8     |LUT3          |    98|
+|9     |LUT4          |   190|
+|10    |LUT5          |   273|
+|11    |LUT6          |   108|
+|12    |PCIE_3        |     1|
+|13    |RAMB18E2      |    12|
+|15    |RAMB36E2      |     3|
+|17    |SRL16E        |     4|
+|18    |FDCE          |    44|
+|19    |FDPE          |     7|
+|20    |FDRE          |  2803|
+|21    |FDSE          |    83|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 7326 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 3416.828 ; gain = 1414.828 ; free physical = 5274 ; free virtual = 12487
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 3416.828 ; gain = 1549.547 ; free physical = 5274 ; free virtual = 12487
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3416.828 ; gain = 0.000 ; free physical = 5443 ; free virtual = 12654
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-441] Inserted BUFG_GT_SYNC inst/pcie3_ultrascale_0_gt_top_i/gt_wizard.gtwizard_top_i/pcie3_ultrascale_0_gt_i/inst/gen_gtwizard_gthe3_top.pcie3_ultrascale_0_gt_gtwizard_gthe3_inst/gen_gtwizard_gthe3.gen_channel_container[1].gen_enabled_channel.gthe3_channel_wrapper_inst/channel_inst/BUFG_GT_SYNC for BUFG_GT inst/pcie3_ultrascale_0_gt_top_i/phy_clk_i/bufg_gt_coreclk
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[0].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[1].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[2].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[3].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[4].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[5].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[6].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_cpl_inst/CPL_FIFO_16KB.bram_16k_inst/RAMB18E2[7].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_rep_inst/bram_rep_8k_inst/RAMB36E2[0].ramb36e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_rep_inst/bram_rep_8k_inst/RAMB36E2[1].ramb36e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_req_inst/bram_req_8k_inst/RAMB18E2[0].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_req_inst/bram_req_8k_inst/RAMB18E2[1].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_req_inst/bram_req_8k_inst/RAMB18E2[2].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/pcie3_uscale_wrapper_inst/bram_inst/bram_req_inst/bram_req_8k_inst/RAMB18E2[3].ramb18e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell inst/pcie3_ultrascale_0_pcie3_uscale_top_inst/tph_tbl_inst/ramb36e2_inst has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3462.203 ; gain = 0.000 ; free physical = 5431 ; free virtual = 12648
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 41340cbd
+INFO: [Common 17-83] Releasing license: Synthesis
+152 Infos, 206 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:44 . Memory (MB): peak = 3462.203 ; gain = 2056.746 ; free physical = 5429 ; free virtual = 12647
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2652.033; main = 2591.840; forked = 267.838
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4169.988; main = 3462.207; forked = 917.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 3486.215 ; gain = 0.000 ; free physical = 5428 ; free virtual = 12646
+INFO: [Common 17-1381] The checkpoint '/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/pcie3_ultrascale_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP pcie3_ultrascale_0, cache-ID = c8676b667b808ded
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3486.215 ; gain = 0.000 ; free physical = 5389 ; free virtual = 12615
+INFO: [Common 17-1381] The checkpoint '/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/verilog-pcie-master/example/ExaNIC_X10/fpga/fpga/fpga.runs/pcie3_ultrascale_0_synth_1/pcie3_ultrascale_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file pcie3_ultrascale_0_utilization_synth.rpt -pb pcie3_ultrascale_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Sep  3 20:07:43 2025...

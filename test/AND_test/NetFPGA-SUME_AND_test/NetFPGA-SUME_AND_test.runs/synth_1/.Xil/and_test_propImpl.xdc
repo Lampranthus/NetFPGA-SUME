@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/sume_master/SUME_Master.xdc rfile:../../../../../../sume_master/SUME_Master.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:63 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN AR13  IOSTANDARD LVCMOS15 } [get_ports { a }]; #IO_L12N_T1_MRCC_31 Sch=btn[0]
+set_property src_info {type:XDC file:1 line:64 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN BB12  IOSTANDARD LVCMOS15 } [get_ports { b }]; #IO_L24N_T3_31 Sch=btn[1]
+set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN AR22  IOSTANDARD LVCMOS15 } [get_ports { c }]; #IO_L11N_T1_SRCC_33 Sch=led[0]

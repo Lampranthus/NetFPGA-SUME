@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Sep  3 18:14:39 2025
+# Process ID         : 147347
+# Current directory  : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_0_synth_1
+# Command line       : vivado -log ten_gig_eth_pcs_pma_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ten_gig_eth_pcs_pma_0.tcl
+# Log file           : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_0_synth_1/ten_gig_eth_pcs_pma_0.vds
+# Journal file       : /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/ten_gig_eth_pcs_pma_0_synth_1/vivado.jou
+# Running On         : lampranthus
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : AMD Ryzen 5 5500U with Radeon Graphics
+# CPU Frequency      : 3916.511 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16052 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 20347 MB
+# Available Virtual  : 9376 MB
+#-----------------------------------------------------------
+source ten_gig_eth_pcs_pma_0.tcl -notrace

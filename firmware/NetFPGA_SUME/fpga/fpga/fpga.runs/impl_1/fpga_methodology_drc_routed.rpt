@@ -1,0 +1,489 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Thu Oct  2 17:21:04 2025
+| Host         : lampranthus running 64-bit Ubuntu 24.04.2 LTS
+| Command      : report_methodology -file fpga_methodology_drc_routed.rpt -pb fpga_methodology_drc_routed.pb -rpx fpga_methodology_drc_routed.rpx
+| Design       : fpga
+| Device       : xc7vx690tffg1761-3
+| Speed File   : -3
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 66
++-----------+----------+-----------------------------------------------------------+--------+
+| Rule      | Severity | Description                                               | Checks |
++-----------+----------+-----------------------------------------------------------+--------+
+| LUTAR-1   | Warning  | LUT drives async reset alert                              | 9      |
+| SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 4      |
+| SYNTH-6   | Warning  | Timing of a RAM block might be sub-optimal                | 2      |
+| SYNTH-16  | Warning  | Address collision                                         | 1      |
+| TIMING-18 | Warning  | Missing input or output delay                             | 8      |
+| XDCH-2    | Warning  | Same min and max delay values on IO port                  | 42     |
++-----------+----------+-----------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[0]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[1]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[2]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[3]/PRE
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[0]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[1]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[2]/PRE,
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[3]/PRE
+sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[0]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[1]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[2]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[3]/PRE
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert  
+LUT cell sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[0]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[1]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[2]/PRE,
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[3]/PRE
+sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[0]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[1]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[2]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[3]/PRE
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert  
+LUT cell sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[0]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[1]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[2]/PRE,
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[3]/PRE
+sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#7 Warning
+LUT drives async reset alert  
+LUT cell sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[0]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[1]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[2]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[3]/PRE
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#8 Warning
+LUT drives async reset alert  
+LUT cell sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[0]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[1]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[2]/PRE,
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[3]/PRE
+sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#9 Warning
+LUT drives async reset alert  
+LUT cell si5324_i2c_init_inst/sync_reg[3]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) sync_reset_sfp_inst/sync_reg_reg[0]/PRE,
+sync_reset_sfp_inst/sync_reg_reg[1]/PRE,
+sync_reset_sfp_inst/sync_reg_reg[2]/PRE
+sync_reset_sfp_inst/sync_reg_reg[3]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+SYNTH-5#1 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/valid_mem_reg_0_127_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#2 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/valid_mem_reg_128_255_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#3 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/valid_mem_reg_256_383_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#4 Warning
+Mapped onto distributed RAM because of timing constraints  
+The instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/valid_mem_reg_384_511_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-6#1 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#2 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/mac_addr_mem_reg, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-16#1 Warning
+Address collision  
+Block RAM core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg may get memory collision error if read and write address collide. Use of address collision resolution circuitry is recommended.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[0] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[1] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[2] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[3] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[4] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[5] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[6] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on JA_FPGA[7] relative to the rising and/or falling clock edge(s) of sfp_mgt_refclk_p.
+Related violations: <none>
+
+XDCH-2#1 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btn[0]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btn[*]}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 51)
+Related violations: <none>
+
+XDCH-2#2 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'btn[1]' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {btn[*]}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 51)
+Related violations: <none>
+
+XDCH-2#3 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'i2c_scl' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {i2c_sda i2c_scl}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 127)
+Related violations: <none>
+
+XDCH-2#4 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'i2c_sda' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {i2c_sda i2c_scl}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 127)
+Related violations: <none>
+
+XDCH-2#5 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_1_los' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_los sfp_2_los sfp_3_los sfp_4_los}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 113)
+Related violations: <none>
+
+XDCH-2#6 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_1_mod_detect' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sfp_1_mod_detect sfp_2_mod_detect sfp_3_mod_detect sfp_4_mod_detect}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 109)
+Related violations: <none>
+
+XDCH-2#7 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_1_tx_fault' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_tx_fault sfp_2_tx_fault sfp_3_tx_fault get_ports sfp_4_tx_fault}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 117)
+Related violations: <none>
+
+XDCH-2#8 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_2_los' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_los sfp_2_los sfp_3_los sfp_4_los}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 113)
+Related violations: <none>
+
+XDCH-2#9 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_2_mod_detect' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sfp_1_mod_detect sfp_2_mod_detect sfp_3_mod_detect sfp_4_mod_detect}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 109)
+Related violations: <none>
+
+XDCH-2#10 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_2_tx_fault' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_tx_fault sfp_2_tx_fault sfp_3_tx_fault get_ports sfp_4_tx_fault}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 117)
+Related violations: <none>
+
+XDCH-2#11 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_3_los' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_los sfp_2_los sfp_3_los sfp_4_los}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 113)
+Related violations: <none>
+
+XDCH-2#12 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_3_mod_detect' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sfp_1_mod_detect sfp_2_mod_detect sfp_3_mod_detect sfp_4_mod_detect}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 109)
+Related violations: <none>
+
+XDCH-2#13 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_3_tx_fault' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_tx_fault sfp_2_tx_fault sfp_3_tx_fault get_ports sfp_4_tx_fault}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 117)
+Related violations: <none>
+
+XDCH-2#14 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_4_los' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_los sfp_2_los sfp_3_los sfp_4_los}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 113)
+Related violations: <none>
+
+XDCH-2#15 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_4_mod_detect' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {sfp_1_mod_detect sfp_2_mod_detect sfp_3_mod_detect sfp_4_mod_detect}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 109)
+Related violations: <none>
+
+XDCH-2#16 Warning
+Same min and max delay values on IO port  
+The same input delay of 0.000 ns has been defined on port 'sfp_4_tx_fault' for both max and min. Make sure this reflects the design intent.
+set_input_delay 0.000 [get_ports {get_ports sfp_1_tx_fault sfp_2_tx_fault sfp_3_tx_fault get_ports sfp_4_tx_fault}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 117)
+Related violations: <none>
+
+XDCH-2#17 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'i2c_mux_reset' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {i2c_sda i2c_scl i2c_mux_reset}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 125)
+Related violations: <none>
+
+XDCH-2#18 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'i2c_scl' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {i2c_sda i2c_scl i2c_mux_reset}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 125)
+Related violations: <none>
+
+XDCH-2#19 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'i2c_sda' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {i2c_sda i2c_scl i2c_mux_reset}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 125)
+Related violations: <none>
+
+XDCH-2#20 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#21 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#22 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_1_led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#23 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_1_led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#24 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_1_rs[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#25 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_1_rs[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#26 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_1_tx_disable' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {get_ports sfp_1_tx_disable sfp_2_tx_disable sfp_3_tx_disable sfp_4_tx_disable}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 115)
+Related violations: <none>
+
+XDCH-2#27 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_2_led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#28 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_2_led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#29 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_2_rs[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#30 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_2_rs[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#31 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_2_tx_disable' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {get_ports sfp_1_tx_disable sfp_2_tx_disable sfp_3_tx_disable sfp_4_tx_disable}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 115)
+Related violations: <none>
+
+XDCH-2#32 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_3_led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#33 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_3_led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#34 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_3_rs[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#35 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_3_rs[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#36 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_3_tx_disable' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {get_ports sfp_1_tx_disable sfp_2_tx_disable sfp_3_tx_disable sfp_4_tx_disable}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 115)
+Related violations: <none>
+
+XDCH-2#37 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_4_led[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#38 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_4_led[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_led[*]} {sfp_2_led[*]} {sfp_3_led[*]} {sfp_4_led[*]} {led[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 44)
+Related violations: <none>
+
+XDCH-2#39 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_4_rs[0]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#40 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_4_rs[1]' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {{sfp_1_rs[*]} {sfp_2_rs[*]} {sfp_3_rs[*]} {sfp_4_rs[*]}}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 111)
+Related violations: <none>
+
+XDCH-2#41 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_4_tx_disable' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports {get_ports sfp_1_tx_disable sfp_2_tx_disable sfp_3_tx_disable sfp_4_tx_disable}]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 115)
+Related violations: <none>
+
+XDCH-2#42 Warning
+Same min and max delay values on IO port  
+The same output delay of 0.000 ns has been defined on port 'sfp_clk_rst' for both max and min. Make sure this reflects the design intent.
+set_output_delay 0.000 [get_ports sfp_clk_rst]
+/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc (Line: 105)
+Related violations: <none>
+
+
