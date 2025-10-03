@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Thu Oct  2 17:21:12 2025
+| Date             : Fri Oct  3 14:12:47 2025
 | Host             : lampranthus running 64-bit Ubuntu 24.04.2 LTS
 | Command          : report_power -file fpga_power_routed.rpt -pb fpga_power_summary_routed.pb -rpx fpga_power_routed.rpx
 | Design           : fpga
@@ -30,11 +30,11 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.107        |
+| Total On-Chip Power (W)  | 2.130        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.726        |
-| Device Static (W)        | 0.381        |
+| Dynamic (W)              | 1.748        |
+| Device Static (W)        | 0.382        |
 | Effective TJA (C/W)      | 1.1          |
 | Max Ambient (C)          | 97.6         |
 | Junction Temperature (C) | 27.4         |
@@ -53,20 +53,20 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.125 |       14 |       --- |             --- |
-| Slice Logic              |     0.051 |    25644 |       --- |             --- |
-|   LUT as Logic           |     0.044 |     8810 |    433200 |            2.03 |
-|   LUT as Distributed RAM |     0.003 |      310 |    174200 |            0.18 |
-|   Register               |     0.002 |    13393 |    866400 |            1.55 |
-|   CARRY4                 |     0.001 |      360 |    108300 |            0.33 |
-|   F7/F8 Muxes            |    <0.001 |       49 |    433200 |            0.01 |
-|   Others                 |     0.000 |      608 |       --- |             --- |
-| Signals                  |     0.063 |    20172 |       --- |             --- |
-| Block RAM                |     0.073 |     12.5 |      1470 |            0.85 |
+| Slice Logic              |     0.057 |    25683 |       --- |             --- |
+|   LUT as Logic           |     0.046 |     8753 |    433200 |            2.02 |
+|   LUT as Distributed RAM |     0.006 |      310 |    174200 |            0.18 |
+|   Register               |     0.003 |    13482 |    866400 |            1.56 |
+|   CARRY4                 |     0.002 |      411 |    108300 |            0.38 |
+|   F7/F8 Muxes            |    <0.001 |       44 |    433200 |            0.01 |
+|   Others                 |     0.000 |      612 |       --- |             --- |
+| Signals                  |     0.071 |    20294 |       --- |             --- |
+| Block RAM                |     0.081 |     23.5 |      1470 |            1.60 |
 | MMCM                     |     0.107 |        1 |        20 |            5.00 |
 | I/O                      |     0.009 |       45 |       850 |            5.29 |
 | GTH                      |     1.298 |        4 |       --- |             --- |
-| Static Power             |     0.381 |          |           |                 |
-| Total                    |     2.107 |          |           |                 |
+| Static Power             |     0.382 |          |           |                 |
+| Total                    |     2.130 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.699 |       0.493 |      0.205 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.720 |       0.514 |      0.206 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.116 |       0.063 |      0.053 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -85,8 +85,8 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.010 |       0.005 |      0.005 |       NA    | Unspecified | NA         |
-| MGTAVcc   |       1.000 |     0.816 |       0.788 |      0.028 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.011 |       0.006 |      0.005 |       NA    | Unspecified | NA         |
+| MGTAVcc   |       1.000 |     0.816 |       0.788 |      0.029 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.263 |       0.256 |      0.008 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.010 |       0.010 |      0.000 |       NA    | Unspecified | NA         |
 | MGTZVccl  |       1.075 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -157,44 +157,44 @@ Table of Contents
 +-----------------------------------------------------+-----------+
 | Name                                                | Power (W) |
 +-----------------------------------------------------+-----------+
-| fpga                                                |     1.726 |
-|   core_inst                                         |     0.198 |
-|     eth_axis_rx_inst                                |     0.003 |
+| fpga                                                |     1.748 |
+|   core_inst                                         |     0.202 |
+|     eth_axis_rx_inst                                |     0.002 |
 |     eth_axis_tx_inst                                |     0.002 |
-|     eth_mac_10g_fifo_inst                           |     0.100 |
-|       eth_mac_10g_inst                              |     0.067 |
+|     eth_mac_10g_fifo_inst                           |     0.095 |
+|       eth_mac_10g_inst                              |     0.061 |
 |       rx_fifo                                       |     0.016 |
-|       tx_fifo                                       |     0.017 |
+|       tx_fifo                                       |     0.018 |
 |     rx_udp_payload_fifo                             |     0.017 |
-|     tx_udp_payload_fifo                             |     0.021 |
-|     udp_complete_inst                               |     0.054 |
+|     tx_udp_payload_fifo                             |     0.025 |
+|     udp_complete_inst                               |     0.060 |
 |       ip_arb_mux_inst                               |     0.002 |
-|       ip_complete_64_inst                           |     0.028 |
-|       udp_64_inst                                   |     0.023 |
-|   sfp_1_pcs_pma_inst                                |     0.361 |
-|     inst                                            |     0.361 |
-|       ten_gig_eth_pcs_pma_block_i                   |     0.359 |
+|       ip_complete_64_inst                           |     0.029 |
+|       udp_64_inst                                   |     0.029 |
+|   sfp_1_pcs_pma_inst                                |     0.366 |
+|     inst                                            |     0.366 |
+|       ten_gig_eth_pcs_pma_block_i                   |     0.363 |
 |       ten_gig_eth_pcs_pma_shared_clock_reset_block  |     0.002 |
-|   sfp_2_pcs_pma_inst                                |     0.348 |
-|     inst                                            |     0.348 |
+|   sfp_2_pcs_pma_inst                                |     0.352 |
+|     inst                                            |     0.352 |
 |       cable_pull_logic_i                            |     0.002 |
 |       gt0_gtwizard_10gbaser_multi_gt_i              |     0.325 |
-|       ten_gig_eth_pcs_pma_1_core                    |     0.018 |
+|       ten_gig_eth_pcs_pma_1_core                    |     0.022 |
 |       ten_gig_eth_pcs_pma_1_local_clock_reset_block |     0.002 |
-|   sfp_3_pcs_pma_inst                                |     0.349 |
-|     inst                                            |     0.349 |
+|   sfp_3_pcs_pma_inst                                |     0.353 |
+|     inst                                            |     0.353 |
 |       cable_pull_logic_i                            |     0.002 |
 |       gt0_gtwizard_10gbaser_multi_gt_i              |     0.325 |
-|       ten_gig_eth_pcs_pma_1_core                    |     0.018 |
+|       ten_gig_eth_pcs_pma_1_core                    |     0.023 |
 |       ten_gig_eth_pcs_pma_1_local_clock_reset_block |     0.002 |
-|   sfp_4_pcs_pma_inst                                |     0.347 |
-|     inst                                            |     0.347 |
+|   sfp_4_pcs_pma_inst                                |     0.351 |
+|     inst                                            |     0.351 |
 |       cable_pull_logic_i                            |     0.002 |
 |       gt0_gtwizard_10gbaser_multi_gt_i              |     0.325 |
-|       ten_gig_eth_pcs_pma_1_core                    |     0.018 |
+|       ten_gig_eth_pcs_pma_1_core                    |     0.021 |
 |       ten_gig_eth_pcs_pma_1_local_clock_reset_block |     0.002 |
 |   si5324_i2c_init_inst                              |     0.002 |
-|   si5324_i2c_master_inst                            |     0.003 |
+|   si5324_i2c_master_inst                            |     0.002 |
 +-----------------------------------------------------+-----------+
 
 

@@ -219,7 +219,7 @@ wire [31:0] tx_udp_ip_source_ip;
 //wire [31:0] tx_udp_ip_dest_ip;
 //wire [15:0] tx_udp_source_port;
 //wire [15:0] tx_udp_dest_port;
-reg [15:0] tx_udp_length = 16'd2056;
+reg [15:0] tx_udp_length = 16'd8200;
 wire [15:0] tx_udp_checksum;
 wire [63:0] tx_udp_payload_axis_tdata;
 wire [7:0] tx_udp_payload_axis_tkeep;
@@ -319,7 +319,7 @@ end
 //transmision de paquetes de bytes
 
 reg [10:0] cont_reg = 11'd0;
-reg [10:0] n_bytes = 11'd256;
+reg [10:0] n_bytes = 11'd1024;
 
 reg [63:0] tx_fifo_axis_tdata = 64'h545345545F504455; //UPD_TEST little-endian;
 reg [7:0] tx_fifo_axis_tkeep = 8'hFF;
@@ -333,7 +333,7 @@ always @(posedge clk) begin
         tx_fifo_axis_tvalid <= 0;
     end else begin
         if (rx_trigger && (cont_reg <= (n_bytes - 1))) begin
-            // Siempre válido mientras el trigger esté activo y cont_reg sea menor a n_bytes-1
+            // Siempre válido mientras el trigger esté activo y cont_reg sea menor a n_bytes
             tx_fifo_axis_tvalid <= 1;
         end else begin
             // Solo desactivar cuando el trigger baje o n_bytes = cont_reg
@@ -394,6 +394,27 @@ always @(posedge clk) begin
 end
 
 assign tx_udp_hdr_valid = tx_fifo_udp_payload_axis_tvalid && tx_udp_hdr_ready;
+/*
+reg tx_udp_hdr_valid_reg = 0;
+
+always @(posedge clk) begin
+    if (rst) begin
+        tx_udp_hdr_valid_reg <= 0;
+    end else begin
+        // Lanza un header cuando empieza una nueva transmisión
+        if (rx_trigger && !tx_udp_hdr_valid_reg) begin
+            tx_udp_hdr_valid_reg <= 1;
+        end else if (tx_udp_hdr_valid_reg && tx_udp_hdr_ready) begin
+            // Cuando el core acepta el header, bájalo
+            tx_udp_hdr_valid_reg <= 0;
+        end
+    end
+end
+
+assign tx_udp_hdr_valid = tx_udp_hdr_valid_reg;
+
+*/
+
 assign rx_udp_hdr_ready = (tx_eth_hdr_ready & match_cond) | no_match;
 assign tx_udp_ip_dscp = 0;
 assign tx_udp_ip_ecn = 0;
@@ -478,9 +499,9 @@ eth_mac_10g_fifo #(
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
     .MIN_FRAME_LENGTH(64),
-    .TX_FIFO_DEPTH(8192),
+    .TX_FIFO_DEPTH(16384),
     .TX_FRAME_FIFO(1),
-    .RX_FIFO_DEPTH(8192),
+    .RX_FIFO_DEPTH(16384),
     .RX_FRAME_FIFO(1)
 )
 eth_mac_10g_fifo_inst (
@@ -722,7 +743,7 @@ udp_complete_inst (
 );
 
 axis_fifo #(
-    .DEPTH(8192),
+    .DEPTH(16384),
     .DATA_WIDTH(64),
     .KEEP_ENABLE(1),
     .KEEP_WIDTH(8),
@@ -763,7 +784,7 @@ tx_udp_payload_fifo (
 );
 
 axis_fifo #(
-    .DEPTH(8192),
+    .DEPTH(16384),
     .DATA_WIDTH(64),
     .KEEP_ENABLE(1),
     .KEEP_WIDTH(8),

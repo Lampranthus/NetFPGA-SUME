@@ -37,7 +37,7 @@ module udp_complete_64 #(
     parameter ARP_REQUEST_RETRY_INTERVAL = 125000000*2,
     parameter ARP_REQUEST_TIMEOUT = 125000000*30,
     parameter UDP_CHECKSUM_GEN_ENABLE = 1,
-    parameter UDP_CHECKSUM_PAYLOAD_FIFO_DEPTH = 2048,
+    parameter UDP_CHECKSUM_PAYLOAD_FIFO_DEPTH = 16384, //!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANTE
     parameter UDP_CHECKSUM_HEADER_FIFO_DEPTH = 8
 )
 (
