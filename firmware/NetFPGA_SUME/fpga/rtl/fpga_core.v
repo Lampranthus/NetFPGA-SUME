@@ -319,14 +319,50 @@ end
 //transmision de paquetes de bytes
 
 reg [10:0] cont_reg = 11'd0;
-reg [10:0] n_bytes = 11'd1024;
+reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes
 
-reg [63:0] tx_fifo_axis_tdata = 64'h545345545F504455; //UPD_TEST little-endian;
+reg [63:0] tx_fifo_axis_tdata; //"\n.INIT.\n" little-endian;
 reg [7:0] tx_fifo_axis_tkeep = 8'hFF;
 reg tx_fifo_axis_tvalid = 0;
 wire tx_fifo_axis_tready;
 reg tx_fifo_axis_tlast = 0;
 reg tx_fifo_axis_tuser = 0;
+
+
+// Contador para el patrón alfabético (0-31 para cubrir A-Z y algunos símbolos)
+reg [4:0] pattern_counter = 5'd0;
+
+// Generar el patrón de datos
+always @(posedge clk) begin
+    if (rst) begin
+        tx_fifo_axis_tdata <= 64'h0A2E54494E492E0A;  //"\n.INIT.\n" little-endian;
+        pattern_counter <= 5'd0;
+    end else if (tx_fifo_axis_tvalid && tx_fifo_axis_tready) begin
+        // Generar 8 bytes consecutivos del patrón
+        // Cada palabra de 64 bits contiene 8 caracteres ASCII consecutivos
+        case(pattern_counter)
+            // ABCD EFGH
+            5'd0: tx_fifo_axis_tdata <= 64'h4847464544434241;  // "HGFEDCBA" little-endian
+            // IJKL MNOP  
+            5'd1: tx_fifo_axis_tdata <= 64'h504F4E4D4C4B4A49;  // "PONMLKJI" little-endian
+            // QRST UVWX
+            5'd2: tx_fifo_axis_tdata <= 64'h5857565554535251;  // "XWVUTSRQ" little-endian
+            // YZ[\]^_\n
+            5'd3: tx_fifo_axis_tdata <= 64'h0A5F5E5D5C5B5A59;  // "\n_^]\\[ZY" little-endian
+            // Repetir el patrón o continuar con nuevos caracteres
+            5'd4: tx_fifo_axis_tdata <= 64'h6867666564636261;  // "hgfedcba"
+            5'd5: tx_fifo_axis_tdata <= 64'h706F6E6D6C6B6A69;  // "ponmlkji"
+            5'd6: tx_fifo_axis_tdata <= 64'h7877767574737271;  // "xwvutsrq"
+            5'd7: tx_fifo_axis_tdata <= 64'h0A7F7E7D7C7B7A79;  // "\n~}|{zyx"
+            // Continuar con otros patrones si necesitas...
+            default: tx_fifo_axis_tdata <= 64'h0A2E2E2E2E2E2E0A;  // "\n......\n" como fallback
+        endcase
+        
+        // Incrementar el contador de patrón (cíclico 0-7)
+        pattern_counter <= (pattern_counter == 5'd7) ? 5'd0 : pattern_counter + 5'd1;
+    end
+end
+
 
 always @(posedge clk) begin
     if (rst) begin
