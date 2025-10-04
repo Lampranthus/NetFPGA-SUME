@@ -85,3 +85,29 @@ Enviar paquete de datos
 ```bash
 dd if=/dev/zero bs=8192 count=111500 | pv -brt | socat -u - "UDP-SENDTO:192.168.1.128:1234"
 ```
+COmpilar y ejecutar programa para enviar datos a la fpga
+---
+```bash
+gcc -O3 -pthread -o udp_multithread udp_multithread.c
+./udp_multithread
+```
+Monitorear trafico de datos
+---
+```bash
+ifstat -i enp1s0 1
+```
+Monitoreo de recursos
+---
+```bash
+htop
+```
+Inicio de envio de datos hacia el servidor
+---
+```bahs
+echo -n "....INIT" | nc -u -w 1 192.168.1.128 1234
+```
+Alto de envio de datos hacia el servidor
+```bash
+echo -n "....FINI" | nc -u -w 1 192.168.1.128 1234
+```
+
