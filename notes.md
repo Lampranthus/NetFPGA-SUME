@@ -110,4 +110,15 @@ Alto de envio de datos hacia el servidor
 ```bash
 echo -n "....FINI" | nc -u -w 1 192.168.1.128 1234
 ```
-
+Envio de datos por 1 segundo
+---
+```bash
+fpga_init 
+sleep 1
+fpga_fini
+```
+Vista de 10 primeras lineas de un .bin
+---
+```bash
+hexdump -C fpga_data_0000.bin | head -10
+```
