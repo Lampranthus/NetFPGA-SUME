@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Fri Oct  3 19:01:39 2025
+| Date         : Mon Oct  6 18:36:19 2025
 | Host         : lampranthus running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_utilization -file fpga_utilization_synth.rpt -pb fpga_utilization_synth.pb
 | Design       : fpga
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 4358 |     0 |          0 |    433200 |  1.01 |
-|   LUT as Logic             | 4274 |     0 |          0 |    433200 |  0.99 |
+| Slice LUTs*                | 4356 |     0 |          0 |    433200 |  1.01 |
+|   LUT as Logic             | 4272 |     0 |          0 |    433200 |  0.99 |
 |   LUT as Memory            |   84 |     0 |          0 |    174200 |  0.05 |
 |     LUT as Distributed RAM |   84 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            | 5884 |     0 |          0 |    866400 |  0.68 |
-|   Register as Flip Flop    | 5884 |     0 |          0 |    866400 |  0.68 |
+| Slice Registers            | 5926 |     0 |          0 |    866400 |  0.68 |
+|   Register as Flip Flop    | 5926 |     0 |          0 |    866400 |  0.68 |
 |   Register as Latch        |    0 |     0 |          0 |    866400 |  0.00 |
-| F7 Muxes                   |   42 |     0 |          0 |    216600 |  0.02 |
+| F7 Muxes                   |   41 |     0 |          0 |    216600 |  0.02 |
 | F8 Muxes                   |    2 |     0 |          0 |    108300 | <0.01 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -61,8 +61,8 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |            - |
 | 13    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 215   |          Yes |         Set |            - |
-| 5656  |          Yes |       Reset |            - |
+| 208   |          Yes |         Set |            - |
+| 5705  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -157,18 +157,18 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       | 5656 |        Flop & Latch |
-| LUT6       | 1922 |                 LUT |
-| LUT5       |  909 |                 LUT |
-| LUT4       |  846 |                 LUT |
-| LUT3       |  647 |                 LUT |
-| LUT2       |  507 |                 LUT |
-| CARRY4     |  231 |          CarryLogic |
-| FDSE       |  215 |        Flop & Latch |
+| FDRE       | 5705 |        Flop & Latch |
+| LUT6       | 1921 |                 LUT |
+| LUT5       |  907 |                 LUT |
+| LUT4       |  850 |                 LUT |
+| LUT3       |  645 |                 LUT |
+| LUT2       |  503 |                 LUT |
+| CARRY4     |  247 |          CarryLogic |
+| FDSE       |  208 |        Flop & Latch |
 | LUT1       |  183 |                 LUT |
 | RAMD32     |  102 |  Distributed Memory |
 | OBUF       |   49 |                  IO |
-| MUXF7      |   42 |               MuxFx |
+| MUXF7      |   41 |               MuxFx |
 | RAMS32     |   34 |  Distributed Memory |
 | RAMB36E1   |   21 |        Block Memory |
 | RAMD64E    |   16 |  Distributed Memory |

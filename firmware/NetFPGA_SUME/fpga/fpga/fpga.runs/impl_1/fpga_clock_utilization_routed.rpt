@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Fri Oct  3 19:05:52 2025
+| Date         : Mon Oct  6 18:40:28 2025
 | Host         : lampranthus running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_clock_utilization -file fpga_clock_utilization_routed.rpt
 | Design       : fpga
@@ -32,10 +32,9 @@ Table of Contents
 16. Clock Region Cell Placement per Global Clock: Region X1Y4
 17. Clock Region Cell Placement per Global Clock: Region X0Y5
 18. Clock Region Cell Placement per Global Clock: Region X1Y5
-19. Clock Region Cell Placement per Global Clock: Region X1Y6
-20. Clock Region Cell Placement per Global Clock: Region X1Y7
-21. Clock Region Cell Placement per Global Clock: Region X1Y8
-22. Clock Region Cell Placement per Global Clock: Region X1Y9
+19. Clock Region Cell Placement per Global Clock: Region X1Y7
+20. Clock Region Cell Placement per Global Clock: Region X1Y8
+21. Clock Region Cell Placement per Global Clock: Region X1Y9
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -59,7 +58,7 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                                                                                             | Driver Pin                                                                                                          | Net                                                                                                   |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y18 | n/a          |                 7 |        9070 |               0 |        6.400 | sfp_mgt_refclk_p                                                                                                                  | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O                            | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out                      |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y18 | n/a          |                 6 |        9114 |               0 |        6.400 | sfp_mgt_refclk_p                                                                                                                  | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O                            | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out                      |
 | g1        | src1      | BUFH/O          | None       | BUFHCE_X1Y108  | X1Y9         |                 1 |        1329 |               0 |        3.103 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_gth_10gbaser_i/gthe2_i/RXOUTCLK | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/rxoutclk_bufh_i/O | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/CLK |
 | g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 2 |         769 |               0 |        3.103 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_gth_10gbaser_i/gthe2_i/TXOUTCLK | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/txoutclk_bufg_i/O                              | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK                              |
 | g3        | src3      | BUFH/O          | None       | BUFHCE_X1Y109  | X1Y9         |                 1 |         769 |               0 |        3.103 | sfp_2_pcs_pma_inst/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_gth_10gbaser_i/gthe2_i/RXOUTCLK                             | sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/rxoutclk_bufh_i/O                             | sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/CLK                             |
@@ -101,22 +100,22 @@ Table of Contents
 | X1Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5800 |    0 |  2550 |    0 |   160 |    0 |    80 |    0 |   220 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5550 |    0 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
-| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |  137 |  5300 |   68 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
+| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |  137 |  5300 |   56 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
 | X1Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 |    0 |  5550 |    0 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
-| X0Y3              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    1 |  5300 |    1 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
+| X0Y3              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    1 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
 | X1Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5800 |    0 |  2550 |    0 |   160 |    0 |    80 |    0 |   220 |
 | X0Y4              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    4 |  4700 |    4 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y4              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |  110 |  5550 |   68 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
+| X1Y4              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |  112 |  5550 |   66 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
 | X0Y5              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    4 |  4700 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y5              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 |  106 |  5550 |   64 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
+| X1Y5              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 |  104 |  5550 |   62 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
 | X0Y6              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y6              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    1 |  5800 |    1 |  2550 |    0 |   160 |    0 |    80 |    0 |   220 |
+| X1Y6              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5800 |    0 |  2550 |    0 |   160 |    0 |    80 |    0 |   220 |
 | X0Y7              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y7              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    1 |  5550 |    0 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
+| X1Y7              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5550 |    0 |  2475 |    0 |   150 |    0 |    75 |    0 |   220 |
 | X0Y8              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y8              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 | 5825 |  5550 | 2340 |  2475 |    0 |   150 |   15 |    75 |    0 |   220 |
+| X1Y8              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 | 5621 |  5550 | 2316 |  2475 |    0 |   150 |   15 |    75 |    0 |   220 |
 | X0Y9              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  5300 |    0 |  1850 |    0 |   140 |    0 |    70 |    0 |   140 |
-| X1Y9              |    7 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    4 |     4 |    0 |     0 |    0 |    50 |    0 |    50 | 7315 |  5800 | 2726 |  2550 |    0 |   160 |    6 |    80 |    0 |   220 |
+| X1Y9              |    7 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    4 |     4 |    0 |     0 |    0 |    50 |    0 |    50 | 7565 |  5800 | 2614 |  2550 |    0 |   160 |    6 |    80 |    0 |   220 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -147,7 +146,7 @@ All Modules
 +-----------+-----------------+-------------------+------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock            | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                              |
 +-----------+-----------------+-------------------+------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------------------------+
-| g0        | BUFG/O          | n/a               | sfp_mgt_refclk_p |       6.400 | {0.000 3.200} |        9005 |        0 |              0 |        0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
+| g0        | BUFG/O          | n/a               | sfp_mgt_refclk_p |       6.400 | {0.000 3.200} |        9049 |        0 |              0 |        0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
 +-----------+-----------------+-------------------+------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -158,12 +157,12 @@ All Modules
 +----+----+-------+-----------------------+
 |    | X0 | X1    | HORIZONTAL PROG DELAY |
 +----+----+-------+-----------------------+
-| Y9 |  0 |  3198 |                     0 |
-| Y8 |  0 |  5585 |                     0 |
+| Y9 |  0 |  3378 |                     0 |
+| Y8 |  0 |  5450 |                     0 |
 | Y7 |  0 |     1 |                     0 |
-| Y6 |  0 |     1 |                     0 |
-| Y5 |  0 |   106 |                     0 |
-| Y4 |  4 |   110 |                     0 |
+| Y6 |  0 |     0 |                     - |
+| Y5 |  0 |   104 |                     0 |
+| Y4 |  4 |   112 |                     0 |
 | Y3 |  0 |     0 |                     - |
 | Y2 |  0 |     0 |                     - |
 | Y1 |  0 |     0 |                     - |
@@ -218,8 +217,8 @@ All Modules
 +----+----+------+-----------------------+
 |    | X0 | X1   | HORIZONTAL PROG DELAY |
 +----+----+------+-----------------------+
-| Y9 |  0 |  511 |                     0 |
-| Y8 |  0 |  258 |                     0 |
+| Y9 |  0 |  581 |                     0 |
+| Y8 |  0 |  188 |                     0 |
 | Y7 |  0 |    0 |                     - |
 | Y6 |  0 |    0 |                     - |
 | Y5 |  0 |    0 |                     - |
@@ -396,7 +395,7 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         110 |               0 | 110 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
+| g0        | n/a   | BUFG/O          | None       |         112 |               0 | 112 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -422,62 +421,49 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         106 |               0 | 106 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
+| g0        | n/a   | BUFG/O          | None       |         104 |               0 | 104 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
 
 
-19. Clock Region Cell Placement per Global Clock: Region X1Y6
+19. Clock Region Cell Placement per Global Clock: Region X1Y7
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  1 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
+| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
 
 
-20. Clock Region Cell Placement per Global Clock: Region X1Y7
--------------------------------------------------------------
-
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  1 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-* Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
-** Non-Clock Loads column represents cell count of non-clock pin loads
-*** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
-
-
-21. Clock Region Cell Placement per Global Clock: Region X1Y8
+20. Clock Region Cell Placement per Global Clock: Region X1Y8
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                              |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        5585 |               0 | 5567 |           0 |   15 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
-| g2        | n/a   | BUFG/O          | None       |         258 |               0 |  258 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK         |
+| g0        | n/a   | BUFG/O          | None       |        5450 |               0 | 5433 |           0 |   15 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out |
+| g2        | n/a   | BUFG/O          | None       |         188 |               0 |  188 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
 
 
-22. Clock Region Cell Placement per Global Clock: Region X1Y9
+21. Clock Region Cell Placement per Global Clock: Region X1Y9
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                   |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        3198 |               0 | 3190 |           0 |    6 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out                      |
+| g0        | n/a   | BUFG/O          | None       |        3378 |               0 | 3370 |           0 |    6 |   0 |  0 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out                      |
 | g1        | n/a   | BUFH/O          | None       |        1315 |               0 | 1314 |           0 |    0 |   0 |  1 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_local_clock_reset_block/CLK |
-| g2        | n/a   | BUFG/O          | None       |         511 |               0 |  507 |           0 |    0 |   0 |  4 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK                              |
+| g2        | n/a   | BUFG/O          | None       |         581 |               0 |  577 |           0 |    0 |   0 |  4 |    0 |   0 |       0 | sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK                              |
 | g3        | n/a   | BUFH/O          | None       |         769 |               0 |  768 |           0 |    0 |   0 |  1 |    0 |   0 |       0 | sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/CLK                             |
 | g4        | n/a   | BUFH/O          | None       |         769 |               0 |  768 |           0 |    0 |   0 |  1 |    0 |   0 |       0 | sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/CLK                             |
 | g5        | n/a   | BUFH/O          | None       |         769 |               0 |  768 |           0 |    0 |   0 |  1 |    0 |   0 |       0 | sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_local_clock_reset_block/CLK                             |
@@ -533,7 +519,7 @@ resize_pblock [get_pblocks {CLKAG_sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_
 #startgroup
 create_pblock {CLKAG_sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out}
 add_cells_to_pblock [get_pblocks  {CLKAG_sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out"}]]]
-resize_pblock [get_pblocks {CLKAG_sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out}] -add {CLOCKREGION_X0Y4:CLOCKREGION_X0Y4 CLOCKREGION_X1Y4:CLOCKREGION_X1Y4 CLOCKREGION_X1Y5:CLOCKREGION_X1Y5 CLOCKREGION_X1Y6:CLOCKREGION_X1Y6 CLOCKREGION_X1Y7:CLOCKREGION_X1Y7 CLOCKREGION_X1Y8:CLOCKREGION_X1Y8 CLOCKREGION_X1Y9:CLOCKREGION_X1Y9}
+resize_pblock [get_pblocks {CLKAG_sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_out}] -add {CLOCKREGION_X0Y4:CLOCKREGION_X0Y4 CLOCKREGION_X1Y4:CLOCKREGION_X1Y4 CLOCKREGION_X1Y5:CLOCKREGION_X1Y5 CLOCKREGION_X1Y7:CLOCKREGION_X1Y7 CLOCKREGION_X1Y8:CLOCKREGION_X1Y8 CLOCKREGION_X1Y9:CLOCKREGION_X1Y9}
 #endgroup
 
 # Clock net "sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/CLK" driven by instance "sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/txoutclk_bufg_i" located at site "BUFGCTRL_X0Y16"

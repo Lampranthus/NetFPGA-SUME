@@ -321,18 +321,28 @@ end
 reg [10:0] cont_reg = 11'd0;
 reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes
 
-reg [63:0] tx_fifo_axis_tdata; //"\n.INIT.\n" little-endian;
+reg [63:0] tx_fifo_axis_tdata;
 reg [7:0] tx_fifo_axis_tkeep = 8'hFF;
 reg tx_fifo_axis_tvalid = 0;
 wire tx_fifo_axis_tready;
 reg tx_fifo_axis_tlast = 0;
 reg tx_fifo_axis_tuser = 0;
 
+// Contador incremental
+always @(posedge clk) begin
+    if (rst) begin
+        tx_fifo_axis_tdata <= 64'd0;
+    end else if (tx_fifo_axis_tvalid) begin
+        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+    end
+end
 
+/*
 // Contador para el patrón alfabético (0-31 para cubrir A-Z y algunos símbolos)
 reg [4:0] pattern_counter = 5'd0;
 
 // Generar el patrón de datos
+
 always @(posedge clk) begin
     if (rst) begin
         tx_fifo_axis_tdata <= 64'h0A2E54494E492E0A;  //"\n.INIT.\n" little-endian;
@@ -362,14 +372,14 @@ always @(posedge clk) begin
         pattern_counter <= (pattern_counter == 5'd7) ? 5'd0 : pattern_counter + 5'd1;
     end
 end
-
+*/
 
 always @(posedge clk) begin
     if (rst) begin
         tx_fifo_axis_tvalid <= 0;
     end else begin
-        if (rx_trigger && (cont_reg <= (n_bytes - 1))) begin
-            // Siempre válido mientras el trigger esté activo y cont_reg sea menor a n_bytes
+        if (rx_trigger) begin
+            // Siempre válido mientras el trigger esté activo
             tx_fifo_axis_tvalid <= 1;
         end else begin
             // Solo desactivar cuando el trigger baje o n_bytes = cont_reg
@@ -396,7 +406,7 @@ always @(posedge clk) begin
     if (rst) begin
         tx_fifo_axis_tlast <= 0;
     end else begin
-        if (tx_fifo_axis_tvalid && tx_fifo_axis_tready && cont_reg == (n_bytes - 1)) begin
+        if (tx_fifo_axis_tvalid && tx_fifo_axis_tready && cont_reg == (n_bytes - 2)) begin
             tx_fifo_axis_tlast <= 1;
         end else begin
             tx_fifo_axis_tlast <= 0;
@@ -517,9 +527,9 @@ assign led[1] = rx_trigger;
 //assign JA_FPGA[2] = tx_fifo_axis_tlast;
 assign JA_FPGA[2] = tx_udp_hdr_valid;
 assign JA_FPGA[3] = tx_udp_hdr_ready;
-assign JA_FPGA[4] = tx_fifo_udp_payload_axis_tvalid;
-assign JA_FPGA[5] = tx_fifo_udp_payload_axis_tready;
-assign JA_FPGA[6] = tx_fifo_udp_payload_axis_tlast;
+assign JA_FPGA[4] = tx_fifo_axis_tvalid;
+assign JA_FPGA[5] = tx_fifo_axis_tready;
+assign JA_FPGA[6] = tx_fifo_axis_tlast;
 assign JA_FPGA[7] = rx_trigger;
 
 

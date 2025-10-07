@@ -1,2 +1,2 @@
 
-2018.1íBus skew resultsò•Ü–∏@
+2018.1íBus skew resultsò•}ù∫@
