@@ -1,0 +1,173 @@
+#!/bin/bash
+# =============================================
+# FPGA TESTING FUNCTIONS
+# =============================================
+
+# Variables globales
+export FPGA_IP="192.168.1.128"
+export FPGA_PORT="1234"
+export NET_INTERFACE="enp1s0"
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_init
+# Envía mensaje para que la FPGA comience el envio de datos
+# --------------------------------------------------
+function fpga_init {
+    local message="${1:-....INIT}"
+    echo "Enviando: $message"
+    echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
+    echo "Mensaje de inicio enviado"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_fini 
+# Envía mensaje para que la FPGA detenga el envio de datos
+# --------------------------------------------------
+function fpga_fini {
+    local message="${1:-....FINI}"
+    echo "Enviando: $message"
+    echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
+    echo "Mensaje de fin enviado"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_pkt_n
+# Configura el número de paquetes por pulso
+# Uso: fpga_pkt_n <número_de_paquetes>
+# Ejemplo: fpga_pkt_n 256
+# --------------------------------------------------
+function fpga_pkt_n {
+    if [ $# -ne 1 ]; then
+        echo "Uso: fpga_pkt_n <número_de_paquetes>"
+        echo "Ejemplo: fpga_pkt_n 256"
+        return 1
+    fi
+    
+    local packets=$1
+    local max_uint32=4294967295
+    
+    # Validar que sea un número positivo dentro de 32 bits
+    if ! [[ "$packets" =~ ^[0-9]+$ ]] || [ "$packets" -lt 1 ] || [ "$packets" -gt "$max_uint32" ]; then
+        echo "Error: El número debe estar entre 1 y $max_uint32"
+        return 1
+    fi
+    
+    # Convertir número a 4 bytes en BIG-ENDIAN
+    local byte3=$(( (packets >> 24) & 0xFF ))  # MSB
+    local byte2=$(( (packets >> 16) & 0xFF ))
+    local byte1=$(( (packets >> 8)  & 0xFF ))
+    local byte0=$(( (packets >> 0)  & 0xFF ))  # LSB
+    
+    echo "Configurando: $packets paquetes por pulso"
+    echo "Bytes (big-endian): $(printf '\\x%02x\\x%02x\\x%02x\\x%02x' $byte3 $byte2 $byte1 $byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    printf "PKT#\x$(printf '%02x' $byte3)\x$(printf '%02x' $byte2)\x$(printf '%02x' $byte1)\x$(printf '%02x' $byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    local mb_size=$((packets * 8192 / 1024 / 1024))
+    echo " Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_trigger  
+# Envía pulso de trigger a la FPGA
+# Uso: fpga_trigger
+# --------------------------------------------------
+function fpga_trigger {
+    local message="TRIGGER_"
+    echo "Enviando pulso: $message"
+    echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
+    echo " Comando Pulso enviado"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: interface_set
+# Configurar IP por defecto
+# --------------------------------------------------
+function interface_set {
+    local interface="${1:-$NET_INTERFACE}"
+    sudo ip addr add 192.168.1.100/24 dev $interface 2>/de>null
+    echo "IP 192.168.1.100 configurada"
+    sudo ip link set dev $interface mtu 9000
+    echo "MTU cambiada a 9000"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: interface_up
+# Activar interfaz de red
+# --------------------------------------------------
+function interface_up {
+    local interface="${1:-$NET_INTERFACE}"
+    echo "Activando interfaz: $interface"
+    sudo ip link set $interface up
+    sleep 2
+    if ip link show $interface | grep -q "state UP"; then
+        echo "Interfaz $interface ACTIVADA"
+    else
+        echo "Error activando interfaz"
+    fi
+}
+
+# --------------------------------------------------
+# FUNCIÓN: interface_down
+# Desactivar interfaz de red
+# --------------------------------------------------
+function interface_down {
+    local interface="${1:-$NET_INTERFACE}"
+    echo "Desactivando interfaz: $interface"
+    sudo ip link set $interface down
+    sleep 2
+    if ip link show $interface | grep -q "state DOWN"; then
+        echo "Interfaz $interface DESACTIVADA"
+    else
+        echo "Error desactivando interfaz"
+    fi
+}
+
+# --------------------------------------------------
+# FUNCIÓN: interface_reset
+# Reset completo de interfaz
+# --------------------------------------------------
+function interface_reset {
+    local interface="${1:-$NET_INTERFACE}"
+    echo "=== RESETEO INTERFAZ: $interface ==="
+    interface_down $interface
+    sleep 3
+    interface_up $interface
+    sleep 3
+    echo "Interfaz $interface RESETEADA"
+}
+# --------------------------------------------------
+# FUNCIÓN: network_status
+# Estado de la interfaz de red
+# --------------------------------------------------
+function network_status {
+    local interface="${1:-$NET_INTERFACE}"
+    echo "=== ESTADO RED: $interface ==="
+    ip addr show $interface
+    echo ""
+    echo "=== RUTAS ==="
+    ip route | grep $interface
+    echo ""
+    echo "=== ESTADÍSTICAS ==="
+    grep $interface /proc/net/dev
+}
+
+# --------------------------------------------------
+# FUNCIÓN: show_fpga_commands
+# Mostrar todos los comandos disponibles
+# --------------------------------------------------
+function show_fpga_commands {
+	echo "=== COMANDOS FPGA DISPONIBLES ==="
+	echo "fpga_init 		- Iniciar envio de datos"
+	echo "fpga_fini 		- Fin de envio de datos"
+	echo "interface_up		- Activar interfaz"
+	echo "interface_down		- Desactivar interfaz"
+	echo "interface_reset		- Resetear interfaz"
+	echo "network_status		- Estado de red"
+	echo "show_fpga_commands	- Esta ayuda"
+	echo "interface_set		- Configura IP"
+	echo "fpga_pkt_n [n]		- Conf numero de paquetes"
+	echo "fpga_trigger		- Envía comando de trigger"
+}

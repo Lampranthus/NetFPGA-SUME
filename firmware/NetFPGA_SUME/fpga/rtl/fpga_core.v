@@ -274,20 +274,26 @@ wire reg_fifo_udp_payload_axis_tlast;
 wire reg_fifo_udp_payload_axis_tuser;
 
 
-///rx data//////////////////////////////////////
+///rx data and pulse trigger//////////////////////////////////////
 reg valid_last_reg = 0;
 reg [63:0] rx_reg = 64'd0; 
+reg pulse_trigg = 0;
 
 always @ (posedge clk) begin
 	if (rst) begin
 	rx_reg <= 64'd0;
+	pulse_trigg <= 0;
 	end else begin
 	    valid_last_reg <= reg_fifo_udp_payload_axis_tvalid;
 		if (reg_fifo_udp_payload_axis_tvalid  & ~valid_last_reg) begin
 			rx_reg <= reg_fifo_udp_payload_axis_tdata;
-		end else begin
-			rx_reg <= rx_reg;
-		end	
+		end else if (rx_reg[63:0] == 64'h5F52454747495254) begin // "TRIGGER_" little endian
+		    pulse_trigg <= 1;
+			rx_reg <= 64'd0;
+		end	else begin
+		    rx_reg <= rx_reg;
+		    pulse_trigg <= 0;
+		end
 	end
 end
 
@@ -316,6 +322,22 @@ always @(posedge clk) begin
     end
 end
 
+//pack number //////////////////////////
+
+reg [31:0] pkt_n = 32'd128; //por defecto ~1MB por cada pulso recibido de datos (128*8192)B = 1048576B
+
+always @(posedge clk) begin
+    if (rst) begin
+        pkt_n <= 32'd128;
+    end else begin
+        if (rx_reg[31:0] == 32'h23544B50) begin  // "PKT#" en little-endian
+           // Invertir el orden de los bytes
+           pkt_n <= {rx_reg[39:32], rx_reg[47:40], rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "#TKP", mantiene el estado actual
+    end
+end
+
 //transmision de paquetes de bytes
 
 reg [10:0] cont_reg = 11'd0;
@@ -328,88 +350,79 @@ wire tx_fifo_axis_tready;
 reg tx_fifo_axis_tlast = 0;
 reg tx_fifo_axis_tuser = 0;
 
-// Contador incremental
+
+reg [31:0] pkt_n_reg = 32'd0;
+reg [1:0] state = 2'd0;
+reg fw = 1;
+
+// maquina de estados para trasnmision 
 always @(posedge clk) begin
     if (rst) begin
+        state <=  2'd0;
         tx_fifo_axis_tdata <= 64'd0;
-    end else if (tx_fifo_axis_tvalid) begin
-        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
-    end
-end
-
-/*
-// Contador para el patrón alfabético (0-31 para cubrir A-Z y algunos símbolos)
-reg [4:0] pattern_counter = 5'd0;
-
-// Generar el patrón de datos
-
-always @(posedge clk) begin
-    if (rst) begin
-        tx_fifo_axis_tdata <= 64'h0A2E54494E492E0A;  //"\n.INIT.\n" little-endian;
-        pattern_counter <= 5'd0;
-    end else if (tx_fifo_axis_tvalid && tx_fifo_axis_tready) begin
-        // Generar 8 bytes consecutivos del patrón
-        // Cada palabra de 64 bits contiene 8 caracteres ASCII consecutivos
-        case(pattern_counter)
-            // ABCD EFGH
-            5'd0: tx_fifo_axis_tdata <= 64'h4847464544434241;  // "HGFEDCBA" little-endian
-            // IJKL MNOP  
-            5'd1: tx_fifo_axis_tdata <= 64'h504F4E4D4C4B4A49;  // "PONMLKJI" little-endian
-            // QRST UVWX
-            5'd2: tx_fifo_axis_tdata <= 64'h5857565554535251;  // "XWVUTSRQ" little-endian
-            // YZ[\]^_\n
-            5'd3: tx_fifo_axis_tdata <= 64'h0A5F5E5D5C5B5A59;  // "\n_^]\\[ZY" little-endian
-            // Repetir el patrón o continuar con nuevos caracteres
-            5'd4: tx_fifo_axis_tdata <= 64'h6867666564636261;  // "hgfedcba"
-            5'd5: tx_fifo_axis_tdata <= 64'h706F6E6D6C6B6A69;  // "ponmlkji"
-            5'd6: tx_fifo_axis_tdata <= 64'h7877767574737271;  // "xwvutsrq"
-            5'd7: tx_fifo_axis_tdata <= 64'h0A7F7E7D7C7B7A79;  // "\n~}|{zyx"
-            // Continuar con otros patrones si necesitas...
-            default: tx_fifo_axis_tdata <= 64'h0A2E2E2E2E2E2E0A;  // "\n......\n" como fallback
-        endcase
-        
-        // Incrementar el contador de patrón (cíclico 0-7)
-        pattern_counter <= (pattern_counter == 5'd7) ? 5'd0 : pattern_counter + 5'd1;
-    end
-end
-*/
-
-always @(posedge clk) begin
-    if (rst) begin
         tx_fifo_axis_tvalid <= 0;
-    end else begin
-        if (rx_trigger) begin
-            // Siempre válido mientras el trigger esté activo
-            tx_fifo_axis_tvalid <= 1;
-        end else begin
-            // Solo desactivar cuando el trigger baje o n_bytes = cont_reg
-            tx_fifo_axis_tvalid <= 0;
-        end
-    end
-end
-
-// Contador
-always @(posedge clk) begin
-    if (rst) begin
         cont_reg <= 0;
-    end else if (tx_fifo_axis_tvalid && tx_fifo_axis_tready) begin
-        if (cont_reg == (n_bytes - 1)) begin
-            cont_reg <= 0;
-        end else begin
-            cont_reg <= cont_reg + 1;
-        end
-    end
-end
-
-// Control de tlast
-always @(posedge clk) begin
-    if (rst) begin
         tx_fifo_axis_tlast <= 0;
+        pkt_n_reg <= 0;
+        fw <= 1;
     end else begin
-        if (tx_fifo_axis_tvalid && tx_fifo_axis_tready && cont_reg == (n_bytes - 2)) begin
-            tx_fifo_axis_tlast <= 1;
-        end else begin
-            tx_fifo_axis_tlast <= 0;
+       //estado 0 esperando pulso y activacion
+        if (state == 2'd0) begin
+        
+        tx_fifo_axis_tdata <= 64'd0;
+        tx_fifo_axis_tvalid <= 0;
+        cont_reg <= 0;
+        tx_fifo_axis_tlast <= 0;
+        pkt_n_reg <= 0;
+        fw <= 1; //reiniciar offset para primera palabra
+        
+            if (rx_trigger && pulse_trigg) begin
+                state <= 2'd1;
+            end
+        end 
+        //estado 1 activando tvalid y esperando tready y enviado primera palabra
+        else if (state == 2'd1) begin
+        
+        tx_fifo_axis_tdata <= 64'd0;
+        tx_fifo_axis_tvalid <= 1;
+        cont_reg <= 0;
+        tx_fifo_axis_tlast <= 0;
+        pkt_n_reg <= 0;
+        fw <= 1; //upset para el primer mensaje
+        
+            if (tx_fifo_axis_tready) begin
+                state <= 2'd2;
+            end
+        end 
+        //estado 2 sumando 1 a tdata hasta que el penultimo dato de 8 bytes
+        else if (state == 2'd2) begin
+        
+        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+        tx_fifo_axis_tvalid <= 1;
+        cont_reg <= cont_reg + 1;
+        tx_fifo_axis_tlast <= 0;
+        pkt_n_reg <= pkt_n_reg;
+        fw <= fw;
+        
+            if (cont_reg == (n_bytes - 2 - fw)) begin
+                state <= 2'd3;
+            end
+        end
+        //estado 3 sumando 1 a tdata y activando el last para el ultimo dato y sumando 1 a mensajes enviados
+        else if (state == 2'd3) begin
+        
+        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+        tx_fifo_axis_tvalid <= 1;
+        cont_reg <= 0;
+        tx_fifo_axis_tlast <= 1;
+        pkt_n_reg <= pkt_n_reg + 1;
+        fw <= 0; // desactivar offset por si se envia otro mensaje 
+        
+            if (pkt_n_reg == (pkt_n - 1) || ~tx_fifo_axis_tready) begin
+                state <= 2'd0; //si se llego al numero de mensajes o tready baja volver a estado 0 para esperar otro pulso
+            end else begin
+                state <= 2'd2; //si no se llego al numero de mensaje volver al estado 2 y enviar otro mensaje empezando con el siguiente tdata en la secuencia
+            end
         end
     end
 end
@@ -530,7 +543,7 @@ assign JA_FPGA[3] = tx_udp_hdr_ready;
 assign JA_FPGA[4] = tx_fifo_axis_tvalid;
 assign JA_FPGA[5] = tx_fifo_axis_tready;
 assign JA_FPGA[6] = tx_fifo_axis_tlast;
-assign JA_FPGA[7] = rx_trigger;
+assign JA_FPGA[7] = pulse_trigg;
 
 
 assign sfp_2_txd = 64'h0707070707070707;

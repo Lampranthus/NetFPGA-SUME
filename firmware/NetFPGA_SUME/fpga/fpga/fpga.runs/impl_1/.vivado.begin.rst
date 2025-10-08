@@ -1,15 +1,45 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="18497" HostCore="12" HostMemory="15676460">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="25307" HostCore="12" HostMemory="15676460">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="97118" HostCore="12" HostMemory="15676460">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="30622" HostCore="12" HostMemory="15676460">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="150388" HostCore="12" HostMemory="15676460">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="89147" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="143570" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="193619" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="243830" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="295416" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="367744" HostCore="12" HostMemory="15676460">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="423765" HostCore="12" HostMemory="15676460">
     </Process>
 </ProcessHandle>
