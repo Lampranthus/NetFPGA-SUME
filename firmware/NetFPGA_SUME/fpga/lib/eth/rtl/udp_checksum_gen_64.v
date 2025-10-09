@@ -215,7 +215,7 @@ axis_fifo #(
     .DEST_ENABLE(0),
     .USER_ENABLE(1),
     .USER_WIDTH(1),
-    .FRAME_FIFO(0)
+    .FRAME_FIFO(1) //cambio
 )
 payload_fifo (
     .clk(clk),

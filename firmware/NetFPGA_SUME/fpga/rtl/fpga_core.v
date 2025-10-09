@@ -343,7 +343,7 @@ end
 reg [10:0] cont_reg = 11'd0;
 reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes
 
-reg [63:0] tx_fifo_axis_tdata;
+reg [63:0] tx_fifo_axis_tdata = 64'd0; 
 reg [7:0] tx_fifo_axis_tkeep = 8'hFF;
 reg tx_fifo_axis_tvalid = 0;
 wire tx_fifo_axis_tready;
@@ -352,76 +352,87 @@ reg tx_fifo_axis_tuser = 0;
 
 
 reg [31:0] pkt_n_reg = 32'd0;
-reg [1:0] state = 2'd0;
-reg fw = 1;
+reg [2:0] state = 3'd0;
 
 // maquina de estados para trasnmision 
 always @(posedge clk) begin
     if (rst) begin
-        state <=  2'd0;
-        tx_fifo_axis_tdata <= 64'd0;
+        state <=  3'd0;
+        tx_fifo_axis_tdata <= 64'd0; 
         tx_fifo_axis_tvalid <= 0;
         cont_reg <= 0;
         tx_fifo_axis_tlast <= 0;
         pkt_n_reg <= 0;
-        fw <= 1;
     end else begin
-       //estado 0 esperando pulso y activacion
-        if (state == 2'd0) begin
+       // Estado 0: Esperando pulso
+        if (state == 3'd0) begin
         
-        tx_fifo_axis_tdata <= 64'd0;
-        tx_fifo_axis_tvalid <= 0;
-        cont_reg <= 0;
-        tx_fifo_axis_tlast <= 0;
-        pkt_n_reg <= 0;
-        fw <= 1; //reiniciar offset para primera palabra
+            tx_fifo_axis_tvalid <= 0;
+            tx_fifo_axis_tlast <= 0;
+            cont_reg <= 0;
+            pkt_n_reg <= 0;
+            tx_fifo_axis_tdata <= 64'd0;
         
             if (rx_trigger && pulse_trigg) begin
-                state <= 2'd1;
+                state <= 3'd1;
+                tx_fifo_axis_tvalid <= 1; //tvalid 1 en el siguiente ciclo
             end
         end 
-        //estado 1 activando tvalid y esperando tready y enviado primera palabra
-        else if (state == 2'd1) begin
+        // Estado 1: Esperando tready para primer dato
+        else if (state == 3'd1) begin
         
-        tx_fifo_axis_tdata <= 64'd0;
-        tx_fifo_axis_tvalid <= 1;
-        cont_reg <= 0;
-        tx_fifo_axis_tlast <= 0;
-        pkt_n_reg <= 0;
-        fw <= 1; //upset para el primer mensaje
+            tx_fifo_axis_tvalid <= 1;  // Mantener tvalid activo
+            tx_fifo_axis_tlast <= 0;
+ 
+            if (tx_fifo_axis_tready) begin
+                state <= 3'd2;
+                // Primer dato aceptado
+                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                cont_reg <= cont_reg + 1;
+            end
+        end 
+        // Estado 2: Transmitir datos normales
+        else if (state == 3'd2) begin
+        
+            tx_fifo_axis_tvalid <= 1;
+            tx_fifo_axis_tlast <= 0;
         
             if (tx_fifo_axis_tready) begin
-                state <= 2'd2;
-            end
-        end 
-        //estado 2 sumando 1 a tdata hasta que el penultimo dato de 8 bytes
-        else if (state == 2'd2) begin
-        
-        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
-        tx_fifo_axis_tvalid <= 1;
-        cont_reg <= cont_reg + 1;
-        tx_fifo_axis_tlast <= 0;
-        pkt_n_reg <= pkt_n_reg;
-        fw <= fw;
-        
-            if (cont_reg == (n_bytes - 2 - fw)) begin
-                state <= 2'd3;
+                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                cont_reg <= cont_reg + 1;
+                
+                if (cont_reg == (n_bytes - 2)) begin
+                    state <= 3'd3;
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                    tx_fifo_axis_tlast <= 1;
+                    pkt_n_reg <= pkt_n_reg + 1;
+                end
             end
         end
-        //estado 3 sumando 1 a tdata y activando el last para el ultimo dato y sumando 1 a mensajes enviados
-        else if (state == 2'd3) begin
+        // Estado 3: Último dato del paquete
+        else if (state == 3'd3) begin
         
-        tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
-        tx_fifo_axis_tvalid <= 1;
-        cont_reg <= 0;
-        tx_fifo_axis_tlast <= 1;
-        pkt_n_reg <= pkt_n_reg + 1;
-        fw <= 0; // desactivar offset por si se envia otro mensaje 
+            tx_fifo_axis_tvalid <= 1;
+            tx_fifo_axis_tlast <= 1;
         
-            if (pkt_n_reg == (pkt_n - 1) || ~tx_fifo_axis_tready) begin
-                state <= 2'd0; //si se llego al numero de mensajes o tready baja volver a estado 0 para esperar otro pulso
+            if (pkt_n_reg == (pkt_n)) begin
+                state <= 3'd0; //si se llego al numero de mensajes volver a estado 0 para esperar otro pulso
+                tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
             end else begin
-                state <= 2'd2; //si no se llego al numero de mensaje volver al estado 2 y enviar otro mensaje empezando con el siguiente tdata en la secuencia
+                state <= 3'd4; //si no se llego al numero de mensaje ir al estado 4 para esperar a que baje tready
+                tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
+                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1; //sumar 1 en el siguiente ciclo de reloj para que el nuevo mensaje empiece por ese
+                cont_reg <= 0; //resetear cont_reg
+            end
+        end
+         // Estado 4: esperando que tready baje para enviar otro mensaje
+        else if (state == 3'd4) begin
+        
+            tx_fifo_axis_tvalid <= 1;
+            tx_fifo_axis_tlast <= 0;
+        
+            if (~tx_fifo_axis_tready) begin
+                state <= 3'd1; //cuando baje tready ir al estado 1 para esperar a que suba
             end
         end
     end
@@ -452,27 +463,7 @@ always @(posedge clk) begin
     end
 end
 
-assign tx_udp_hdr_valid = tx_fifo_udp_payload_axis_tvalid && tx_udp_hdr_ready;
-/*
-reg tx_udp_hdr_valid_reg = 0;
-
-always @(posedge clk) begin
-    if (rst) begin
-        tx_udp_hdr_valid_reg <= 0;
-    end else begin
-        // Lanza un header cuando empieza una nueva transmisión
-        if (rx_trigger && !tx_udp_hdr_valid_reg) begin
-            tx_udp_hdr_valid_reg <= 1;
-        end else if (tx_udp_hdr_valid_reg && tx_udp_hdr_ready) begin
-            // Cuando el core acepta el header, bájalo
-            tx_udp_hdr_valid_reg <= 0;
-        end
-    end
-end
-
-assign tx_udp_hdr_valid = tx_udp_hdr_valid_reg;
-
-*/
+assign tx_udp_hdr_valid = tx_udp_payload_axis_tvalid && tx_udp_hdr_ready;
 
 assign rx_udp_hdr_ready = (tx_eth_hdr_ready & match_cond) | no_match;
 assign tx_udp_ip_dscp = 0;
@@ -485,12 +476,27 @@ assign tx_udp_ip_source_ip = local_ip;
 //assign tx_udp_length = 16'd8200;  // 8192 byte de payload;
 assign tx_udp_checksum = 0;
 
+//-------------------------------------------------------------------------------------
+
+/*
+//con fifo
 assign tx_udp_payload_axis_tdata = tx_fifo_udp_payload_axis_tdata;
 assign tx_udp_payload_axis_tkeep = tx_fifo_udp_payload_axis_tkeep;
 assign tx_udp_payload_axis_tvalid = tx_fifo_udp_payload_axis_tvalid;
 assign tx_fifo_udp_payload_axis_tready = tx_udp_payload_axis_tready;
 assign tx_udp_payload_axis_tlast = tx_fifo_udp_payload_axis_tlast;
 assign tx_udp_payload_axis_tuser = tx_fifo_udp_payload_axis_tuser;
+*/
+
+//sin fifo
+assign tx_udp_payload_axis_tdata = tx_fifo_axis_tdata;
+assign tx_udp_payload_axis_tkeep = tx_fifo_axis_tkeep;
+assign tx_udp_payload_axis_tvalid = tx_fifo_axis_tvalid;
+assign tx_fifo_axis_tready = tx_udp_payload_axis_tready;
+assign tx_udp_payload_axis_tlast = tx_fifo_axis_tlast;
+assign tx_udp_payload_axis_tuser = tx_fifo_axis_tuser;
+
+//---------------------------------------------------------------------------------
 
 assign rx_fifo_udp_payload_axis_tdata = rx_udp_payload_axis_tdata;
 assign rx_fifo_udp_payload_axis_tkeep = rx_udp_payload_axis_tkeep;
@@ -535,15 +541,15 @@ end
 
 assign led[1] = rx_trigger;
 //assign led[0] = tx_udp_hdr_ready;
-//assign JA_FPGA[0] = tx_fifo_axis_tvalid;
-//assign JA_FPGA[1] = tx_fifo_axis_tready;
-//assign JA_FPGA[2] = tx_fifo_axis_tlast;
-assign JA_FPGA[2] = tx_udp_hdr_valid;
-assign JA_FPGA[3] = tx_udp_hdr_ready;
-assign JA_FPGA[4] = tx_fifo_axis_tvalid;
-assign JA_FPGA[5] = tx_fifo_axis_tready;
-assign JA_FPGA[6] = tx_fifo_axis_tlast;
-assign JA_FPGA[7] = pulse_trigg;
+assign JA_FPGA[0] = tx_fifo_axis_tvalid;
+assign JA_FPGA[1] = tx_fifo_axis_tready;
+assign JA_FPGA[2] = tx_fifo_axis_tlast;
+//assign JA_FPGA[3] = tx_udp_hdr_ready;
+
+assign JA_FPGA[4] = tx_udp_hdr_valid;
+assign JA_FPGA[5] = tx_udp_hdr_ready;
+//assign JA_FPGA[6] = tx_udp_payload_axis_tlast;
+//assign JA_FPGA[7] = pulse_trigg;
 
 
 assign sfp_2_txd = 64'h0707070707070707;
@@ -590,9 +596,9 @@ eth_mac_10g_fifo_inst (
     .xgmii_txd(sfp_1_txd),
     .xgmii_txc(sfp_1_txc),
 
-    .tx_fifo_overflow(),
+    .tx_fifo_overflow(JA_FPGA[6]),
     .tx_fifo_bad_frame(),
-    .tx_fifo_good_frame(),
+    .tx_fifo_good_frame(led[0]),
     .rx_error_bad_frame(),
     .rx_error_bad_fcs(),
     .rx_fifo_overflow(),
@@ -782,8 +788,8 @@ udp_complete_inst (
     // Status signals
     .ip_rx_busy(),
     .ip_tx_busy(),
-    .udp_rx_busy(JA_FPGA[1]),
-    .udp_tx_busy(JA_FPGA[0]),
+    .udp_rx_busy(JA_FPGA[7]),
+    .udp_tx_busy(JA_FPGA[3]),
     .ip_rx_error_header_early_termination(),
     .ip_rx_error_payload_early_termination(),
     .ip_rx_error_invalid_header(),
@@ -801,6 +807,7 @@ udp_complete_inst (
     .clear_arp_cache(1'b0)
 );
 
+/*
 axis_fifo #(
     .DEPTH(16384),
     .DATA_WIDTH(64),
@@ -837,10 +844,12 @@ tx_udp_payload_fifo (
     .m_axis_tuser(tx_fifo_udp_payload_axis_tuser),
 
     // Status
-    .status_overflow(led[0]),
+    .status_overflow(),
     .status_bad_frame(),
     .status_good_frame()
 );
+
+*/
 
 axis_fifo #(
     .DEPTH(16384),
