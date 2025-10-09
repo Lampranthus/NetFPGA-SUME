@@ -122,3 +122,7 @@ Vista de 10 primeras lineas de un .bin
 ```bash
 hexdump -C fpga_data_0000.bin | head -10
 ```
+Vista de ultimas lineas
+```bash
+tail -c 160 fpga_final_0000.bin | hexdump -C
+```
