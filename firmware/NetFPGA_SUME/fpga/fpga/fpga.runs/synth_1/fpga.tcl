@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.tcl"
+  variable script "/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,8 +56,10 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
+set_param place.maxThreads 16
+set_param general.maxThreads 16
+set_param route.maxThreads 16
+set_param synth.maxThreads 8
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7vx690tffg1761-3
 
@@ -65,58 +67,58 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/wt [current_project]
-set_property parent.project_path /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr [current_project]
+set_property webtalk.parent_dir /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/wt [current_project]
+set_property parent.project_path /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/ip [current_project]
+set_property ip_output_repo /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v
-  /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v
+  /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v
 }
-read_ip -quiet /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0.xdc]
+read_ip -quiet /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0.xdc]
 
-read_ip -quiet /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1.xci
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc]
+read_ip -quiet /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1.xci
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -127,21 +129,21 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc
-set_property used_in_implementation false [get_files /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
+read_xdc /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc
+set_property used_in_implementation false [get_files /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
 
-read_xdc -unmanaged /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl
-set_property used_in_implementation false [get_files /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl
+set_property used_in_implementation false [get_files /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
 
-read_xdc -unmanaged /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
-set_property used_in_implementation false [get_files /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
+set_property used_in_implementation false [get_files /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
 
-read_xdc -unmanaged /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
-set_property used_in_implementation false [get_files /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
+set_property used_in_implementation false [get_files /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
+read_checkpoint -auto_incremental -incremental /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

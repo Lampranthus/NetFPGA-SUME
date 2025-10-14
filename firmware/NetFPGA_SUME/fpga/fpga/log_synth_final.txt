@@ -1,0 +1,59 @@
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Sat Oct 11 01:12:19 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_synth.tcl
+# open_project fpga.xpr
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+# reset_run synth_1
+# launch_runs -jobs 4 synth_1
+[Sat Oct 11 01:12:21 2025] Launched synth_1...
+Run output will be captured here: /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Sat Oct 11 01:12:21 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log fpga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Sat Oct 11 01:12:22 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source fpga.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top fpga -part xc7vx690tffg1761-3
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
+WARNING: [Common 17-348] Failed to get the license for feature 'Synthesis' and/or device 'xc7vx690t'. Explanation: Problem encountered while checking for license feature Synthesis license version 2024.11. Try setting the environment variable FLEXLM_DIAGNOSTICS=3 and re-running this software to get more information.
+Resolution: Check the status of your licenses in the Vivado License Manager. For debug help search Xilinx Support for "Licensing FAQ". 
+2 Infos, 1 Warnings, 0 Critical Warnings and 1 Errors encountered.
+synth_design failed
+ERROR: [Common 17-345] A valid license was not found for feature 'Synthesis' and/or device 'xc7vx690t'. Please run the Vivado License Manager for assistance in determining
+which features and devices are licensed for your system.
+Resolution: Check the status of your licenses in the Vivado License Manager. For debug help search Xilinx Support for "Licensing FAQ". If you are using a license server, verify that the license server is up and running a version of the xilinx daemon that is compatible with the version of Xilinx software that you are using. Note: Vivado 2021.1 and later versions require upgrading your license server tools to the Flex 11.17.2.0 versions. Please confirm with your license admin that the correct version of the license server tools are installed.
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 11 01:12:24 2025...
+[Sat Oct 11 01:12:34 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:13 . Memory (MB): peak = 1412.961 ; gain = 0.000 ; free physical = 29096 ; free virtual = 38369
+ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
+
+    while executing
+"wait_on_run synth_1"
+    (file "run_synth.tcl" line 4)
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 11 01:12:34 2025...

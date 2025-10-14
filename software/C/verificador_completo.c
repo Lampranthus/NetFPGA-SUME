@@ -1,3 +1,7 @@
+/*
+gcc -O2 -pthread -o fpga_receiver_improved fpga_receiver_improved.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +28,7 @@ typedef struct {
 
 // Función optimizada para convertir little-endian
 static inline uint64_t le64_to_host(uint64_t le_value) {
-    return __builtin_bswap64(le_value);
+    return le_value;
 }
 
 int compare_files(const void *a, const void *b) {
@@ -134,7 +138,6 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
                 first_number = 0;
                 files[file_idx].first_sequence = current_sequence;
                 printf("   ⚡ Iniciando secuencia en: %lu\n", current_sequence);
-                continue;
             }
             
             // Verificar secuencia
@@ -160,6 +163,10 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
                 
                 files[file_idx].errors++;
                 total_errors++;
+
+                printf("   Error en la secuencia: %lu: %lu -> %lu\n", 
+                           total_numbers_checked, expected_sequence, current_sequence);
+
                 expected_sequence = current_sequence;
             }
             
@@ -287,3 +294,7 @@ int main(int argc, char *argv[]) {
     if (files) free(files);
     return 0;
 }
+
+/*
+gcc -O2 -o verificador_completo verificador_completo.c
+*/

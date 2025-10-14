@@ -1,40 +1,5 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="12004" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="67374" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="118701" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="176286" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="229290" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="284664" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="337170" HostCore="12" HostMemory="15676448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="luisfercrtez" Host="lampranthus" Pid="400933" HostCore="12" HostMemory="15676448">
+    <Process Command="vivado" Owner="sysadmin" Host="design-lab-host" Pid="3164" HostCore="16" HostMemory="31862628">
     </Process>
 </ProcessHandle>

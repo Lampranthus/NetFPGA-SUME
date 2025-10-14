@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1'
+HD_PWD='/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

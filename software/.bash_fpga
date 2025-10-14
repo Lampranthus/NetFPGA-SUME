@@ -6,7 +6,8 @@
 # Variables globales
 export FPGA_IP="192.168.1.128"
 export FPGA_PORT="1234"
-export NET_INTERFACE="enp1s0"
+export NET_INTERFACE="enp4s0"
+FPGA_PROJECT_DIR="$HOME/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga"
 
 # --------------------------------------------------
 # FUNCIÓN: fpga_init
@@ -155,19 +156,92 @@ function network_status {
 }
 
 # --------------------------------------------------
+# FUNCIÓN: fpga_compile
+# Compilar código FPGA y carga bitstream
+# --------------------------------------------------
+function fpga_compile {
+
+    local original_dir=$(pwd)
+    local start_time=$(date +%s)
+
+    cd "$FPGA_PROJECT_DIR"
+
+    echo "======================================"
+    echo " Iniciando compilación FPGA"
+    echo " Fecha: $(date)"
+    echo "======================================"
+
+    # --- Sintesis ---
+    echo "=== [1/4] Síntesis ==="
+    vivado -mode batch -source run_synth.tcl -tclargs -jobs 16
+    echo ""
+
+    # --- Implementación ---
+    echo "=== [2/4] Implementación ==="
+    vivado -mode batch -source run_impl.tcl -tclargs -jobs 16
+    echo ""
+
+    # --- Generación de bitstream ---
+    echo "=== [3/4] Bitstream ==="
+    vivado -mode batch -source generate_bit.tcl -tclargs -jobs 16
+    echo ""
+
+    # --- Programación de FPGA ---
+    echo "=== [4/4] Programando FPGA ==="
+    vivado -mode batch -source program.tcl
+    echo ""
+
+    # --- Medir duración total ---
+    local end_time=$(date +%s)
+    local duration=$((end_time - start_time))
+    local minutes=$((duration / 60))
+    local seconds=$((duration % 60))
+
+    echo "======================================"
+    echo "Bitstream cargado en FPGA"
+    echo "Tiempo total: ${minutes} min ${seconds} s"
+    echo "======================================"
+
+    cd "$original_dir"
+
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_load
+# carga bitstream
+# --------------------------------------------------
+function fpga_load {
+
+     local original_dir=$(pwd)
+
+     cd "$FPGA_PROJECT_DIR"
+    
+     # --- Programación de FPGA ---
+    echo "=== Programando FPGA ==="
+    vivado -mode batch -source program.tcl
+    echo ""
+
+    cd "$original_dir"
+
+}
+
+# --------------------------------------------------
 # FUNCIÓN: show_fpga_commands
 # Mostrar todos los comandos disponibles
 # --------------------------------------------------
 function show_fpga_commands {
 	echo "=== COMANDOS FPGA DISPONIBLES ==="
-	echo "fpga_init 		- Iniciar envio de datos"
-	echo "fpga_fini 		- Fin de envio de datos"
-	echo "interface_up		- Activar interfaz"
-	echo "interface_down		- Desactivar interfaz"
-	echo "interface_reset		- Resetear interfaz"
-	echo "network_status		- Estado de red"
-	echo "show_fpga_commands	- Esta ayuda"
-	echo "interface_set		- Configura IP"
-	echo "fpga_pkt_n [n]		- Conf numero de paquetes"
-	echo "fpga_trigger		- Envía comando de trigger"
-}
+	echo "fpga_init             - Iniciar envio de datos"
+	echo "fpga_fini             - Fin de envio de datos"
+	echo "interface_up          - Activar interfaz"
+	echo "interface_down        - Desactivar interfaz"
+	echo "interface_reset       - Resetear interfaz"
+	echo "network_status        - Estado de red"
+	echo "show_fpga_commands    - Esta ayuda"
+	echo "interface_set         - Configura IP"
+	echo "fpga_pkt_n [n]        - Conf numero de paquetes"
+	echo "fpga_trigger          - Envía comando de trigger"
+    echo "fpga_compile          - Compila y carga bitstream"
+    echo "fpga_load             - Carga bitstream"
+    echo "================================="
+}   

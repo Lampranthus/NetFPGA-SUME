@@ -226,3 +226,7 @@ int main() {
     
     return 0;
 }
+
+/*
+gcc -O2 -o fpga_receiver fpga_receiver.c
+*/

@@ -7,64 +7,64 @@
   **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Wed Oct  8 16:57:36 2025
+  **** Start of session at: Mon Oct 13 22:07:40 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source fpga.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp for incremental synthesis
+Command: read_checkpoint -auto_incremental -incremental /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top fpga -part xc7vx690tffg1761-3
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
-INFO: [Common 17-86] Your Synthesis license expires in 22 day(s)
+INFO: [Common 17-86] Your Synthesis license expires in 27 day(s)
 INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 8 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 399910
+INFO: [Synth 8-7075] Helper process launched with PID 1674
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2284.918 ; gain = 422.797 ; free physical = 6594 ; free virtual = 12478
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2206.211 ; gain = 422.945 ; free physical = 27468 ; free virtual = 36835
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:89]
-WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:91]
-WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:93]
-WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:95]
-WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:97]
-WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:85]
-WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:87]
-WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:89]
-WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:91]
-WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:93]
-WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:145]
-WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:147]
-WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:137]
-WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:139]
-WARNING: [Synth 8-11065] parameter 'EMPTY_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:91]
-WARNING: [Synth 8-11065] parameter 'MIN_LEN_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:92]
-WARNING: [Synth 8-11065] parameter 'CL_S_COUNT' becomes localparam in 'eth_arb_mux' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:90]
-WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:80]
-WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:82]
-WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:84]
-WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:86]
-WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:88]
-WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:79]
-WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:81]
-WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:83]
-WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:85]
-WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:87]
-WARNING: [Synth 8-11065] parameter 'MAC_CTRL_ENABLE' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:186]
-WARNING: [Synth 8-11065] parameter 'TX_USER_WIDTH_INT' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:187]
-WARNING: [Synth 8-11065] parameter 'KEEP_WIDTH' becomes localparam in 'eth_mac_10g_fifo' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:138]
-WARNING: [Synth 8-11065] parameter 'CL_S_COUNT' becomes localparam in 'ip_arb_mux' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:116]
-WARNING: [Synth 8-11065] parameter 'STYLE_INT' becomes localparam in 'lfsr' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:355]
-WARNING: [Synth 8-11065] parameter 'LEVELS' becomes localparam in 'priority_encoder' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:47]
-WARNING: [Synth 8-11065] parameter 'W' becomes localparam in 'priority_encoder' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:48]
-WARNING: [Synth 8-11065] parameter 'HEADER_FIFO_ADDR_WIDTH' becomes localparam in 'udp_checksum_gen_64' with formal parameter declaration list [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:145]
-INFO: [Synth 8-6157] synthesizing module 'fpga' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:34]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:89]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:91]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:93]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:95]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:97]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:85]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:87]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:89]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:91]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:93]
+WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:145]
+WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:147]
+WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:137]
+WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:139]
+WARNING: [Synth 8-11065] parameter 'EMPTY_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:91]
+WARNING: [Synth 8-11065] parameter 'MIN_LEN_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:92]
+WARNING: [Synth 8-11065] parameter 'CL_S_COUNT' becomes localparam in 'eth_arb_mux' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:90]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:80]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:82]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:84]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:86]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:88]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:79]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:81]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:83]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:85]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:87]
+WARNING: [Synth 8-11065] parameter 'MAC_CTRL_ENABLE' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:186]
+WARNING: [Synth 8-11065] parameter 'TX_USER_WIDTH_INT' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:187]
+WARNING: [Synth 8-11065] parameter 'KEEP_WIDTH' becomes localparam in 'eth_mac_10g_fifo' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:138]
+WARNING: [Synth 8-11065] parameter 'CL_S_COUNT' becomes localparam in 'ip_arb_mux' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:116]
+WARNING: [Synth 8-11065] parameter 'STYLE_INT' becomes localparam in 'lfsr' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:355]
+WARNING: [Synth 8-11065] parameter 'LEVELS' becomes localparam in 'priority_encoder' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:47]
+WARNING: [Synth 8-11065] parameter 'W' becomes localparam in 'priority_encoder' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:48]
+WARNING: [Synth 8-11065] parameter 'HEADER_FIFO_ADDR_WIDTH' becomes localparam in 'udp_checksum_gen_64' with formal parameter declaration list [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:145]
+INFO: [Synth 8-6157] synthesizing module 'fpga' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:34]
 INFO: [Synth 8-6157] synthesizing module 'IBUFGDS' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:76323]
 	Parameter DIFF_TERM bound to: FALSE - type: string 
 	Parameter IBUF_LOW_PWR bound to: FALSE - type: string 
@@ -102,27 +102,27 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME2_BASE' [/tools/Xilinx/Vivado/202
 INFO: [Synth 8-6155] done synthesizing module 'MMCME2_BASE' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84708]
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [/tools/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
-INFO: [Synth 8-6157] synthesizing module 'sync_reset' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v:35]
+INFO: [Synth 8-6157] synthesizing module 'sync_reset' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v:35]
 	Parameter N bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'sync_reset' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v:35]
-INFO: [Synth 8-6157] synthesizing module 'debounce_switch' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'sync_reset' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/sync_reset.v:35]
+INFO: [Synth 8-6157] synthesizing module 'debounce_switch' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v:34]
 	Parameter WIDTH bound to: 2 - type: integer 
 	Parameter N bound to: 4 - type: integer 
 	Parameter RATE bound to: 156250 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'debounce_switch' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v:34]
-INFO: [Synth 8-6157] synthesizing module 'si5324_i2c_init' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:253]
-INFO: [Synth 8-6155] done synthesizing module 'si5324_i2c_init' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:34]
-INFO: [Synth 8-6157] synthesizing module 'i2c_master' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:331]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:636]
-INFO: [Synth 8-6155] done synthesizing module 'i2c_master' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-399849-lampranthus/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-399849-lampranthus/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-399849-lampranthus/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-399849-lampranthus/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'fpga_core' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
-INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'debounce_switch' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/debounce_switch.v:34]
+INFO: [Synth 8-6157] synthesizing module 'si5324_i2c_init' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:253]
+INFO: [Synth 8-6155] done synthesizing module 'si5324_i2c_init' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/si5324_i2c_init.v:34]
+INFO: [Synth 8-6157] synthesizing module 'i2c_master' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:331]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:636]
+INFO: [Synth 8-6155] done synthesizing module 'i2c_master' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_0' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-1649-design-lab-host/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_0' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-1649-design-lab-host/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-1649-design-lab-host/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-1649-design-lab-host/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fpga_core' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
+INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter ENABLE_PADDING bound to: 1 - type: integer 
 	Parameter ENABLE_DIC bound to: 1 - type: integer 
@@ -131,7 +131,7 @@ INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g_fifo' [/home/luisfercrtez/
 	Parameter TX_FRAME_FIFO bound to: 1 - type: integer 
 	Parameter RX_FIFO_DEPTH bound to: 16384 - type: integer 
 	Parameter RX_FRAME_FIFO bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:34]
+INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
 	Parameter CTRL_WIDTH bound to: 8 - type: integer 
@@ -146,7 +146,7 @@ INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g' [/home/luisfercrtez/Docum
 	Parameter TX_PTP_TAG_WIDTH bound to: 16 - type: integer 
 	Parameter TX_USER_WIDTH bound to: 1 - type: integer 
 	Parameter RX_USER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_rx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_rx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
 	Parameter CTRL_WIDTH bound to: 8 - type: integer 
@@ -154,7 +154,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_rx_64' [/home/luisfercrtez/
 	Parameter PTP_TS_FMT_TOD bound to: 1 - type: integer 
 	Parameter PTP_TS_WIDTH bound to: 96 - type: integer 
 	Parameter USER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'lfsr' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -162,10 +162,10 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr' [/home/luisfercrtez/Documents/Ma
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:218]
-INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_rx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_tx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:218]
+INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_rx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_tx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
 	Parameter CTRL_WIDTH bound to: 8 - type: integer 
@@ -179,7 +179,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_xgmii_tx_64' [/home/luisfercrtez/
 	Parameter PTP_TAG_ENABLE bound to: 0 - type: integer 
 	Parameter PTP_TAG_WIDTH bound to: 16 - type: integer 
 	Parameter USER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized0' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -187,8 +187,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized0' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized1' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized0' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized1' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -196,8 +196,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized1' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 16 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized1' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized2' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized1' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized2' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -205,8 +205,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized2' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 24 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized2' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized3' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized2' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized3' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -214,8 +214,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized3' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized3' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized4' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized3' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized4' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -223,8 +223,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized4' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 40 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized4' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized5' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized4' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized5' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -232,8 +232,8 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized5' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 48 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized5' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized6' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized5' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized6' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
 	Parameter LFSR_WIDTH bound to: 32 - type: integer 
 	Parameter LFSR_POLY bound to: 79764919 - type: integer 
 	Parameter LFSR_CONFIG bound to: GALOIS - type: string 
@@ -241,76 +241,76 @@ INFO: [Synth 8-6157] synthesizing module 'lfsr__parameterized6' [/home/luisfercr
 	Parameter REVERSE bound to: 1 - type: integer 
 	Parameter DATA_WIDTH bound to: 56 - type: integer 
 	Parameter STYLE bound to: AUTO - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized6' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:329]
-INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_tx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'eth_mac_10g' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:34]
-WARNING: [Synth 8-7071] port 'tx_lfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_lfc_resend' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_lfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_lfc_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_pfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_pfc_resend' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_pfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_pfc_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_lfc_pause_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_pause_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_pause_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'tx_start_packet' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'rx_start_packet' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_mcf' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_mcf' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_lfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_lfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_lfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_lfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_pfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_pfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_pfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_tx_pfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_lfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_lfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_lfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_lfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_pfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_pfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_pfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'stat_rx_pfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_dst_mcast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_dst_mcast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_dst_ucast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_dst_ucast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_opcode_lfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_opcode_lfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_opcode_pfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_opcode_pfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_forward' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_mcf_rx_enable' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_dst' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_quanta' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_lfc_refresh' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_dst' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_quanta' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_tx_pfc_refresh' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_rx_lfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_rx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_rx_pfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7071] port 'cfg_rx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-WARNING: [Synth 8-7023] instance 'eth_mac_10g_inst' of module 'eth_mac_10g' has 94 connections declared, but only 30 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
-INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'lfsr__parameterized6' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/lfsr.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:329]
+INFO: [Synth 8-6155] done synthesizing module 'axis_xgmii_tx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'eth_mac_10g' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:34]
+WARNING: [Synth 8-7071] port 'tx_lfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_lfc_resend' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_lfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_lfc_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_pfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_pfc_resend' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_pfc_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_pfc_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_lfc_pause_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_pause_req' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_pause_ack' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'tx_start_packet' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'rx_start_packet' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_mcf' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_mcf' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_lfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_lfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_lfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_lfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_pfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_pfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_pfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_tx_pfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_lfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_lfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_lfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_lfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_pfc_pkt' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_pfc_xon' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_pfc_xoff' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'stat_rx_pfc_paused' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_dst_mcast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_dst_mcast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_dst_ucast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_dst_ucast' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_opcode_lfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_opcode_lfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_opcode_pfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_check_opcode_pfc' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_forward' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_mcf_rx_enable' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_dst' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_quanta' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_lfc_refresh' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_dst' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_src' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_eth_type' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_quanta' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_tx_pfc_refresh' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_rx_lfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_rx_lfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_rx_pfc_opcode' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7071] port 'cfg_rx_pfc_en' of module 'eth_mac_10g' is unconnected for instance 'eth_mac_10g_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+WARNING: [Synth 8-7023] instance 'eth_mac_10g_inst' of module 'eth_mac_10g' has 94 connections declared, but only 30 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:343]
+INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
 	Parameter DEPTH bound to: 16384 - type: integer 
 	Parameter S_DATA_WIDTH bound to: 64 - type: integer 
 	Parameter S_KEEP_ENABLE bound to: 1'b1 
@@ -329,7 +329,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter' [/home/luisfe
 	Parameter DROP_OVERSIZE_FRAME bound to: 1 - type: integer 
 	Parameter DROP_BAD_FRAME bound to: 1 - type: integer 
 	Parameter DROP_WHEN_FULL bound to: 0 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
 	Parameter DEPTH bound to: 16384 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -352,18 +352,18 @@ INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo' [/home/luisfercrtez/D
 	Parameter MARK_WHEN_FULL bound to: 0 - type: integer 
 	Parameter PAUSE_ENABLE bound to: 0 - type: integer 
 	Parameter FRAME_PAUSE bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo_adapter' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
-WARNING: [Synth 8-7071] port 's_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 's_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 'm_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 'm_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 's_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 's_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 'm_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7071] port 'm_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-WARNING: [Synth 8-7023] instance 'tx_fifo' of module 'axis_async_fifo_adapter' has 34 connections declared, but only 26 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
-INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo_adapter' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
+WARNING: [Synth 8-7071] port 's_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 's_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 'm_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 'm_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 's_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 's_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 'm_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7071] port 'm_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'tx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+WARNING: [Synth 8-7023] instance 'tx_fifo' of module 'axis_async_fifo_adapter' has 34 connections declared, but only 26 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:402]
+INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter__parameterized0' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
 	Parameter DEPTH bound to: 16384 - type: integer 
 	Parameter S_DATA_WIDTH bound to: 64 - type: integer 
 	Parameter S_KEEP_ENABLE bound to: 1 - type: integer 
@@ -382,7 +382,7 @@ INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo_adapter__parameterized
 	Parameter DROP_OVERSIZE_FRAME bound to: 1 - type: integer 
 	Parameter DROP_BAD_FRAME bound to: 1 - type: integer 
 	Parameter DROP_WHEN_FULL bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo__parameterized0' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
 	Parameter DEPTH bound to: 16384 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -405,35 +405,35 @@ INFO: [Synth 8-6157] synthesizing module 'axis_async_fifo__parameterized0' [/hom
 	Parameter MARK_WHEN_FULL bound to: 0 - type: integer 
 	Parameter PAUSE_ENABLE bound to: 0 - type: integer 
 	Parameter FRAME_PAUSE bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo_adapter__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
-WARNING: [Synth 8-7071] port 's_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 's_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 'm_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 'm_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 's_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 's_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 'm_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7071] port 'm_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-WARNING: [Synth 8-7023] instance 'rx_fifo' of module 'axis_async_fifo_adapter' has 34 connections declared, but only 26 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
-INFO: [Synth 8-6155] done synthesizing module 'eth_mac_10g_fifo' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
-WARNING: [Synth 8-7071] port 'ptp_sample_clk' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_tag' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_valid' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_ready' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'tx_error_underflow' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7071] port 'ptp_ts_step' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-WARNING: [Synth 8-7023] instance 'eth_mac_10g_fifo_inst' of module 'eth_mac_10g_fifo' has 41 connections declared, but only 33 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
-INFO: [Synth 8-6157] synthesizing module 'eth_axis_rx' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo__parameterized0' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_async_fifo_adapter__parameterized0' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo_adapter.v:34]
+WARNING: [Synth 8-7071] port 's_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 's_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 'm_pause_req' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 'm_pause_ack' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 's_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 's_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 'm_status_depth' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7071] port 'm_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+WARNING: [Synth 8-7023] instance 'rx_fifo' of module 'axis_async_fifo_adapter' has 34 connections declared, but only 26 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
+INFO: [Synth 8-6155] done synthesizing module 'eth_mac_10g_fifo' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
+WARNING: [Synth 8-7071] port 'ptp_sample_clk' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_tag' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_valid' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_ready' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'tx_error_underflow' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7071] port 'ptp_ts_step' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+WARNING: [Synth 8-7023] instance 'eth_mac_10g_fifo_inst' of module 'eth_mac_10g_fifo' has 41 connections declared, but only 33 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:572]
+INFO: [Synth 8-6157] synthesizing module 'eth_axis_rx' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'eth_axis_rx' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
-INFO: [Synth 8-6157] synthesizing module 'eth_axis_tx' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'eth_axis_rx' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
+INFO: [Synth 8-6157] synthesizing module 'eth_axis_tx' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'eth_axis_tx' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:34]
-INFO: [Synth 8-6157] synthesizing module 'udp_complete_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ip_arb_mux' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'eth_axis_tx' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:34]
+INFO: [Synth 8-6157] synthesizing module 'udp_complete_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ip_arb_mux' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:34]
 	Parameter S_COUNT bound to: 2 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -443,25 +443,25 @@ INFO: [Synth 8-6157] synthesizing module 'ip_arb_mux' [/home/luisfercrtez/Docume
 	Parameter USER_WIDTH bound to: 1 - type: integer 
 	Parameter ARB_TYPE_ROUND_ROBIN bound to: 0 - type: integer 
 	Parameter ARB_LSB_HIGH_PRIORITY bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'arbiter' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v:34]
+INFO: [Synth 8-6157] synthesizing module 'arbiter' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v:34]
 	Parameter PORTS bound to: 2 - type: integer 
 	Parameter ARB_TYPE_ROUND_ROBIN bound to: 0 - type: integer 
 	Parameter ARB_BLOCK bound to: 1 - type: integer 
 	Parameter ARB_BLOCK_ACK bound to: 1 - type: integer 
 	Parameter ARB_LSB_HIGH_PRIORITY bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'priority_encoder' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:34]
+INFO: [Synth 8-6157] synthesizing module 'priority_encoder' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:34]
 	Parameter WIDTH bound to: 2 - type: integer 
 	Parameter LSB_HIGH_PRIORITY bound to: 1 - type: integer 
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:51]
-INFO: [Synth 8-6155] done synthesizing module 'priority_encoder' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'arbiter' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'ip_arb_mux' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ip_complete_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v:34]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:51]
+INFO: [Synth 8-6155] done synthesizing module 'priority_encoder' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/priority_encoder.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'arbiter' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/arbiter.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'ip_arb_mux' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ip_complete_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v:34]
 	Parameter ARP_CACHE_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter ARP_REQUEST_RETRY_COUNT bound to: 4 - type: integer 
 	Parameter ARP_REQUEST_RETRY_INTERVAL bound to: 250000000 - type: integer 
 	Parameter ARP_REQUEST_TIMEOUT bound to: -544967296 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'eth_arb_mux' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:34]
+INFO: [Synth 8-6157] synthesizing module 'eth_arb_mux' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:34]
 	Parameter S_COUNT bound to: 2 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -471,21 +471,21 @@ INFO: [Synth 8-6157] synthesizing module 'eth_arb_mux' [/home/luisfercrtez/Docum
 	Parameter USER_WIDTH bound to: 1 - type: integer 
 	Parameter ARB_TYPE_ROUND_ROBIN bound to: 0 - type: integer 
 	Parameter ARB_LSB_HIGH_PRIORITY bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'eth_arb_mux' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ip_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ip_eth_rx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:345]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:247]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:317]
-INFO: [Synth 8-6155] done synthesizing module 'ip_eth_rx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ip_eth_tx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:324]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:215]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:278]
-INFO: [Synth 8-6155] done synthesizing module 'ip_eth_tx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:282]
-INFO: [Synth 8-6155] done synthesizing module 'ip_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'arp' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'eth_arb_mux' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ip_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ip_eth_rx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:345]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:247]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:317]
+INFO: [Synth 8-6155] done synthesizing module 'ip_eth_rx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_rx_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'ip_eth_tx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:324]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:215]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:278]
+INFO: [Synth 8-6155] done synthesizing module 'ip_eth_tx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_eth_tx_64.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:282]
+INFO: [Synth 8-6155] done synthesizing module 'ip_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'arp' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
@@ -493,29 +493,29 @@ INFO: [Synth 8-6157] synthesizing module 'arp' [/home/luisfercrtez/Documents/Mas
 	Parameter REQUEST_RETRY_COUNT bound to: 4 - type: integer 
 	Parameter REQUEST_RETRY_INTERVAL bound to: 250000000 - type: integer 
 	Parameter REQUEST_TIMEOUT bound to: -544967296 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'arp_eth_rx' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:34]
+INFO: [Synth 8-6157] synthesizing module 'arp_eth_rx' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'arp_eth_rx' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:34]
-INFO: [Synth 8-6157] synthesizing module 'arp_eth_tx' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'arp_eth_rx' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:34]
+INFO: [Synth 8-6157] synthesizing module 'arp_eth_tx' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
 	Parameter KEEP_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'arp_eth_tx' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:34]
-INFO: [Synth 8-6157] synthesizing module 'arp_cache' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'arp_eth_tx' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:34]
+INFO: [Synth 8-6157] synthesizing module 'arp_cache' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v:34]
 	Parameter CACHE_ADDR_WIDTH bound to: 9 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'arp_cache' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'arp' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'ip_complete_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'udp_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'arp_cache' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_cache.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'arp' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'ip_complete_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_complete_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'udp_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:34]
 	Parameter CHECKSUM_GEN_ENABLE bound to: 1 - type: integer 
 	Parameter CHECKSUM_PAYLOAD_FIFO_DEPTH bound to: 32768 - type: integer 
 	Parameter CHECKSUM_HEADER_FIFO_DEPTH bound to: 16 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'udp_checksum_gen_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'udp_checksum_gen_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:34]
 	Parameter PAYLOAD_FIFO_DEPTH bound to: 32768 - type: integer 
 	Parameter HEADER_FIFO_DEPTH bound to: 16 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axis_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
 	Parameter DEPTH bound to: 32768 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -526,27 +526,27 @@ INFO: [Synth 8-6157] synthesizing module 'axis_fifo' [/home/luisfercrtez/Documen
 	Parameter USER_ENABLE bound to: 1 - type: integer 
 	Parameter USER_WIDTH bound to: 1 - type: integer 
 	Parameter FRAME_FIFO bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_fifo' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
-WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
-WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
-WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
-WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
-WARNING: [Synth 8-7023] instance 'payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:462]
-INFO: [Synth 8-6155] done synthesizing module 'udp_checksum_gen_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:34]
-WARNING: [Synth 8-7071] port 'm_ip_protocol' of module 'udp_checksum_gen_64' is unconnected for instance 'udp_checksum_gen_64_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:271]
-WARNING: [Synth 8-7023] instance 'udp_checksum_gen_64_inst' of module 'udp_checksum_gen_64' has 55 connections declared, but only 54 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:271]
-INFO: [Synth 8-6157] synthesizing module 'udp_ip_rx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:247]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:284]
-INFO: [Synth 8-6155] done synthesizing module 'udp_ip_rx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'udp_ip_tx_64' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:34]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:238]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:273]
-INFO: [Synth 8-6155] done synthesizing module 'udp_ip_tx_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'udp_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'udp_complete_64' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v:34]
-INFO: [Synth 8-6157] synthesizing module 'axis_fifo__parameterized0' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'axis_fifo' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
+WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
+WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
+WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
+WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
+WARNING: [Synth 8-7023] instance 'payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:220]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:462]
+INFO: [Synth 8-6155] done synthesizing module 'udp_checksum_gen_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:34]
+WARNING: [Synth 8-7071] port 'm_ip_protocol' of module 'udp_checksum_gen_64' is unconnected for instance 'udp_checksum_gen_64_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:271]
+WARNING: [Synth 8-7023] instance 'udp_checksum_gen_64_inst' of module 'udp_checksum_gen_64' has 55 connections declared, but only 54 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:271]
+INFO: [Synth 8-6157] synthesizing module 'udp_ip_rx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:247]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:284]
+INFO: [Synth 8-6155] done synthesizing module 'udp_ip_rx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_rx_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'udp_ip_tx_64' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:34]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:238]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:273]
+INFO: [Synth 8-6155] done synthesizing module 'udp_ip_tx_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'udp_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'udp_complete_64' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v:34]
+INFO: [Synth 8-6157] synthesizing module 'axis_fifo__parameterized0' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
 	Parameter DEPTH bound to: 16384 - type: integer 
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 	Parameter KEEP_ENABLE bound to: 1 - type: integer 
@@ -556,63 +556,63 @@ INFO: [Synth 8-6157] synthesizing module 'axis_fifo__parameterized0' [/home/luis
 	Parameter USER_ENABLE bound to: 1 - type: integer 
 	Parameter USER_WIDTH bound to: 1 - type: integer 
 	Parameter FRAME_FIFO bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axis_fifo__parameterized0' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
-WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
-WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
-WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
-WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
-WARNING: [Synth 8-7023] instance 'rx_udp_payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
-INFO: [Synth 8-6155] done synthesizing module 'fpga_core' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
-WARNING: [Synth 8-7071] port 'i2c_scl_i' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
-WARNING: [Synth 8-7071] port 'i2c_scl_o' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
-WARNING: [Synth 8-7071] port 'i2c_scl_t' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
+INFO: [Synth 8-6155] done synthesizing module 'axis_fifo__parameterized0' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:34]
+WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
+WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
+WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
+WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
+WARNING: [Synth 8-7023] instance 'rx_udp_payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:865]
+INFO: [Synth 8-6155] done synthesizing module 'fpga_core' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
+WARNING: [Synth 8-7071] port 'i2c_scl_i' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
+WARNING: [Synth 8-7071] port 'i2c_scl_o' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
+WARNING: [Synth 8-7071] port 'i2c_scl_t' of module 'fpga_core' is unconnected for instance 'core_inst' [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
 INFO: [Common 17-14] Message 'Synth 8-7071' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-7023] instance 'core_inst' of module 'fpga_core' has 47 connections declared, but only 41 given [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
-INFO: [Synth 8-6155] done synthesizing module 'fpga' (0#1) [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:34]
-WARNING: [Synth 8-6014] Unused sequential element last_scl_i_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:287]
-WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d0_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:342]
-WARNING: [Synth 8-6014] Unused sequential element ptp_ts_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:397]
-WARNING: [Synth 8-6014] Unused sequential element last_ts_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:425]
-WARNING: [Synth 8-6014] Unused sequential element ts_inc_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:397]
-WARNING: [Synth 8-6014] Unused sequential element m_axis_ptp_ts_valid_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:550]
-WARNING: [Synth 8-6014] Unused sequential element m_axis_ptp_ts_valid_int_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:551]
-WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[3] was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
-WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[2] was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
-WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[1] was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
-WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[0] was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
-WARNING: [Synth 8-6014] Unused sequential element last_ts_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:627]
-WARNING: [Synth 8-6014] Unused sequential element ts_inc_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:628]
-WARNING: [Synth 8-6014] Unused sequential element wr_ptr_temp_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:423]
-WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:436]
-WARNING: [Synth 8-6014] Unused sequential element rd_ptr_temp_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:670]
-WARNING: [Synth 8-6014] Unused sequential element wr_ptr_temp_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:423]
-WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:436]
-WARNING: [Synth 8-6014] Unused sequential element rd_ptr_temp_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:670]
-WARNING: [Synth 8-6014] Unused sequential element m_ip_payload_axis_tid_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:376]
-WARNING: [Synth 8-6014] Unused sequential element m_ip_payload_axis_tdest_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:377]
-WARNING: [Synth 8-6014] Unused sequential element temp_m_ip_payload_axis_tid_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:383]
-WARNING: [Synth 8-6014] Unused sequential element temp_m_ip_payload_axis_tdest_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:384]
-WARNING: [Synth 8-6014] Unused sequential element m_eth_payload_axis_tid_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:285]
-WARNING: [Synth 8-6014] Unused sequential element m_eth_payload_axis_tdest_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:286]
-WARNING: [Synth 8-6014] Unused sequential element temp_m_eth_payload_axis_tid_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:292]
-WARNING: [Synth 8-6014] Unused sequential element temp_m_eth_payload_axis_tdest_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:293]
-WARNING: [Synth 8-6014] Unused sequential element busy_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:176]
-WARNING: [Synth 8-6014] Unused sequential element busy_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:165]
-WARNING: [Synth 8-6014] Unused sequential element s_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:267]
-WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:290]
-WARNING: [Synth 8-6014] Unused sequential element s_udp_payload_axis_tready_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:555]
-WARNING: [Synth 8-6014] Unused sequential element s_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:267]
-WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:290]
-WARNING: [Synth 8-6014] Unused sequential element led_reg_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:533]
-WARNING: [Synth 8-6014] Unused sequential element valid_last_reg was removed.  [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:535]
-WARNING: [Synth 8-3848] Net sfp_1_led in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:48]
-WARNING: [Synth 8-3848] Net sfp_2_led in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:49]
-WARNING: [Synth 8-3848] Net sfp_3_led in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:50]
-WARNING: [Synth 8-3848] Net sfp_4_led in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:51]
-WARNING: [Synth 8-3848] Net i2c_scl_o in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:58]
-WARNING: [Synth 8-3848] Net i2c_scl_t in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:59]
-WARNING: [Synth 8-3848] Net i2c_sda_o in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:61]
-WARNING: [Synth 8-3848] Net i2c_sda_t in module/entity fpga_core does not have driver. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:62]
+WARNING: [Synth 8-7023] instance 'core_inst' of module 'fpga_core' has 47 connections declared, but only 41 given [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:669]
+INFO: [Synth 8-6155] done synthesizing module 'fpga' (0#1) [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:34]
+WARNING: [Synth 8-6014] Unused sequential element last_scl_i_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:287]
+WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d0_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:342]
+WARNING: [Synth 8-6014] Unused sequential element ptp_ts_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:397]
+WARNING: [Synth 8-6014] Unused sequential element last_ts_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:425]
+WARNING: [Synth 8-6014] Unused sequential element ts_inc_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:397]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_ptp_ts_valid_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:550]
+WARNING: [Synth 8-6014] Unused sequential element m_axis_ptp_ts_valid_int_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:551]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[3] was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[2] was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[1] was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
+WARNING: [Synth 8-6014] Unused sequential element crc_state_reg_reg[0] was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:600]
+WARNING: [Synth 8-6014] Unused sequential element last_ts_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:627]
+WARNING: [Synth 8-6014] Unused sequential element ts_inc_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:628]
+WARNING: [Synth 8-6014] Unused sequential element wr_ptr_temp_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:423]
+WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:436]
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_temp_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:670]
+WARNING: [Synth 8-6014] Unused sequential element wr_ptr_temp_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:423]
+WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:436]
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_temp_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:670]
+WARNING: [Synth 8-6014] Unused sequential element m_ip_payload_axis_tid_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:376]
+WARNING: [Synth 8-6014] Unused sequential element m_ip_payload_axis_tdest_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:377]
+WARNING: [Synth 8-6014] Unused sequential element temp_m_ip_payload_axis_tid_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:383]
+WARNING: [Synth 8-6014] Unused sequential element temp_m_ip_payload_axis_tdest_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/ip_arb_mux.v:384]
+WARNING: [Synth 8-6014] Unused sequential element m_eth_payload_axis_tid_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:285]
+WARNING: [Synth 8-6014] Unused sequential element m_eth_payload_axis_tdest_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:286]
+WARNING: [Synth 8-6014] Unused sequential element temp_m_eth_payload_axis_tid_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:292]
+WARNING: [Synth 8-6014] Unused sequential element temp_m_eth_payload_axis_tdest_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:293]
+WARNING: [Synth 8-6014] Unused sequential element busy_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:176]
+WARNING: [Synth 8-6014] Unused sequential element busy_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:165]
+WARNING: [Synth 8-6014] Unused sequential element s_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:267]
+WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element s_udp_payload_axis_tready_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:555]
+WARNING: [Synth 8-6014] Unused sequential element s_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:267]
+WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element led_reg_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:533]
+WARNING: [Synth 8-6014] Unused sequential element valid_last_reg was removed.  [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:535]
+WARNING: [Synth 8-3848] Net sfp_1_led in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:48]
+WARNING: [Synth 8-3848] Net sfp_2_led in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:49]
+WARNING: [Synth 8-3848] Net sfp_3_led in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:50]
+WARNING: [Synth 8-3848] Net sfp_4_led in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:51]
+WARNING: [Synth 8-3848] Net i2c_scl_o in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:58]
+WARNING: [Synth 8-3848] Net i2c_scl_t in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:59]
+WARNING: [Synth 8-3848] Net i2c_sda_o in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:61]
+WARNING: [Synth 8-3848] Net i2c_sda_t in module/entity fpga_core does not have driver. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:62]
 WARNING: [Synth 8-3917] design fpga has port PMOD_OE_B driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[7] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[6] driven by constant 1
@@ -740,336 +740,83 @@ WARNING: [Synth 8-7129] Port s_eth_payload_axis_tid[15] in module eth_arb_mux is
 WARNING: [Synth 8-7129] Port s_eth_payload_axis_tid[14] in module eth_arb_mux is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:02:09 ; elapsed = 00:02:11 . Memory (MB): peak = 3765.848 ; gain = 1903.727 ; free physical = 5157 ; free virtual = 11061
+Finished RTL Elaboration : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 3687.141 ; gain = 1903.875 ; free physical = 24616 ; free virtual = 34431
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:10 ; elapsed = 00:02:12 . Memory (MB): peak = 3765.848 ; gain = 1903.727 ; free physical = 5157 ; free virtual = 11061
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 3687.141 ; gain = 1903.875 ; free physical = 24617 ; free virtual = 34433
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:10 ; elapsed = 00:02:12 . Memory (MB): peak = 3765.848 ; gain = 1903.727 ; free physical = 5157 ; free virtual = 11061
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 3687.141 ; gain = 1903.875 ; free physical = 24617 ; free virtual = 34433
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3765.848 ; gain = 0.000 ; free physical = 5160 ; free virtual = 11064
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3687.141 ; gain = 0.000 ; free physical = 24636 ; free virtual = 34452
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0_in_context.xdc] for cell 'sfp_1_pcs_pma_inst'
-Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0_in_context.xdc] for cell 'sfp_1_pcs_pma_inst'
-Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_2_pcs_pma_inst'
-Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_2_pcs_pma_inst'
-Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_3_pcs_pma_inst'
-Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_3_pcs_pma_inst'
-Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_4_pcs_pma_inst'
-Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_4_pcs_pma_inst'
-Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
-CRITICAL WARNING: [Netlist 29-177] Cannot set property 'BITSTREAM.CONFIG.OVERTEMPSHUTDOWN' because the property does not exist. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:9]
+Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0_in_context.xdc] for cell 'sfp_1_pcs_pma_inst'
+Finished Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0_in_context.xdc] for cell 'sfp_1_pcs_pma_inst'
+Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_2_pcs_pma_inst'
+Finished Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_2_pcs_pma_inst'
+Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_3_pcs_pma_inst'
+Finished Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_3_pcs_pma_inst'
+Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_4_pcs_pma_inst'
+Finished Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1_in_context.xdc] for cell 'sfp_4_pcs_pma_inst'
+Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
+CRITICAL WARNING: [Netlist 29-177] Cannot set property 'BITSTREAM.CONFIG.OVERTEMPSHUTDOWN' because the property does not exist. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:9]
 Resolution: Create this property using create_property command before setting it.
-INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
-INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
-INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
-INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
-INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:112]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
-INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:114]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
-INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
-WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
-INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
-INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
-INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
-Finished Parsing XDC File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:112]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:114]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+Finished Parsing XDC File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
 Inserting timing constraints for ethernet MAC with FIFO instance core_inst/eth_mac_10g_fifo_inst
-INFO: [Timing 38-2] Deriving generated clocks [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl:23]
-Finished Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
+INFO: [Timing 38-2] Deriving generated clocks [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl:23]
+Finished Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
 Inserting timing constraints for axis_async_fifo instance core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst
 Inserting timing constraints for axis_async_fifo instance core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst
-Finished Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
+Finished Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
 Inserting timing constraints for sync_reset instance sync_reset_125mhz_inst
 Inserting timing constraints for sync_reset instance sync_reset_156mhz_inst
 Inserting timing constraints for sync_reset instance sync_reset_sfp_inst
-Finished Sourcing Tcl File [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
+Finished Sourcing Tcl File [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3832.781 ; gain = 0.000 ; free physical = 5178 ; free virtual = 11082
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3827.012 ; gain = 0.000 ; free physical = 24661 ; free virtual = 34493
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   MMCME2_BASE => MMCME2_ADV: 1 instance 
 
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-              STATE_IDLE |                              000 |                              000
-       STATE_READ_HEADER |                              001 |                              001
-      STATE_READ_PAYLOAD |                              010 |                              010
-         STATE_WAIT_LAST |                              011 |                              100
- STATE_READ_PAYLOAD_LAST |                              100 |                              011
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'ip_eth_rx_64'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-              STATE_IDLE |                              000 |                              000
-      STATE_WRITE_HEADER |                              001 |                              001
- STATE_WRITE_HEADER_LAST |                              010 |                              010
-         STATE_WAIT_LAST |                              011 |                              101
-     STATE_WRITE_PAYLOAD |                              100 |                              011
-STATE_WRITE_PAYLOAD_LAST |                              101 |                              100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'ip_eth_tx_64'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-              STATE_IDLE |                               00 |                               00
-         STATE_ARP_QUERY |                               01 |                               01
-       STATE_WAIT_PACKET |                               10 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'ip_64'
-WARNING: [Synth 8-6430] The Block RAM "arp_cache:/ip_addr_mem_reg" may get memory collision error if read and write address collide. Use attribute (* rw_addr_collision= "yes" *) to avoid collision 
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-              STATE_IDLE |                             0001 |                              000
-       STATE_READ_HEADER |                             0010 |                              001
-      STATE_READ_PAYLOAD |                             0100 |                              010
- STATE_READ_PAYLOAD_LAST |                             1000 |                              011
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'one-hot' in module 'udp_ip_rx_64'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-              STATE_IDLE |                               00 |                              000
-      STATE_WRITE_HEADER |                               01 |                              001
-     STATE_WRITE_PAYLOAD |                               10 |                              010
-STATE_WRITE_PAYLOAD_LAST |                               11 |                              011
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'udp_ip_tx_64'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                 iSTATE3 |                              000 |                              000
-                  iSTATE |                              001 |                              001
-                 iSTATE0 |                              010 |                              010
-                 iSTATE1 |                              011 |                              011
-                 iSTATE2 |                              100 |                              100
-*
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fpga_core'
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:35 ; elapsed = 00:02:36 . Memory (MB): peak = 3852.707 ; gain = 1990.586 ; free physical = 1018 ; free virtual = 6926
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input   36 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 2     
-	   3 Input   32 Bit       Adders := 1     
-	   3 Input   20 Bit       Adders := 1     
-	   9 Input   20 Bit       Adders := 1     
-	   2 Input   18 Bit       Adders := 2     
-	   3 Input   18 Bit       Adders := 1     
-	   2 Input   17 Bit       Adders := 8     
-	   4 Input   17 Bit       Adders := 2     
-	   2 Input   16 Bit       Adders := 12    
-	   2 Input   13 Bit       Adders := 2     
-	   3 Input   13 Bit       Adders := 2     
-	   2 Input   12 Bit       Adders := 6     
-	   3 Input   12 Bit       Adders := 10    
-	   2 Input   11 Bit       Adders := 1     
-	   2 Input    9 Bit       Adders := 1     
-	   2 Input    8 Bit       Adders := 1     
-	   5 Input    8 Bit       Adders := 1     
-	   2 Input    6 Bit       Adders := 5     
-	   2 Input    5 Bit       Adders := 3     
-	   2 Input    4 Bit       Adders := 2     
-	   2 Input    3 Bit       Adders := 3     
-	   2 Input    2 Bit       Adders := 2     
-	   2 Input    1 Bit       Adders := 2     
-+---XORs : 
-	   2 Input     32 Bit         XORs := 1     
-	   2 Input     13 Bit         XORs := 2     
-	   2 Input     12 Bit         XORs := 12    
-	   2 Input      2 Bit         XORs := 1     
-	   2 Input      1 Bit         XORs := 698   
-	   4 Input      1 Bit         XORs := 54    
-	   5 Input      1 Bit         XORs := 38    
-	   6 Input      1 Bit         XORs := 61    
-	   3 Input      1 Bit         XORs := 145   
-	  10 Input      1 Bit         XORs := 26    
-	   9 Input      1 Bit         XORs := 33    
-	   7 Input      1 Bit         XORs := 46    
-	   8 Input      1 Bit         XORs := 44    
-	  11 Input      1 Bit         XORs := 25    
-	  12 Input      1 Bit         XORs := 23    
-	  17 Input      1 Bit         XORs := 39    
-	  18 Input      1 Bit         XORs := 33    
-	  16 Input      1 Bit         XORs := 34    
-	  20 Input      1 Bit         XORs := 29    
-	  19 Input      1 Bit         XORs := 25    
-	  21 Input      1 Bit         XORs := 21    
-	  15 Input      1 Bit         XORs := 31    
-	  24 Input      1 Bit         XORs := 24    
-	  26 Input      1 Bit         XORs := 16    
-	  25 Input      1 Bit         XORs := 12    
-	  22 Input      1 Bit         XORs := 26    
-	  27 Input      1 Bit         XORs := 12    
-	  28 Input      1 Bit         XORs := 14    
-	  29 Input      1 Bit         XORs := 4     
-	  35 Input      1 Bit         XORs := 4     
-	  30 Input      1 Bit         XORs := 3     
-	  34 Input      1 Bit         XORs := 2     
-	  33 Input      1 Bit         XORs := 2     
-	  23 Input      1 Bit         XORs := 11    
-	  32 Input      1 Bit         XORs := 7     
-	  31 Input      1 Bit         XORs := 4     
-	  43 Input      1 Bit         XORs := 2     
-	  37 Input      1 Bit         XORs := 2     
-	  13 Input      1 Bit         XORs := 11    
-	  14 Input      1 Bit         XORs := 13    
-+---XORs : 
-	               12 Bit    Wide XORs := 44    
-+---Registers : 
-	               74 Bit    Registers := 18    
-	               64 Bit    Registers := 32    
-	               48 Bit    Registers := 32    
-	               36 Bit    Registers := 1     
-	               32 Bit    Registers := 29    
-	               24 Bit    Registers := 1     
-	               20 Bit    Registers := 2     
-	               17 Bit    Registers := 5     
-	               16 Bit    Registers := 50    
-	               13 Bit    Registers := 9     
-	               12 Bit    Registers := 33    
-	               11 Bit    Registers := 1     
-	                9 Bit    Registers := 3     
-	                8 Bit    Registers := 46    
-	                7 Bit    Registers := 3     
-	                6 Bit    Registers := 13    
-	                5 Bit    Registers := 5     
-	                4 Bit    Registers := 21    
-	                3 Bit    Registers := 10    
-	                2 Bit    Registers := 21    
-	                1 Bit    Registers := 294   
-+---RAMs : 
-	             296K Bit	(4096 X 74 bit)          RAMs := 1     
-	             148K Bit	(2048 X 74 bit)          RAMs := 3     
-	              24K Bit	(512 X 48 bit)          RAMs := 1     
-	              16K Bit	(512 X 32 bit)          RAMs := 1     
-	              768 Bit	(16 X 48 bit)          RAMs := 2     
-	              512 Bit	(512 X 1 bit)          RAMs := 1     
-	              512 Bit	(16 X 32 bit)          RAMs := 2     
-	              256 Bit	(16 X 16 bit)          RAMs := 7     
-	              208 Bit	(16 X 13 bit)          RAMs := 1     
-	              128 Bit	(16 X 8 bit)          RAMs := 1     
-	               96 Bit	(16 X 6 bit)          RAMs := 1     
-	               64 Bit	(16 X 4 bit)          RAMs := 2     
-	               48 Bit	(16 X 3 bit)          RAMs := 1     
-	               32 Bit	(16 X 2 bit)          RAMs := 1     
-+---Muxes : 
-	   2 Input   64 Bit        Muxes := 26    
-	   7 Input   64 Bit        Muxes := 2     
-	   5 Input   64 Bit        Muxes := 1     
-	   3 Input   64 Bit        Muxes := 1     
-	   6 Input   64 Bit        Muxes := 1     
-	   4 Input   64 Bit        Muxes := 2     
-	   2 Input   48 Bit        Muxes := 21    
-	   6 Input   36 Bit        Muxes := 1     
-	   3 Input   36 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 14    
-	   6 Input   32 Bit        Muxes := 1     
-	   5 Input   28 Bit        Muxes := 1     
-	   5 Input   20 Bit        Muxes := 1     
-	   2 Input   18 Bit        Muxes := 1     
-	   2 Input   17 Bit        Muxes := 1     
-	  16 Input   17 Bit        Muxes := 1     
-	   6 Input   17 Bit        Muxes := 2     
-	   2 Input   16 Bit        Muxes := 18    
-	   5 Input   16 Bit        Muxes := 1     
-	   6 Input   16 Bit        Muxes := 2     
-	   4 Input   16 Bit        Muxes := 2     
-	   2 Input   13 Bit        Muxes := 1     
-	  12 Input   12 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 47    
-	   2 Input   11 Bit        Muxes := 1     
-	   4 Input   11 Bit        Muxes := 1     
-	   2 Input    9 Bit        Muxes := 1     
-	  12 Input    8 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 67    
-	   3 Input    8 Bit        Muxes := 7     
-	   8 Input    8 Bit        Muxes := 2     
-	   7 Input    8 Bit        Muxes := 2     
-	   5 Input    8 Bit        Muxes := 5     
-	   6 Input    8 Bit        Muxes := 1     
-	   4 Input    8 Bit        Muxes := 6     
-	   2 Input    7 Bit        Muxes := 2     
-	   6 Input    7 Bit        Muxes := 1     
-	   2 Input    6 Bit        Muxes := 13    
-	   7 Input    6 Bit        Muxes := 1     
-	   5 Input    6 Bit        Muxes := 1     
-	   6 Input    6 Bit        Muxes := 2     
-	   2 Input    5 Bit        Muxes := 4     
-	  12 Input    4 Bit        Muxes := 1     
-	  22 Input    4 Bit        Muxes := 1     
-	   8 Input    4 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 19    
-	   3 Input    4 Bit        Muxes := 1     
-	   4 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 37    
-	   7 Input    3 Bit        Muxes := 1     
-	  19 Input    3 Bit        Muxes := 1     
-	   4 Input    3 Bit        Muxes := 3     
-	   3 Input    3 Bit        Muxes := 9     
-	   5 Input    3 Bit        Muxes := 2     
-	  28 Input    3 Bit        Muxes := 1     
-	   6 Input    3 Bit        Muxes := 4     
-	   2 Input    2 Bit        Muxes := 73    
-	   5 Input    2 Bit        Muxes := 1     
-	   4 Input    2 Bit        Muxes := 3     
-	   3 Input    2 Bit        Muxes := 8     
-	   7 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 451   
-	   6 Input    1 Bit        Muxes := 27    
-	  12 Input    1 Bit        Muxes := 16    
-	  16 Input    1 Bit        Muxes := 9     
-	   3 Input    1 Bit        Muxes := 18    
-	   7 Input    1 Bit        Muxes := 12    
-	   4 Input    1 Bit        Muxes := 32    
-	   5 Input    1 Bit        Muxes := 22    
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 3600 (col length:200)
-BRAMs: 2940 (col length: RAMB18 200 RAMB36 100)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
@@ -1108,7 +855,7 @@ WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_st
 WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_state_reg_reg[5]) is unused and will be removed from module fpga.
 WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_state_reg_reg[4]) is unused and will be removed from module fpga.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:59 ; elapsed = 00:03:07 . Memory (MB): peak = 3856.793 ; gain = 1994.672 ; free physical = 294 ; free virtual = 6040
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:17 . Memory (MB): peak = 3851.023 ; gain = 2067.758 ; free physical = 19391 ; free virtual = 29247
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1158,16 +905,16 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
-WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
+WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
+WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:45 ; elapsed = 00:03:19 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 1410 ; free virtual = 7156
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:25 ; elapsed = 00:01:22 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19833 ; free virtual = 29699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:51 ; elapsed = 00:03:24 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 142 ; free virtual = 5833
+Finished Timing Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:01:24 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19810 ; free virtual = 29675
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1209,7 +956,7 @@ Start Technology Mapping
 INFO: [Synth 8-7052] The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/mac_addr_mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:55 ; elapsed = 00:03:29 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 190 ; free virtual = 5678
+Finished Technology Mapping : Time (s): cpu = 00:01:28 ; elapsed = 00:01:25 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19810 ; free virtual = 29675
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1227,37 +974,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:59 ; elapsed = 00:03:33 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 206 ; free virtual = 5694
+Finished IO Insertion : Time (s): cpu = 00:01:29 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19825 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:59 ; elapsed = 00:03:33 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 206 ; free virtual = 5694
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:29 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19825 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:00 ; elapsed = 00:03:34 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 209 ; free virtual = 5697
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:30 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19824 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:00 ; elapsed = 00:03:34 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 209 ; free virtual = 5697
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:30 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19824 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:00 ; elapsed = 00:03:34 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 212 ; free virtual = 5700
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:30 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19824 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:00 ; elapsed = 00:03:34 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 212 ; free virtual = 5700
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:30 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19824 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1301,18 +1048,18 @@ Report Cell Usage:
 |30    |OBUF                  |    49|
 +------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:00 ; elapsed = 00:03:34 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 212 ; free virtual = 5700
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:30 ; elapsed = 00:01:27 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 19824 ; free virtual = 29690
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1471 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:51 ; elapsed = 00:03:30 . Memory (MB): peak = 3860.711 ; gain = 1919.734 ; free physical = 5768 ; free virtual = 11256
-Synthesis Optimization Complete : Time (s): cpu = 00:04:00 ; elapsed = 00:03:38 . Memory (MB): peak = 3860.711 ; gain = 1998.590 ; free physical = 5768 ; free virtual = 11256
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:26 ; elapsed = 00:01:25 . Memory (MB): peak = 3854.941 ; gain = 1919.883 ; free physical = 25063 ; free virtual = 34929
+Synthesis Optimization Complete : Time (s): cpu = 00:01:30 ; elapsed = 00:01:28 . Memory (MB): peak = 3854.941 ; gain = 2071.676 ; free physical = 25063 ; free virtual = 34929
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3860.711 ; gain = 0.000 ; free physical = 5773 ; free virtual = 11260
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3854.941 ; gain = 0.000 ; free physical = 25063 ; free virtual = 34929
 INFO: [Netlist 29-17] Analyzing 336 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3904.816 ; gain = 0.000 ; free physical = 5798 ; free virtual = 11286
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3963.078 ; gain = 0.000 ; free physical = 25078 ; free virtual = 34944
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 25 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
@@ -1325,11 +1072,11 @@ Synth Design complete | Checksum: ef5227bf
 INFO: [Common 17-83] Releasing license: Synthesis
 175 Infos, 354 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:19 ; elapsed = 00:03:57 . Memory (MB): peak = 3904.816 ; gain = 2416.734 ; free physical = 5798 ; free virtual = 11286
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8425.868; main = 3058.290; forked = 5568.484
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 16884.531; main = 3904.820; forked = 13027.734
+synth_design: Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3963.078 ; gain = 2468.477 ; free physical = 25078 ; free virtual = 34944
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8874.946; main = 2986.089; forked = 6089.963
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 18330.508; main = 3963.082; forked = 14479.480
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3928.828 ; gain = 0.000 ; free physical = 5798 ; free virtual = 11286
-INFO: [Common 17-1381] The checkpoint '/home/luisfercrtez/Documents/Master/Tesis/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp' has been generated.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3987.090 ; gain = 0.000 ; free physical = 25077 ; free virtual = 34944
+INFO: [Common 17-1381] The checkpoint '/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file fpga_utilization_synth.rpt -pb fpga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Oct  8 17:01:40 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 13 22:09:17 2025...
