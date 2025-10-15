@@ -126,3 +126,18 @@ Vista de ultimas lineas
 ```bash
 tail -c 160 fpga_final_0000.bin | hexdump -C
 ```
+Prueba de escritura
+---
+```bash
+sudo fio --name=basic_write \
+  --ioengine=libaio \
+  --rw=write \
+  --bs=1M \
+  --iodepth=32 \
+  --numjobs=4 \
+  --size=4G \
+  --runtime=30 \
+  --time_based \
+  --group_reporting \
+  --direct=1
+```
