@@ -141,3 +141,14 @@ sudo fio --name=basic_write \
   --group_reporting \
   --direct=1
 ```
+Importante
+---
+AUmentar buffers del sistema
+```bash
+sudo sysctl -w net.core.rmem_max=134217728
+sudo sysctl -w net.core.rmem_default=33554432
+```
+desactivar firewall
+```bash
+sudo ufw disable
+```
