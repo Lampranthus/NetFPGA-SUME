@@ -145,8 +145,18 @@ Importante
 ---
 AUmentar buffers del sistema
 ```bash
-sudo sysctl -w net.core.rmem_max=134217728
-sudo sysctl -w net.core.rmem_default=33554432
+sudo nano /etc/sysctl.d/99-network-tuning.conf
+
+# Agregar:
+net.core.rmem_max = 268435456
+net.core.wmem_max = 268435456
+net.core.rmem_default = 67108864
+net.core.wmem_default = 67108864
+net.core.optmem_max = 67108864
+net.ipv4.udp_mem = 67108864 134217728 268435456
+
+# Aplicar
+sudo sysctl -p /etc/sysctl.d/99-network-tuning.conf
 ```
 desactivar firewall
 ```bash
