@@ -1,7 +1,3 @@
-/*
-gcc -O2 -pthread -o fpga_receiver_improved fpga_receiver_improved.c
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +13,9 @@ gcc -O2 -pthread -o fpga_receiver_improved fpga_receiver_improved.c
 #define NUMBERS_PER_PACKET 1024
 #define PROGRESS_UPDATE 1000000 // Actualizar progreso cada 1M números
 
+// Mensaje especial que inserta la FPGA
+#define TEST_MESSAGE 0x0A2E545345542E0AULL // "\n.TEST.\n" en little-endian
+
 typedef struct {
     char filename[256];
     long size;
@@ -24,11 +23,29 @@ typedef struct {
     uint64_t last_sequence;
     long errors;
     long total_numbers;
+    long test_messages; // Nuevo: contador de mensajes TEST
 } file_info_t;
+
+// Estructura para guardar detalles de mensajes TEST
+typedef struct {
+    uint64_t position;     // Posición global donde apareció
+    uint64_t expected_num; // Número que se esperaba
+    uint64_t file_index;   // Archivo donde apareció
+    uint64_t local_pos;    // Posición dentro del archivo
+} test_message_info_t;
+
+#define MAX_TEST_MESSAGES 1000
+test_message_info_t test_messages[MAX_TEST_MESSAGES];
+int test_message_count = 0;
 
 // Función optimizada para convertir little-endian
 static inline uint64_t le64_to_host(uint64_t le_value) {
     return le_value;
+}
+
+// Función para detectar si es el mensaje TEST
+static inline int is_test_message(uint64_t value) {
+    return (value == TEST_MESSAGE);
 }
 
 int compare_files(const void *a, const void *b) {
@@ -71,6 +88,7 @@ int get_bin_files(const char *folder_path, file_info_t **files) {
                 (*files)[count].size = file_stat.st_size;
                 (*files)[count].errors = 0;
                 (*files)[count].total_numbers = 0;
+                (*files)[count].test_messages = 0; // Inicializar contador
                 count++;
             }
         }
@@ -92,6 +110,7 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
     uint64_t global_first_sequence = 0;
     long total_numbers_checked = 0;
     long total_errors = 0;
+    long total_test_messages = 0; // Nuevo: contador global de TEST
     int first_number = 1;
     
     // Estadísticas para reporte
@@ -140,7 +159,33 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
                 printf("   ⚡ Iniciando secuencia en: %lu\n", current_sequence);
             }
             
-            // Verificar secuencia
+            // NUEVO: Detectar mensaje TEST
+            if (is_test_message(current_sequence)) {
+                files[file_idx].test_messages++;
+                total_test_messages++;
+                
+                // Guardar información del mensaje TEST
+                if (test_message_count < MAX_TEST_MESSAGES) {
+                    test_messages[test_message_count].position = total_numbers_checked;
+                    test_messages[test_message_count].expected_num = expected_sequence;
+                    test_messages[test_message_count].file_index = file_idx;
+                    test_messages[test_message_count].local_pos = i;
+                    test_message_count++;
+                }
+                
+                printf("   🔍 MENSAJE TEST detectado en posición global %lu\n", total_numbers_checked);
+                printf("      📍 Archivo: %s, posición local: %lu\n", files[file_idx].filename, i);
+                printf("      🔢 Número esperado: %lu\n", expected_sequence);
+                printf("      📦 Paquete UDP: ~%lu, Posición en paquete: ~%lu\n", 
+                       total_numbers_checked / NUMBERS_PER_PACKET,
+                       total_numbers_checked % NUMBERS_PER_PACKET);
+                
+                // Continuar la secuencia desde el número esperado
+                expected_sequence++;
+                continue;
+            }
+            
+            // Verificar secuencia normal
             if (current_sequence != expected_sequence) {
                 uint64_t gap = current_sequence - expected_sequence;
                 
@@ -159,14 +204,14 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
                         long packets_lost = gap / NUMBERS_PER_PACKET;
                         printf("      📦 Pérdida: %ld paquetes UDP completos\n", packets_lost);
                     }
+                } else {
+                    // Gap de 1 (probablemente un mensaje TEST que no detectamos correctamente)
+                    printf("   ⚠️  Gap pequeño en posición %lu: %lu -> %lu\n", 
+                           total_numbers_checked, expected_sequence, current_sequence);
                 }
                 
                 files[file_idx].errors++;
                 total_errors++;
-
-                printf("   Error en la secuencia: %lu: %lu -> %lu\n", 
-                           total_numbers_checked, expected_sequence, current_sequence);
-
                 expected_sequence = current_sequence;
             }
             
@@ -174,8 +219,8 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
             
             // Mostrar progreso cada 1M números
             if (total_numbers_checked % PROGRESS_UPDATE == 0) {
-                printf("   📊 Progreso: %ldM números verificados, %ld errores\n", 
-                       total_numbers_checked / 1000000, total_errors);
+                printf("   📊 Progreso: %ldM números, %ld errores, %ld mensajes TEST\n", 
+                       total_numbers_checked / 1000000, total_errors, total_test_messages);
             }
         }
         
@@ -184,8 +229,8 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
         munmap(file_data, sb.st_size);
         close(fd);
         
-        printf("   ✅ Archivo completado: %ld números, %ld errores\n", 
-               files[file_idx].total_numbers, files[file_idx].errors);
+        printf("   ✅ Archivo completado: %ld números, %ld errores, %ld mensajes TEST\n", 
+               files[file_idx].total_numbers, files[file_idx].errors, files[file_idx].test_messages);
         printf("   📈 Rango: %lu -> %lu\n\n", 
                files[file_idx].first_sequence, files[file_idx].last_sequence);
         
@@ -226,7 +271,39 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
     printf("   • Números verificados: %ld\n", total_numbers_checked);
     printf("   • Paquetes UDP equivalentes: %ld\n", total_numbers_checked / NUMBERS_PER_PACKET);
     printf("   • Errores de secuencia: %ld\n", total_errors);
+    printf("   • Mensajes TEST detectados: %ld\n", total_test_messages);
     printf("   • Rango total: %lu -> %lu\n", global_first_sequence, expected_sequence - 1);
+    
+    // NUEVO: Reporte detallado de mensajes TEST
+    if (total_test_messages > 0) {
+        printf("\n🔍 DETALLES DE MENSAJES TEST:\n");
+        printf("   • Total detectados: %ld\n", total_test_messages);
+        printf("   • Distribución por archivo:\n");
+        
+        for (int i = 0; i < file_count; i++) {
+            if (files[i].test_messages > 0) {
+                printf("      • %s: %ld mensajes\n", files[i].filename, files[i].test_messages);
+            }
+        }
+        
+        // Mostrar primeros 10 mensajes TEST con detalles
+        printf("\n   • Primeros %d mensajes TEST detectados:\n", 
+               test_message_count > 10 ? 10 : test_message_count);
+        
+        for (int i = 0; i < (test_message_count > 10 ? 10 : test_message_count); i++) {
+            printf("      %d. Posición global: %lu\n", i + 1, test_messages[i].position);
+            printf("         Archivo: %s\n", files[test_messages[i].file_index].filename);
+            printf("         Posición local: %lu\n", test_messages[i].local_pos);
+            printf("         Número esperado: %lu\n", test_messages[i].expected_num);
+            printf("         Paquete UDP: ~%lu, Offset: ~%lu\n", 
+                   test_messages[i].position / NUMBERS_PER_PACKET,
+                   test_messages[i].position % NUMBERS_PER_PACKET);
+        }
+        
+        if (test_message_count > 10) {
+            printf("      ... y %d mensajes más\n", test_message_count - 10);
+        }
+    }
     
     if (total_errors > 0) {
         double error_rate = (double)total_errors / total_numbers_checked * 100.0;
@@ -238,18 +315,22 @@ void verify_sequence_complete(file_info_t *files, int file_count) {
         // Análisis por archivo
         printf("\n📁 ERRORES POR ARCHIVO:\n");
         for (int i = 0; i < file_count; i++) {
-            if (files[i].errors > 0) {
+            if (files[i].errors > 0 || files[i].test_messages > 0) {
                 double file_error_rate = (double)files[i].errors / files[i].total_numbers * 100.0;
-                printf("   • %s: %ld errores (%.6f%%)\n", 
-                       files[i].filename, files[i].errors, file_error_rate);
+                printf("   • %s: %ld errores, %ld TEST (%.6f%% error)\n", 
+                       files[i].filename, files[i].errors, files[i].test_messages, file_error_rate);
             }
         }
-    } else {
+    } else if (total_test_messages == 0) {
         printf("\n🎉 ¡VERIFICACIÓN EXITOSA!\n");
         printf("   • Secuencia perfecta desde %lu hasta %lu\n", 
                global_first_sequence, expected_sequence - 1);
         printf("   • No se detectaron pérdidas de paquetes\n");
         printf("   • Todos los %ld números están en secuencia correcta\n", total_numbers_checked);
+    } else {
+        printf("\n✅ VERIFICACIÓN CON MENSAJES TEST CONTROLADOS\n");
+        printf("   • Secuencia con %ld inserciones controladas de TEST\n", total_test_messages);
+        printf("   • No se detectaron pérdidas inesperadas\n");
     }
     
     printf("\n⏱️  Throughput de verificación: %.2f millones de números/segundo\n", 
@@ -265,8 +346,9 @@ int main(int argc, char *argv[]) {
     
     const char *folder_path = argv[1];
     
-    printf("=== VERIFICADOR COMPLETO UNO POR UNO ===\n");
+    printf("=== VERIFICADOR COMPLETO CON DETECCIÓN DE TEST ===\n");
     printf("Carpeta: %s\n", folder_path);
+    printf("Buscando mensajes TEST: 0x%016lX\n", TEST_MESSAGE);
     printf("Verificando cada número individualmente...\n\n");
     
     file_info_t *files = NULL;
@@ -296,5 +378,5 @@ int main(int argc, char *argv[]) {
 }
 
 /*
-gcc -O2 -o verificador_completo verificador_completo.c
+gcc -O2 -o verificador_con_test verificador_completo.c
 */

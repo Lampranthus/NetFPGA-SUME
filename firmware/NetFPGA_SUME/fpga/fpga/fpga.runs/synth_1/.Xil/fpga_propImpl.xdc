@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc rfile:../../../../fpga.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc rfile:../../../../fpga.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]
 set_property BITSTREAM.CONFIG.OVERTEMPSHUTDOWN Enable  [current_design]
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]

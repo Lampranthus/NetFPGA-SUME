@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga.tcl"
+  variable script "/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga.tcl"
   variable category "vivado_impl"
 }
 
@@ -116,20 +116,20 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/wt [current_project]
-  set_property parent.project_path /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr [current_project]
-  set_property ip_output_repo /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/ip [current_project]
+  set_property webtalk.parent_dir /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/wt [current_project]
+  set_property parent.project_path /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr [current_project]
+  set_property ip_output_repo /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp
-  read_ip -quiet /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci
-  read_ip -quiet /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1.xci
+  add_files -quiet /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp
+  read_ip -quiet /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.xci
+  read_ip -quiet /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1.xci
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc
-  read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl
-  read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
-  read_xdc -unmanaged /home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
+  read_xdc /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc
+  read_xdc -unmanaged /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl
+  read_xdc -unmanaged /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl
+  read_xdc -unmanaged /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

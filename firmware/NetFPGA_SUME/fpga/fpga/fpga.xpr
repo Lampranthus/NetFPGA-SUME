@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="68" Path="/home/sysadmin/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr">
+<Project Product="Vivado" Version="7" Minor="68" Path="/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="8a8ff84addb64c748113154d56a7f994"/>

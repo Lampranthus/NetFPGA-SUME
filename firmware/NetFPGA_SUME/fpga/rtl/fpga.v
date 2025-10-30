@@ -655,8 +655,104 @@ sfp_4_pcs_pma_inst (
     .tx_disable()
 );
 
-assign sfp_1_led[0] = sfp_1_rx_block_lock;
-assign sfp_1_led[1] = 1'b0;
+//-------------------------------------------------------------
+// Activity LEDs para TX y RX (usando reloj de 125 MHz)
+//-------------------------------------------------------------
+
+// Detecta actividad: bit de control = 0 ⇒ hay byte de datos
+wire tx_active_now = |(~sfp_1_txc_int);  // Transmisión en curso
+wire rx_active_now = |(~sfp_1_rxc_int);  // Recepción en curso
+
+//-------------------------------------------------------------
+// Parámetros de temporización
+//-------------------------------------------------------------
+localparam integer CLK_FREQ = 125_000_000;   // 125 MHz
+localparam integer BLINK_FREQ = 5;           // 5 Hz
+localparam integer BLINK_PERIOD = CLK_FREQ / (BLINK_FREQ * 2);  // Medio período (~100 ms)
+localparam integer ACTIVE_WINDOW = CLK_FREQ; // 1 s de parpadeo tras detectar actividad
+
+//-------------------------------------------------------------
+// Señales internas
+//-------------------------------------------------------------
+reg [26:0] blink_cnt = 0;
+reg blink_5hz = 1'b0;
+
+reg tx_active_prev = 1'b0;
+reg rx_active_prev = 1'b0;
+wire tx_edge = tx_active_now & ~tx_active_prev;
+wire rx_edge = rx_active_now & ~rx_active_prev;
+
+reg [26:0] tx_timer = 0;
+reg [26:0] rx_timer = 0;
+reg tx_blink_enable = 1'b0;
+reg rx_blink_enable = 1'b0;
+
+//-------------------------------------------------------------
+// Generador de parpadeo de 5 Hz
+//-------------------------------------------------------------
+always @(posedge clk_125mhz_int or posedge sfp_reset_in) begin
+    if (sfp_reset_in) begin
+        blink_cnt <= 0;
+        blink_5hz <= 1'b0;
+    end else begin
+        if (blink_cnt >= BLINK_PERIOD - 1) begin
+            blink_cnt <= 0;
+            blink_5hz <= ~blink_5hz;
+        end else begin
+            blink_cnt <= blink_cnt + 1;
+        end
+    end
+end
+
+//-------------------------------------------------------------
+// Detección de flancos y temporizador de 1 s
+//-------------------------------------------------------------
+always @(posedge clk_125mhz_int or posedge sfp_reset_in) begin
+    if (sfp_reset_in) begin
+        tx_active_prev <= 1'b0;
+        rx_active_prev <= 1'b0;
+        tx_timer <= 0;
+        rx_timer <= 0;
+        tx_blink_enable <= 1'b0;
+        rx_blink_enable <= 1'b0;
+    end else begin
+        // Actualiza estado previo
+        tx_active_prev <= tx_active_now;
+        rx_active_prev <= rx_active_now;
+
+        // --- TX ---
+        if (tx_edge) begin
+            tx_blink_enable <= 1'b1;
+            tx_timer <= 0;
+        end else if (tx_blink_enable) begin
+            if (tx_timer < ACTIVE_WINDOW - 1)
+                tx_timer <= tx_timer + 1;
+            else
+                tx_blink_enable <= 1'b0;  // apagar parpadeo tras 1 s
+        end
+
+        // --- RX ---
+        if (rx_edge) begin
+            rx_blink_enable <= 1'b1;
+            rx_timer <= 0;
+        end else if (rx_blink_enable) begin
+            if (rx_timer < ACTIVE_WINDOW - 1)
+                rx_timer <= rx_timer + 1;
+            else
+                rx_blink_enable <= 1'b0;
+        end
+    end
+end
+
+//-------------------------------------------------------------
+// Asigna los LEDs de salida
+//-------------------------------------------------------------
+// Link OK = encendido fijo
+// Actividad = parpadeo a 5 Hz durante 1 s desde el último evento
+assign sfp_1_led[0] = sfp_1_rx_block_lock && (tx_blink_enable ? blink_5hz : 1'b1);
+assign sfp_1_led[1] = sfp_1_rx_block_lock && (rx_blink_enable ? blink_5hz : 1'b1);
+
+
 assign sfp_2_led[0] = sfp_2_rx_block_lock;
 assign sfp_2_led[1] = 1'b0;
 assign sfp_3_led[0] = sfp_3_rx_block_lock;

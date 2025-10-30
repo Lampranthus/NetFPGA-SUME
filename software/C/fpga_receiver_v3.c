@@ -20,6 +20,7 @@
 
 // ---------- CONFIGURACIÓN ----------
 #define PORT 9999
+#define FPGA_IP "192.168.1.100"  // IP específica de la interfaz FPGA
 #define CHUNK_SIZE (512ULL * 1024 * 1024)   // 512 MB por chunk
 #define RAM_BUFFER_TOTAL (8ULL * 1024 * 1024 * 1024) // 8 GB buffer total
 #define NUM_CHUNKS (RAM_BUFFER_TOTAL / CHUNK_SIZE)   // 16
@@ -226,7 +227,9 @@ int main(void) {
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(PORT);
-    addr.sin_addr.s_addr = INADDR_ANY;
+    addr.sin_addr.s_addr = inet_addr(FPGA_IP);
+
+    printf("Binding to %s:%d\n", FPGA_IP, PORT);
 
     if (bind(sockfd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
         perror("bind");

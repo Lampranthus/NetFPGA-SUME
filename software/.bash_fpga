@@ -7,7 +7,7 @@
 export FPGA_IP="192.168.1.128"
 export FPGA_PORT="1234"
 export NET_INTERFACE="enp4s0"
-FPGA_PROJECT_DIR="$HOME/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga"
+FPGA_PROJECT_DIR="/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga"
 
 # --------------------------------------------------
 # FUNCIÓN: fpga_init
@@ -29,6 +29,47 @@ function fpga_fini {
     echo "Enviando: $message"
     echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
     echo "Mensaje de fin enviado"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_loopback 
+# Envía mensaje para que la FPGA active o desactive el loopback
+# --------------------------------------------------
+function fpga_loopback {
+    if [ $# -ne 1 ]; then
+        echo "Uso: fpga_loopback <enable/disable>"
+        echo "Ejemplo: fpga_loopback enable"
+        echo "Ejemplo: fpga_loopback disable"
+        return 1
+    fi
+
+    local action="$1"
+    local message=""
+    
+    # Determinar el mensaje basado en la acción
+    case "$action" in
+        (enable|e|on|1)
+            message="LOOPBK_E"
+            ;;
+        (disable|d|off|0)
+            message="LOOPBK_D"
+            ;;
+        (*)
+            echo "Error: Acción no válida '$action'"
+            echo "Uso: fpga_loopback <enable/disable>"
+            return 1
+            ;;
+    esac
+
+    echo "Enviando comando de loopback: $message"
+    echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    if [ $? -eq 0 ]; then
+        echo "✅ Comando '$message' enviado exitosamente a $FPGA_IP:$FPGA_PORT"
+    else
+        echo "❌ Error al enviar comando a $FPGA_IP:$FPGA_PORT"
+        return 1
+    fi
 }
 
 # --------------------------------------------------
@@ -68,6 +109,69 @@ function fpga_pkt_n {
     
     local mb_size=$((packets * 8192 / 1024 / 1024))
     echo " Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_error_pkt_n
+# Configura cada cuantos paquetes y en que posicion en el paquete estara el mensaje de error
+# Uso: fpga_error_pkt_n <frecuencia_de_paquetes> <posicion_en_paquete>
+# Ejemplo: fpga_error_pkt_n 819200 512
+# --------------------------------------------------
+function fpga_error_pkt_n {
+    # CORRECCIÓN: $# -ne 2 (no 1 2)
+    if [ $# -ne 2 ]; then
+        echo "Uso: fpga_error_pkt_n <frecuencia_de_paquetes> <posicion_en_paquete>"
+        echo "Ejemplo: fpga_error_pkt_n 819200 512"
+        return 1
+    fi
+    
+    local packets=$1
+    local poss=$2
+    local max_uint32=4294967295
+    local max_pos=1024
+    
+    # Validar que frecuencia de paquete sea un número positivo dentro de 32 bits
+    if ! [[ "$packets" =~ ^[0-9]+$ ]] || [ "$packets" -lt 1 ] || [ "$packets" -gt "$max_uint32" ]; then
+        echo "Error: La frecuencia de paquetes debe estar entre 1 y $max_uint32"
+        return 1
+    fi
+
+    # Validar que posicion en paquete sea un número positivo dentro del rango 0-1023
+    if ! [[ "$poss" =~ ^[0-9]+$ ]] || [ "$poss" -gt "$max_pos" ]; then
+        echo "Error: La posición debe estar entre 0 y $max_pos"
+        return 1
+    fi
+    
+    # Convertir número a 4 bytes en BIG-ENDIAN
+    local byte3=$(( (packets >> 24) & 0xFF ))  # MSB
+    local byte2=$(( (packets >> 16) & 0xFF ))
+    local byte1=$(( (packets >> 8)  & 0xFF ))
+    local byte0=$(( (packets >> 0)  & 0xFF ))  # LSB
+
+    # Convertir posición a 2 bytes en BIG-ENDIAN
+    local poss_byte1=$(( (poss >> 8)  & 0xFF ))  # MSB
+    local poss_byte0=$(( (poss >> 0)  & 0xFF ))  # LSB
+    
+    echo "Configurando: error cada $packets paquetes"
+    echo "Bytes frecuencia (big-endian): $(printf '\\x%02x\\x%02x\\x%02x\\x%02x' $byte3 $byte2 $byte1 $byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de frecuencia
+    printf "ERR#\x$(printf '%02x' $byte3)\x$(printf '%02x' $byte2)\x$(printf '%02x' $byte1)\x$(printf '%02x' $byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    # Pequeña pausa entre comandos
+    sleep 0.1
+    
+    echo "Configurando: error en posición $poss del paquete"
+    echo "Bytes posición (big-endian): $(printf '\\x%02x\\x%02x' $poss_byte1 $poss_byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de posición
+    printf "ERR_P#\x$(printf '%02x' $poss_byte1)\x$(printf '%02x' $poss_byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    echo "Configuración enviada: Error cada $packets paquetes en posición $poss"
 }
 
 # --------------------------------------------------
@@ -226,6 +330,104 @@ function fpga_load {
 }
 
 # --------------------------------------------------
+# FUNCIÓN AUXILIAR: get_signal_name
+# Devuelve el nombre legible de la señal según su índice
+# --------------------------------------------------
+function get_signal_name {
+    case $1 in
+        0) echo "tx_udp_hdr_valid" ;;
+        1) echo "tx_udp_hdr_ready" ;;
+        2) echo "rx_udp_hdr_valid" ;;
+        3) echo "rx_udp_hdr_ready" ;;
+        4) echo "tx_udp_payload_axis_tvalid" ;;
+        5) echo "tx_fifo_axis_tready" ;;
+        6) echo "tx_udp_payload_axis_tlast" ;;
+        7) echo "udp_tx_busy" ;;
+        8) echo "udp_rx_busy" ;;
+        9) echo "rx_loopb" ;;
+        *) echo "rx_trigger" ;;
+    esac
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_debug_signals
+# Configura las señales de debug en los pines JA_FPGA[7:4]
+# Uso: fpga_debug_signals <JA7> <JA6> <JA5> <JA4>
+#      0: tx_udp_hdr_valid     5: tx_fifo_axis_tready
+#      1: tx_udp_hdr_ready     6: tx_udp_payload_axis_tlast  
+#      2: rx_udp_hdr_valid     7: udp_tx_busy
+#      3: rx_udp_hdr_ready     8: udp_rx_busy
+#      4: tx_udp_payload_axis_tvalid  9: rx_loopb
+#      otros: rx_trigger
+#
+# Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto
+# Ejemplo: fpga_debug_signals 7 8 0 2  # udp_tx_busy, udp_rx_busy, tx_udp_hdr_valid, rx_udp_hdr_valid
+# --------------------------------------------------
+function fpga_debug_signals {
+    if [ $# -ne 4 ]; then
+        echo "Uso: fpga_debug_signals <JA7> <JA6> <JA5> <JA4>"
+        echo "Donde cada valor puede ser:"
+        echo "  0: tx_udp_hdr_valid"
+        echo "  1: tx_udp_hdr_ready" 
+        echo "  2: rx_udp_hdr_valid"
+        echo "  3: rx_udp_hdr_ready"
+        echo "  4: tx_udp_payload_axis_tvalid"
+        echo "  5: tx_fifo_axis_tready"
+        echo "  6: tx_udp_payload_axis_tlast"
+        echo "  7: udp_tx_busy"
+        echo "  8: udp_rx_busy"
+        echo "  9: rx_loopb"
+        echo "  otros: rx_trigger"
+        echo ""
+        echo "Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto"
+        echo "Ejemplo: fpga_debug_signals 7 8 0 2  # Monitorizar busy flags y headers"
+        return 1
+    fi
+    
+    local ja7=$1
+    local ja6=$2
+    local ja5=$3
+    local ja4=$4
+    
+    # Validar que los valores estén entre 0 y 15 (4 bits)
+    for val in $ja7 $ja6 $ja5 $ja4; do
+        if ! [[ "$val" =~ ^[0-9]+$ ]] || [ "$val" -lt 0 ] || [ "$val" -gt 15 ]; then
+            echo "Error: Los valores deben estar entre 0 y 15"
+            return 1
+        fi
+    done
+    
+    # Construir el valor de 16 bits: [ja7:12-15][ja6:8-11][ja5:4-7][ja4:0-3]
+    local debug_value=$(( (ja7 << 12) | (ja6 << 8) | (ja5 << 4) | ja4 ))
+    
+    # Convertir a 2 bytes en little-endian para la FPGA
+    local byte_low=$(( debug_value & 0xFF ))         # Bits [7:0]
+    local byte_high=$(( (debug_value >> 8) & 0xFF )) # Bits [15:8]
+    
+    echo "--------------------------------------------------"
+    echo "Configurando debug signals:"
+    echo "  JA_FPGA[4]: $ja4 → $(get_signal_name $ja4)"
+    echo "  JA_FPGA[5]: $ja5 → $(get_signal_name $ja5)"
+    echo "  JA_FPGA[6]: $ja6 → $(get_signal_name $ja6)"
+    echo "  JA_FPGA[7]: $ja7 → $(get_signal_name $ja7)"
+    echo "--------------------------------------------------"
+    echo "  Valor combinado: 0x$(printf '%04x' $debug_value)"
+    echo "  Bytes enviados (little-endian): 0x$(printf '%02x' $byte_high) 0x$(printf '%02x' $byte_low)"
+    echo "  Destino: ${FPGA_IP:-192.168.1.128}:${FPGA_PORT:-1234}"
+    
+    # Enviar comando DEBUG_ + bytes en little-endian
+    printf "DEBUG_\x$(printf '%02x' $byte_high)\x$(printf '%02x' $byte_low)" | \
+    nc -u -w 1 ${FPGA_IP:-192.168.1.128} ${FPGA_PORT:-1234}
+    
+    if [ $? -eq 0 ]; then
+        echo " Configuración enviada exitosamente"
+    else
+        echo " Error al enviar configuración"
+        return 1
+    fi
+}
+
+# --------------------------------------------------
 # FUNCIÓN: show_fpga_commands
 # Mostrar todos los comandos disponibles
 # --------------------------------------------------
@@ -243,5 +445,8 @@ function show_fpga_commands {
 	echo "fpga_trigger          - Envía comando de trigger"
     echo "fpga_compile          - Compila y carga bitstream"
     echo "fpga_load             - Carga bitstream"
+    echo "fpga_error_pkt_n      - Configura palabra de error"
+    echo "fpga_loopback [e/d]   - Control loopback"
+    echo "fpga_debug_signals [s]- Configura las señales de debug"
     echo "================================="
 }   

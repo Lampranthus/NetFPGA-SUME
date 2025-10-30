@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "string.h": "c"
-    }
+        "string.h": "c",
+        "dirent.h": "c",
+        "time.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

@@ -215,7 +215,7 @@ axis_fifo #(
     .DEST_ENABLE(0),
     .USER_ENABLE(1),
     .USER_WIDTH(1),
-    .FRAME_FIFO(1) //cambio
+    .FRAME_FIFO(1) //frame_fifo ok
 )
 payload_fifo (
     .clk(clk),
@@ -247,7 +247,7 @@ payload_fifo (
 assign s_udp_payload_fifo_tdata = s_udp_payload_axis_tdata;
 assign s_udp_payload_fifo_tkeep = s_udp_payload_axis_tkeep;
 assign s_udp_payload_fifo_tvalid = s_udp_payload_axis_tvalid && shift_payload_in;
-assign s_udp_payload_axis_tready = s_udp_payload_fifo_tready && shift_payload_in;
+assign s_udp_payload_axis_tready = s_udp_payload_fifo_tready && shift_payload_in; //!!!!!!!!!!!!!!!! tready
 assign s_udp_payload_fifo_tlast = s_udp_payload_axis_tlast;
 assign s_udp_payload_fifo_tuser = s_udp_payload_axis_tuser;
 

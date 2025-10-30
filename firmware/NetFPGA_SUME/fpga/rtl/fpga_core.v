@@ -243,10 +243,10 @@ wire tx_fifo_udp_payload_axis_tlast;
 wire tx_fifo_udp_payload_axis_tuser;
 
 // Configuration
-wire [47:0] local_mac   = 48'h02_00_00_00_00_00;
-wire [31:0] local_ip    = {8'd192, 8'd168, 8'd1,   8'd128};
-wire [31:0] gateway_ip  = {8'd192, 8'd168, 8'd1,   8'd1};
-wire [31:0] subnet_mask = {8'd255, 8'd255, 8'd255, 8'd0};
+reg [47:0] local_mac   = 48'h02_00_00_00_00_00;
+reg [31:0] local_ip    = {8'd192, 8'd168, 8'd1,   8'd128};
+reg [31:0] gateway_ip  = {8'd192, 8'd168, 8'd1,   8'd1};
+reg [31:0] subnet_mask = {8'd255, 8'd255, 8'd255, 8'd0};
 
 // IP ports not used
 assign rx_ip_hdr_ready = 1;
@@ -297,6 +297,31 @@ always @ (posedge clk) begin
 	end
 end
 
+//loopback command //////////////////////////
+
+reg rx_loopb = 0;
+
+always @(posedge clk) begin
+    if (rst) begin
+        rx_loopb <= 0;
+    end else begin
+        if (rx_reg[55:0] == 56'h5F4B42504F4F4C) begin  // "LOOPBK_" en little-endian
+            case (rx_reg[63:56])
+                8'h44: begin  // "LOOPBK_D" en ASCII little-endian
+                    rx_loopb <= 0; // disable loopback
+                end
+                8'h45: begin  // "LOOPBK_E" en ASCII  little-endian
+                    rx_loopb <= 1; // enable loopback
+                end
+                default: begin
+                    rx_loopb <= rx_loopb; // mantiene estado
+                end
+            endcase
+        end
+        // Si no es "LOOPBK_", mantiene el estado actual
+    end
+end
+
 //start, stop //////////////////////////
 
 reg rx_trigger = 0;
@@ -338,18 +363,56 @@ always @(posedge clk) begin
     end
 end
 
+//error test message number ////////////////////////// introduce 8 bytes de error cada e mensajes
+
+reg [31:0] pkt_e = 32'd0; //por defecto sin mensaje de test, ya que el conteo comienza desde 1
+
+always @(posedge clk) begin
+    if (rst) begin
+        pkt_e <= 32'd0;
+    end else begin
+        if (rx_reg[31:0] == 32'h23525245) begin  // "ERR#" en little-endian
+           // Invertir el orden de los bytes
+           pkt_e <= {rx_reg[39:32], rx_reg[47:40], rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "#RRE", mantiene el estado actual
+    end
+end
+
+//error test message number position ////////////////////////// posición de los 8 bytes de error en el mensaje de error
+
+reg [15:0] pkt_e_p = 16'd128; //por defecto en la posición 128
+
+always @(posedge clk) begin
+    if (rst) begin
+        pkt_e_p <= 16'd0;
+    end else begin
+        if (rx_reg[47:0] == 48'h23505F525245) begin  // "ERR_P#" en little-endian
+           // Invertir el orden de los bytes
+           pkt_e_p <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "#RRE", mantiene el estado actual
+    end
+end
+
 //transmision de paquetes de bytes
 
 reg [10:0] cont_reg = 11'd0;
-reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes
+reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes MTU fixed
 
-reg [63:0] tx_fifo_axis_tdata = 64'd0; 
+reg [31:0] cont_err_reg = 32'd0;
+
+reg [63:0] tx_fifo_axis_tdata = 64'd0;
+reg [63:0] tx_fifo_axis_tdata_reg = 64'd0;
+reg [63:0] tx_axis_tdata_test = 64'h0A2E545345542E0A; //"\n.TEST.\n" en little-endian
 reg [7:0] tx_fifo_axis_tkeep = 8'hFF;
 reg tx_fifo_axis_tvalid = 0;
 wire tx_fifo_axis_tready;
 reg tx_fifo_axis_tlast = 0;
 reg tx_fifo_axis_tuser = 0;
 
+reg [4:0] off_cycles = 5'd20; // ciclos de reoloj de separacion entre paquetes
+reg [4:0] off_cycles_reg = 5'd0;
 
 reg [31:0] pkt_n_reg = 32'd0;
 reg [2:0] state = 3'd0;
@@ -358,11 +421,13 @@ reg [2:0] state = 3'd0;
 always @(posedge clk) begin
     if (rst) begin
         state <=  3'd0;
-        tx_fifo_axis_tdata <= 64'd0; 
+        tx_fifo_axis_tdata <= 64'd0;
+        tx_fifo_axis_tdata_reg <= 64'd0;
         tx_fifo_axis_tvalid <= 0;
         cont_reg <= 0;
         tx_fifo_axis_tlast <= 0;
         pkt_n_reg <= 0;
+        off_cycles_reg <= 5'd0;
     end else begin
        // Estado 0: Esperando pulso
         if (state == 3'd0) begin
@@ -372,10 +437,21 @@ always @(posedge clk) begin
             cont_reg <= 0;
             pkt_n_reg <= 0;
             tx_fifo_axis_tdata <= 64'd0;
+            tx_fifo_axis_tdata_reg <= 64'd0;
+            off_cycles_reg <= 5'd0;
         
-            if (rx_trigger && pulse_trigg) begin
+            if (rx_trigger && pulse_trigg && ~rx_loopb) begin
                 state <= 3'd1;
                 tx_fifo_axis_tvalid <= 1; //tvalid 1 en el siguiente ciclo
+
+                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
+
+                if ((pkt_e == 1) && (pkt_e_p == 0)) begin // si se eligio el dato 0 de cada mensaje
+                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
+                end else begin
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                end
+
             end
         end 
         // Estado 1: Esperando tready para primer dato
@@ -387,7 +463,14 @@ always @(posedge clk) begin
             if (tx_fifo_axis_tready) begin
                 state <= 3'd2;
                 // Primer dato aceptado
-                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
+                
+                if ((pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 1))) begin // si se eligio el dato 1 de cada pkt_e mensajes
+                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
+                end else begin
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                end
+                
                 cont_reg <= cont_reg + 1;
             end
         end 
@@ -398,12 +481,26 @@ always @(posedge clk) begin
             tx_fifo_axis_tlast <= 0;
         
             if (tx_fifo_axis_tready) begin
-                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
+                
+                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
+                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
+                end else begin
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                end
+
                 cont_reg <= cont_reg + 1;
                 
                 if (cont_reg == (n_bytes - 2)) begin
                     state <= 3'd3;
-                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1;
+                    tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
+                    
+                    if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p[10:0] == (n_bytes - 1)))) begin // si se eligio el ultimo dato de cada pkt_e mensajes 
+                        tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
+                    end else begin
+                        tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    end
+
                     tx_fifo_axis_tlast <= 1;
                     pkt_n_reg <= pkt_n_reg + 1;
                 end
@@ -415,25 +512,48 @@ always @(posedge clk) begin
             tx_fifo_axis_tvalid <= 1;
             tx_fifo_axis_tlast <= 1;
         
-            if (pkt_n_reg == (pkt_n)) begin
+            if (pkt_n_reg == (pkt_n) || ~rx_trigger) begin
                 state <= 3'd0; //si se llego al numero de mensajes volver a estado 0 para esperar otro pulso
                 tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
             end else begin
                 state <= 3'd4; //si no se llego al numero de mensaje ir al estado 4 para esperar a que baje tready
                 tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
-                tx_fifo_axis_tdata <= tx_fifo_axis_tdata + 64'd1; //sumar 1 en el siguiente ciclo de reloj para que el nuevo mensaje empiece por ese
+                tx_fifo_axis_tvalid <= 0;//bajar tvalid
+                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1; 
+                
+                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 0))) begin // si se eligio el dato 0 de cada pkt_e mensajes 
+                    tx_fifo_axis_tdata <= tx_axis_tdata_test; //8 bytes de error
+                end else begin
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                end
+
                 cont_reg <= 0; //resetear cont_reg
             end
         end
          // Estado 4: esperando que tready baje para enviar otro mensaje
         else if (state == 3'd4) begin
         
-            tx_fifo_axis_tvalid <= 1;
+            tx_fifo_axis_tvalid <= 0;// mantener tvalid abajo
             tx_fifo_axis_tlast <= 0;
         
-            if (~tx_fifo_axis_tready) begin
-                state <= 3'd1; //cuando baje tready ir al estado 1 para esperar a que suba
+            if (~tx_fifo_axis_tready) begin 
+                state <= 3'd5; //cuando baje tready ir al estado 5 para esperas ciclos de separacion
             end
+        end
+         // Estado 5: esperando ciclos de separacion para enviar el siguiente mensaje
+        else if (state == 3'd5) begin
+        
+            tx_fifo_axis_tvalid <= 0;// mantener tvalid abajo
+            tx_fifo_axis_tlast <= 0;
+        
+            if (off_cycles_reg == (off_cycles - 1)) begin 
+                state <= 3'd1; //cuando baje tready ir al estado 1 para esperar a que tready suba
+                tx_fifo_axis_tvalid <= 1;//subir tvalid tvalid en el siguiente ciclo de reloj
+                off_cycles_reg <= 0; //reiniciando off_cycles_reg
+            end else begin
+                off_cycles_reg <= off_cycles_reg + 1; 
+            end
+
         end
     end
 end
@@ -463,9 +583,10 @@ always @(posedge clk) begin
     end
 end
 
-assign tx_udp_hdr_valid = tx_udp_payload_axis_tvalid && tx_udp_hdr_ready;
+assign tx_udp_hdr_valid = rx_loopb ? (rx_udp_hdr_valid & match_cond) : (tx_udp_payload_axis_tvalid && tx_udp_hdr_ready);
 
-assign rx_udp_hdr_ready = (tx_eth_hdr_ready & match_cond) | no_match;
+assign rx_udp_hdr_ready = rx_loopb ? ((tx_udp_hdr_ready & match_cond) | no_match) : (match_cond | no_match);
+
 assign tx_udp_ip_dscp = 0;
 assign tx_udp_ip_ecn = 0;
 assign tx_udp_ip_ttl = 64;
@@ -480,21 +601,27 @@ assign tx_udp_checksum = 0;
 
 /*
 //con fifo
-assign tx_udp_payload_axis_tdata = tx_fifo_udp_payload_axis_tdata;
-assign tx_udp_payload_axis_tkeep = tx_fifo_udp_payload_axis_tkeep;
-assign tx_udp_payload_axis_tvalid = tx_fifo_udp_payload_axis_tvalid;
-assign tx_fifo_udp_payload_axis_tready = tx_udp_payload_axis_tready;
-assign tx_udp_payload_axis_tlast = tx_fifo_udp_payload_axis_tlast;
-assign tx_udp_payload_axis_tuser = tx_fifo_udp_payload_axis_tuser;
+assign tx_udp_payload_axis_tdata = rx_loopb ? reg_fifo_udp_payload_axis_tdata : tx_fifo_udp_payload_axis_tdata;
+assign tx_udp_payload_axis_tkeep = rx_loopb ? reg_fifo_udp_payload_axis_tkeep : tx_fifo_udp_payload_axis_tkeep;
+assign tx_udp_payload_axis_tvalid = rx_loopb ? reg_fifo_udp_payload_axis_tvalid : tx_fifo_udp_payload_axis_tvalid;
+
+assign tx_fifo_udp_payload_axis_tready = rx_loopb ? 1'b1 : tx_udp_payload_axis_tready;
+assign reg_fifo_udp_payload_axis_tready = rx_loopb ? tx_udp_payload_axis_tready : 1'b1;
+
+assign tx_udp_payload_axis_tlast = rx_loopb ? reg_fifo_udp_payload_axis_tlast : tx_fifo_udp_payload_axis_tlast;
+assign tx_udp_payload_axis_tuser = rx_loopb ? reg_fifo_udp_payload_axis_tuser : tx_fifo_udp_payload_axis_tuser;
 */
 
-//sin fifo
-assign tx_udp_payload_axis_tdata = tx_fifo_axis_tdata;
-assign tx_udp_payload_axis_tkeep = tx_fifo_axis_tkeep;
-assign tx_udp_payload_axis_tvalid = tx_fifo_axis_tvalid;
+
+//sin fifo en tx peor con fifo en rx
+assign tx_udp_payload_axis_tdata = rx_loopb ? reg_fifo_udp_payload_axis_tdata : tx_fifo_axis_tdata;
+assign tx_udp_payload_axis_tkeep = rx_loopb ? reg_fifo_udp_payload_axis_tkeep : tx_fifo_axis_tkeep;
+assign tx_udp_payload_axis_tvalid = rx_loopb ? reg_fifo_udp_payload_axis_tvalid : tx_fifo_axis_tvalid;
 assign tx_fifo_axis_tready = tx_udp_payload_axis_tready;
-assign tx_udp_payload_axis_tlast = tx_fifo_axis_tlast;
-assign tx_udp_payload_axis_tuser = tx_fifo_axis_tuser;
+assign reg_fifo_udp_payload_axis_tready = rx_loopb ? tx_udp_payload_axis_tready : 1'b1;
+assign tx_udp_payload_axis_tlast = rx_loopb ? reg_fifo_udp_payload_axis_tlast : tx_fifo_axis_tlast;
+assign tx_udp_payload_axis_tuser = rx_loopb ? reg_fifo_udp_payload_axis_tuser : tx_fifo_axis_tuser;
+
 
 //---------------------------------------------------------------------------------
 
@@ -504,6 +631,7 @@ assign rx_fifo_udp_payload_axis_tvalid = rx_udp_payload_axis_tvalid & match_cond
 assign rx_udp_payload_axis_tready = (rx_fifo_udp_payload_axis_tready & match_cond_reg) | no_match_reg;
 assign rx_fifo_udp_payload_axis_tlast = rx_udp_payload_axis_tlast;
 assign rx_fifo_udp_payload_axis_tuser = rx_udp_payload_axis_tuser;
+
 
 
 //optener ip
@@ -539,18 +667,83 @@ always @(posedge clk) begin
     end
 end
 
+//debug signals //////////////////////////
+
 assign led[1] = rx_trigger;
-//assign led[0] = tx_udp_hdr_ready;
-assign JA_FPGA[0] = tx_fifo_axis_tvalid;
-assign JA_FPGA[1] = tx_fifo_axis_tready;
-assign JA_FPGA[2] = tx_fifo_axis_tlast;
-//assign JA_FPGA[3] = tx_udp_hdr_ready;
+assign led[0] = rx_loopb;
+assign JA_FPGA[0] = 1'b0;
+assign JA_FPGA[1] = 1'b0;
+assign JA_FPGA[2] = 1'b0;
+assign JA_FPGA[3] = 1'b0;
 
-assign JA_FPGA[4] = tx_udp_hdr_valid;
-assign JA_FPGA[5] = tx_udp_hdr_ready;
-//assign JA_FPGA[6] = tx_udp_payload_axis_tlast;
-//assign JA_FPGA[7] = pulse_trigg;
+/*
+assign JA_FPGA[4] = tx_fifo_axis_tvalid;
+assign JA_FPGA[5] = tx_fifo_axis_tready;
+assign JA_FPGA[6] = tx_fifo_axis_tlast;
+assign JA_FPGA[7] = rx_loopb;
+*/
 
+reg [15:0] debug_signals = 16'h9654;
+
+wire udp_tx_busy;
+wire udp_rx_busy;
+
+always @(posedge clk) begin
+    if (rst) begin
+        debug_signals <= 16'h9654;
+    end else begin
+        if (rx_reg[47:0] == 48'h5F4755424544) begin  // "DEBUG_" en little-endian  9=rx_loopb, 6=tlast, 5=tready, 4=tvalid
+           // Invertir el orden de los bytes
+           debug_signals <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "DEBUG_", mantiene el estado actual
+    end
+end
+
+// Multiplexor para JA_FPGA basado en debug_signals
+assign JA_FPGA[4] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
+                    (debug_signals[3:0] == 4'd1) ? tx_udp_hdr_ready :
+                    (debug_signals[3:0] == 4'd2) ? rx_udp_hdr_valid :
+                    (debug_signals[3:0] == 4'd3) ? rx_udp_hdr_ready :
+                    (debug_signals[3:0] == 4'd4) ? tx_udp_payload_axis_tvalid : // valor inicial en 4
+                    (debug_signals[3:0] == 4'd5) ? tx_fifo_axis_tready :
+                    (debug_signals[3:0] == 4'd6) ? tx_udp_payload_axis_tlast :
+                    (debug_signals[3:0] == 4'd7) ? udp_tx_busy :
+                    (debug_signals[3:0] == 4'd8) ? udp_rx_busy :
+                    (debug_signals[3:0] == 4'd9) ? rx_loopb : rx_trigger;
+
+assign JA_FPGA[5] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
+                    (debug_signals[7:4] == 4'd1) ? tx_udp_hdr_ready :
+                    (debug_signals[7:4] == 4'd2) ? rx_udp_hdr_valid :
+                    (debug_signals[7:4] == 4'd3) ? rx_udp_hdr_ready :
+                    (debug_signals[7:4] == 4'd4) ? tx_udp_payload_axis_tvalid :
+                    (debug_signals[7:4] == 4'd5) ? tx_fifo_axis_tready :        // valor inicial en 5
+                    (debug_signals[7:4] == 4'd6) ? tx_udp_payload_axis_tlast :
+                    (debug_signals[7:4] == 4'd7) ? udp_tx_busy :
+                    (debug_signals[7:4] == 4'd8) ? udp_rx_busy :
+                    (debug_signals[7:4] == 4'd9) ? rx_loopb : rx_trigger;
+
+assign JA_FPGA[6] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
+                    (debug_signals[11:8] == 4'd1) ? tx_udp_hdr_ready :
+                    (debug_signals[11:8] == 4'd2) ? rx_udp_hdr_valid :
+                    (debug_signals[11:8] == 4'd3) ? rx_udp_hdr_ready :
+                    (debug_signals[11:8] == 4'd4) ? tx_udp_payload_axis_tvalid :
+                    (debug_signals[11:8] == 4'd5) ? tx_fifo_axis_tready :
+                    (debug_signals[11:8] == 4'd6) ? tx_udp_payload_axis_tlast : // valor inicial en 6
+                    (debug_signals[11:8] == 4'd7) ? udp_tx_busy :
+                    (debug_signals[11:8] == 4'd8) ? udp_rx_busy :
+                    (debug_signals[11:8] == 4'd9) ? rx_loopb : rx_trigger;
+
+assign JA_FPGA[7] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
+                    (debug_signals[15:12] == 4'd1) ? tx_udp_hdr_ready :
+                    (debug_signals[15:12] == 4'd2) ? rx_udp_hdr_valid :
+                    (debug_signals[15:12] == 4'd3) ? rx_udp_hdr_ready :
+                    (debug_signals[15:12] == 4'd4) ? tx_udp_payload_axis_tvalid :
+                    (debug_signals[15:12] == 4'd5) ? tx_fifo_axis_tready :
+                    (debug_signals[15:12] == 4'd6) ? tx_udp_payload_axis_tlast :
+                    (debug_signals[15:12] == 4'd7) ? udp_tx_busy :
+                    (debug_signals[15:12] == 4'd8) ? udp_rx_busy :
+                    (debug_signals[15:12] == 4'd9) ? rx_loopb : rx_trigger;     // loop valor inicial en 7
 
 assign sfp_2_txd = 64'h0707070707070707;
 assign sfp_2_txc = 8'hff;
@@ -564,9 +757,9 @@ eth_mac_10g_fifo #(
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
     .MIN_FRAME_LENGTH(64),
-    .TX_FIFO_DEPTH(16384),
+    .TX_FIFO_DEPTH(65536),
     .TX_FRAME_FIFO(1),
-    .RX_FIFO_DEPTH(16384),
+    .RX_FIFO_DEPTH(65536),
     .RX_FRAME_FIFO(1)
 )
 eth_mac_10g_fifo_inst (
@@ -596,9 +789,9 @@ eth_mac_10g_fifo_inst (
     .xgmii_txd(sfp_1_txd),
     .xgmii_txc(sfp_1_txc),
 
-    .tx_fifo_overflow(JA_FPGA[6]),
+    .tx_fifo_overflow(),
     .tx_fifo_bad_frame(),
-    .tx_fifo_good_frame(led[0]),
+    .tx_fifo_good_frame(),
     .rx_error_bad_frame(),
     .rx_error_bad_fcs(),
     .rx_fifo_overflow(),
@@ -788,8 +981,8 @@ udp_complete_inst (
     // Status signals
     .ip_rx_busy(),
     .ip_tx_busy(),
-    .udp_rx_busy(JA_FPGA[7]),
-    .udp_tx_busy(JA_FPGA[3]),
+    .udp_rx_busy(udp_rx_busy),
+    .udp_tx_busy(udp_tx_busy),
     .ip_rx_error_header_early_termination(),
     .ip_rx_error_payload_early_termination(),
     .ip_rx_error_invalid_header(),
@@ -848,11 +1041,11 @@ tx_udp_payload_fifo (
     .status_bad_frame(),
     .status_good_frame()
 );
-
 */
 
+
 axis_fifo #(
-    .DEPTH(16384),
+    .DEPTH(65536),
     .DATA_WIDTH(64),
     .KEEP_ENABLE(1),
     .KEEP_WIDTH(8),
@@ -880,7 +1073,7 @@ rx_udp_payload_fifo (
     .m_axis_tdata(reg_fifo_udp_payload_axis_tdata),
     .m_axis_tkeep(reg_fifo_udp_payload_axis_tkeep),
     .m_axis_tvalid(reg_fifo_udp_payload_axis_tvalid),
-    .m_axis_tready(1),
+    .m_axis_tready(reg_fifo_udp_payload_axis_tready),
     .m_axis_tlast(reg_fifo_udp_payload_axis_tlast),
     .m_axis_tid(),
     .m_axis_tdest(),
