@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Oct 28 18:01:32 2025
-# Process ID         : 614319
+# Start of session at: Fri Nov  7 15:34:16 2025
+# Process ID         : 99954
 # Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga
 # Command line       : vivado -mode batch -source generate_bit.tcl -tclargs -jobs 16
 # Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/vivado.log
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
-# CPU Frequency      : 605.000 MHz
+# CPU Frequency      : 3309.426 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 32651 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41241 MB
-# Available Virtual  : 39460 MB
+# Available Virtual  : 39685 MB
 #-----------------------------------------------------------
 source generate_bit.tcl
 # open_project fpga.xpr
@@ -31,12 +31,12 @@ INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
 # open_run impl_1
 INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
-Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1826.270 ; gain = 0.000 ; free physical = 24581 ; free virtual = 36852
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1827.273 ; gain = 0.000 ; free physical = 25470 ; free virtual = 37073
 INFO: [Netlist 29-17] Analyzing 975 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2024.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1942.770 ; gain = 5.000 ; free physical = 24455 ; free virtual = 36726
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1943.742 ; gain = 5.000 ; free physical = 25336 ; free virtual = 36939
 INFO: [Timing 38-478] Restoring timing data from binary archive.
 INFO: [Timing 38-479] Binary timing data restore complete.
 INFO: [Project 1-856] Restoring constraints from binary archive.
@@ -46,17 +46,17 @@ INFO: [Constraints 18-5170] The checkpoint was created with non-default paramete
 INFO: [Project 1-853] Binary constraint restore complete.
 INFO: [Designutils 20-5722] Start Reading Physical Databases.
 Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2786.355 ; gain = 0.000 ; free physical = 23707 ; free virtual = 35978
+Read Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2786.359 ; gain = 0.000 ; free physical = 24587 ; free virtual = 36190
 Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2786.355 ; gain = 0.000 ; free physical = 23707 ; free virtual = 35978
-Read PlaceDB: Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.31 . Memory (MB): peak = 2797.316 ; gain = 10.961 ; free physical = 23684 ; free virtual = 35954
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2797.316 ; gain = 0.000 ; free physical = 23684 ; free virtual = 35954
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2786.359 ; gain = 0.000 ; free physical = 24580 ; free virtual = 36182
+Read PlaceDB: Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.31 . Memory (MB): peak = 2798.320 ; gain = 11.961 ; free physical = 24564 ; free virtual = 36166
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2798.320 ; gain = 0.000 ; free physical = 24564 ; free virtual = 36166
 Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2811.027 ; gain = 13.711 ; free physical = 23668 ; free virtual = 35938
-Read Physdb Files: Time (s): cpu = 00:00:00.5 ; elapsed = 00:00:00.4 . Memory (MB): peak = 2811.027 ; gain = 24.672 ; free physical = 23668 ; free virtual = 35938
-Restored from archive | CPU: 0.530000 secs | Memory: 30.473106 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.42 . Memory (MB): peak = 2811.027 ; gain = 28.641 ; free physical = 23668 ; free virtual = 35938
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2811.027 ; gain = 0.000 ; free physical = 23668 ; free virtual = 35938
+Read RouteStorage: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2813.039 ; gain = 14.719 ; free physical = 24548 ; free virtual = 36151
+Read Physdb Files: Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.4 . Memory (MB): peak = 2813.039 ; gain = 26.680 ; free physical = 24548 ; free virtual = 36151
+Restored from archive | CPU: 0.530000 secs | Memory: 30.760689 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.51 ; elapsed = 00:00:00.42 . Memory (MB): peak = 2813.039 ; gain = 30.648 ; free physical = 24548 ; free virtual = 36151
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2813.039 ; gain = 0.000 ; free physical = 24548 ; free virtual = 36151
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 81 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
@@ -64,12 +64,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 73 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
 
-open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2811.027 ; gain = 1313.945 ; free physical = 23668 ; free virtual = 35938
+open_run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2813.039 ; gain = 1347.969 ; free physical = 24548 ; free virtual = 36151
 # write_bitstream -force fpga.runs/impl_1/fpga.bit
 Command: write_bitstream -force fpga.runs/impl_1/fpga.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
-INFO: [Common 17-86] Your Implementation license expires in 12 day(s)
+INFO: [Common 17-86] Your Implementation license expires in 2 day(s)
 CRITICAL WARNING: [Vivado 12-1790] Evaluation License Warning: This design contains one or more evaluation cores that will cease to function after a certain period of time. This design should NOT be used in production systems.
 
 Evaluation cores found in this design:
@@ -89,13 +89,13 @@ Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 193009792 bits.
+Bitstream compression saved 191831072 bits.
 Writing bitstream fpga.runs/impl_1/fpga.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Common 17-83] Releasing license: Implementation
 9 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:22 ; elapsed = 00:00:17 . Memory (MB): peak = 3761.297 ; gain = 950.270 ; free physical = 22796 ; free virtual = 35071
+write_bitstream: Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3766.926 ; gain = 953.887 ; free physical = 23655 ; free virtual = 35266
 # write_debug_probes -force fpga.runs/impl_1/fpga.ltx
 INFO: [Chipscope 16-244] No debug cores were found in this design.
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 28 18:02:01 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 15:34:46 2025...

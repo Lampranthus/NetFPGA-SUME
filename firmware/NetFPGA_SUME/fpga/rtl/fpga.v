@@ -43,7 +43,8 @@ module fpga (
      */
     output wire PMOD_OE_B,
     output wire [7:0] DIR_JA,
-    output wire [7:0] JA_FPGA,
+    input  wire [3:0] JA_FPGA_IN,
+    output wire [3:0] JA_FPGA_OUT,
     input  wire [1:0] btn,
     output wire [1:0] sfp_1_led,
     output wire [1:0] sfp_2_led,
@@ -236,7 +237,7 @@ assign i2c_sda_i = i2c_sda;
 assign i2c_sda = i2c_sda_t ? 1'bz : i2c_sda_o;
 
 assign PMOD_OE_B = 0; //Pmod reset
-assign DIR_JA = 8'hff; //all pmod output
+assign DIR_JA = 8'b11110000; //0-3 inputs & 4-7 outputs
 
 wire [6:0] si5324_i2c_cmd_address;
 wire si5324_i2c_cmd_start;
@@ -772,7 +773,8 @@ core_inst (
     /*
      * GPIO
      */
-    .JA_FPGA(JA_FPGA),
+    .JA_FPGA_IN(JA_FPGA_IN),
+    .JA_FPGA_OUT(JA_FPGA_OUT),
     .btn(btn_int),
     .sfp_1_led(sfp_1_led_int),
     .sfp_2_led(sfp_2_led_int),

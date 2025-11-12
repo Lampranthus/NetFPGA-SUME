@@ -43,7 +43,8 @@ module fpga_core
     /*
      * GPIO
      */
-    output wire [7:0]  JA_FPGA,
+    input  wire [3:0]  JA_FPGA_IN,
+    output wire [3:0]  JA_FPGA_OUT,
     input  wire [1:0]  btn,
     output wire [1:0]  sfp_1_led,
     output wire [1:0]  sfp_2_led,
@@ -322,6 +323,31 @@ always @(posedge clk) begin
     end
 end
 
+//ramdom command //////////////////////////
+
+reg rx_random = 0;
+
+always @(posedge clk) begin
+    if (rst) begin
+        rx_random <= 0;
+    end else begin
+        if (rx_reg[55:0] == 56'h5F4D4F444E4152) begin  // "RANDOM_" en little-endian
+            case (rx_reg[63:56])
+                8'h44: begin  // "RANDOM_D" en ASCII little-endian
+                    rx_random <= 0; // disable random
+                end
+                8'h45: begin  // "RANDOM_E" en ASCII  little-endian
+                    rx_random <= 1; // enable random
+                end
+                default: begin
+                    rx_random <= rx_random; // mantiene estado
+                end
+            endcase
+        end
+        // Si no es "RANDOM_", mantiene el estado actual
+    end
+end
+
 //start, stop //////////////////////////
 
 reg rx_trigger = 0;
@@ -417,8 +443,26 @@ reg [4:0] off_cycles_reg = 5'd0;
 reg [31:0] pkt_n_reg = 32'd0;
 reg [2:0] state = 3'd0;
 
+reg [63:0] random_data;
+// Linear-feedback shift register de 64 bits usando polinomio máximo x^64 + x^63 + x^61 + x^60 + 1
+reg [63:0] lfsr;
+
+wire feedback;
+
+// Feedback para polinomio máximo de 64 bits
+assign feedback = lfsr[63] ^ lfsr[62] ^ lfsr[60] ^ lfsr[59];
+
 // maquina de estados para trasnmision 
 always @(posedge clk) begin
+
+    if (rst) begin
+        lfsr <= 64'h0123456789ABCDEF; // Semilla inicial (no todos ceros)
+    end else begin
+        // Generar nuevo valor cada ciclo de reloj
+        lfsr[63:0] <= {lfsr[62:0], feedback};
+        random_data <= lfsr;
+    end
+
     if (rst) begin
         state <=  3'd0;
         tx_fifo_axis_tdata <= 64'd0;
@@ -436,7 +480,7 @@ always @(posedge clk) begin
             tx_fifo_axis_tlast <= 0;
             cont_reg <= 0;
             pkt_n_reg <= 0;
-            tx_fifo_axis_tdata <= 64'd0;
+            tx_fifo_axis_tdata <= rx_random ? random_data : 64'd0;
             tx_fifo_axis_tdata_reg <= 64'd0;
             off_cycles_reg <= 5'd0;
         
@@ -449,7 +493,7 @@ always @(posedge clk) begin
                 if ((pkt_e == 1) && (pkt_e_p == 0)) begin // si se eligio el dato 0 de cada mensaje
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
                 end else begin
-                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
                 end
 
             end
@@ -468,7 +512,7 @@ always @(posedge clk) begin
                 if ((pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 1))) begin // si se eligio el dato 1 de cada pkt_e mensajes
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
                 end else begin
-                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
                 end
                 
                 cont_reg <= cont_reg + 1;
@@ -486,7 +530,7 @@ always @(posedge clk) begin
                 if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
                 end else begin
-                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
                 end
 
                 cont_reg <= cont_reg + 1;
@@ -498,7 +542,7 @@ always @(posedge clk) begin
                     if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p[10:0] == (n_bytes - 1)))) begin // si se eligio el ultimo dato de cada pkt_e mensajes 
                         tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
                     end else begin
-                        tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                        tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
                     end
 
                     tx_fifo_axis_tlast <= 1;
@@ -524,7 +568,7 @@ always @(posedge clk) begin
                 if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 0))) begin // si se eligio el dato 0 de cada pkt_e mensajes 
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; //8 bytes de error
                 end else begin
-                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
                 end
 
                 cont_reg <= 0; //resetear cont_reg
@@ -671,10 +715,10 @@ end
 
 assign led[1] = rx_trigger;
 assign led[0] = rx_loopb;
-assign JA_FPGA[0] = 1'b0;
-assign JA_FPGA[1] = 1'b0;
-assign JA_FPGA[2] = 1'b0;
-assign JA_FPGA[3] = 1'b0;
+//assign JA_FPGA[0] = 1'b0;
+//assign JA_FPGA[1] = 1'b0;
+//assign JA_FPGA[2] = 1'b0;
+//assign JA_FPGA[3] = 1'b0;
 
 /*
 assign JA_FPGA[4] = tx_fifo_axis_tvalid;
@@ -700,8 +744,8 @@ always @(posedge clk) begin
     end
 end
 
-// Multiplexor para JA_FPGA basado en debug_signals
-assign JA_FPGA[4] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
+// Multiplexor para JA_FPGA_OUT basado en debug_signals
+assign JA_FPGA_OUT[0] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[3:0] == 4'd1) ? tx_udp_hdr_ready :
                     (debug_signals[3:0] == 4'd2) ? rx_udp_hdr_valid :
                     (debug_signals[3:0] == 4'd3) ? rx_udp_hdr_ready :
@@ -710,9 +754,13 @@ assign JA_FPGA[4] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[3:0] == 4'd6) ? tx_udp_payload_axis_tlast :
                     (debug_signals[3:0] == 4'd7) ? udp_tx_busy :
                     (debug_signals[3:0] == 4'd8) ? udp_rx_busy :
-                    (debug_signals[3:0] == 4'd9) ? rx_loopb : rx_trigger;
+                    (debug_signals[3:0] == 4'd9) ? rx_loopb :
+                    (debug_signals[3:0] == 4'd10) ? JA_FPGA_IN[0] :
+                    (debug_signals[3:0] == 4'd11) ? JA_FPGA_IN[1] :
+                    (debug_signals[3:0] == 4'd12) ? JA_FPGA_IN[2] :
+                    (debug_signals[3:0] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
 
-assign JA_FPGA[5] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
+assign JA_FPGA_OUT[1] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd1) ? tx_udp_hdr_ready :
                     (debug_signals[7:4] == 4'd2) ? rx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd3) ? rx_udp_hdr_ready :
@@ -721,9 +769,13 @@ assign JA_FPGA[5] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd6) ? tx_udp_payload_axis_tlast :
                     (debug_signals[7:4] == 4'd7) ? udp_tx_busy :
                     (debug_signals[7:4] == 4'd8) ? udp_rx_busy :
-                    (debug_signals[7:4] == 4'd9) ? rx_loopb : rx_trigger;
+                    (debug_signals[7:4] == 4'd9) ? rx_loopb :
+                    (debug_signals[7:4] == 4'd10) ? JA_FPGA_IN[0] :
+                    (debug_signals[7:4] == 4'd11) ? JA_FPGA_IN[1] :
+                    (debug_signals[7:4] == 4'd12) ? JA_FPGA_IN[2] :
+                    (debug_signals[7:4] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
 
-assign JA_FPGA[6] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
+assign JA_FPGA_OUT[2] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd1) ? tx_udp_hdr_ready :
                     (debug_signals[11:8] == 4'd2) ? rx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd3) ? rx_udp_hdr_ready :
@@ -732,9 +784,13 @@ assign JA_FPGA[6] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd6) ? tx_udp_payload_axis_tlast : // valor inicial en 6
                     (debug_signals[11:8] == 4'd7) ? udp_tx_busy :
                     (debug_signals[11:8] == 4'd8) ? udp_rx_busy :
-                    (debug_signals[11:8] == 4'd9) ? rx_loopb : rx_trigger;
+                    (debug_signals[11:8] == 4'd9) ? rx_loopb :
+                    (debug_signals[11:8] == 4'd10) ? JA_FPGA_IN[0] :
+                    (debug_signals[11:8] == 4'd11) ? JA_FPGA_IN[1] :
+                    (debug_signals[11:8] == 4'd12) ? JA_FPGA_IN[2] :
+                    (debug_signals[11:8] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
 
-assign JA_FPGA[7] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
+assign JA_FPGA_OUT[3] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd1) ? tx_udp_hdr_ready :
                     (debug_signals[15:12] == 4'd2) ? rx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd3) ? rx_udp_hdr_ready :
@@ -743,7 +799,11 @@ assign JA_FPGA[7] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd6) ? tx_udp_payload_axis_tlast :
                     (debug_signals[15:12] == 4'd7) ? udp_tx_busy :
                     (debug_signals[15:12] == 4'd8) ? udp_rx_busy :
-                    (debug_signals[15:12] == 4'd9) ? rx_loopb : rx_trigger;     // loop valor inicial en 7
+                    (debug_signals[15:12] == 4'd9) ? rx_loopb :     // loop valor inicial en 7
+                    (debug_signals[15:12] == 4'd10) ? JA_FPGA_IN[0] :
+                    (debug_signals[15:12] == 4'd11) ? JA_FPGA_IN[1] :
+                    (debug_signals[15:12] == 4'd12) ? JA_FPGA_IN[2] :
+                    (debug_signals[15:12] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
 
 assign sfp_2_txd = 64'h0707070707070707;
 assign sfp_2_txc = 8'hff;

@@ -140,18 +140,18 @@ set_property -dict { PACKAGE_PIN BB17  IOSTANDARD LVCMOS15 } [get_ports { DIR_JA
 set_property src_info {type:XDC file:1 line:181 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN AY20  IOSTANDARD LVCMOS15 } [get_ports { DIR_JA[7] }]; #IO_L22P_T3_32 Sch=dir_ja[10]
 set_property src_info {type:XDC file:1 line:184 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AW18  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[0] }]; #IO_L14P_T2_SRCC_32 Sch=ja1_fpga
+set_property -dict { PACKAGE_PIN AW18  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_IN[0] }]; #IO_L14P_T2_SRCC_32 Sch=ja1_fpga
 set_property src_info {type:XDC file:1 line:185 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AW17  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[1] }]; #IO_L14N_T2_SRCC_32 Sch=ja2_fpga
+set_property -dict { PACKAGE_PIN AW17  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_IN[1] }]; #IO_L14N_T2_SRCC_32 Sch=ja2_fpga
 set_property src_info {type:XDC file:1 line:186 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AU19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[2] }]; #IO_L15P_T2_DQS_32 Sch=ja3_fpga
+set_property -dict { PACKAGE_PIN AU19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_IN[2] }]; #IO_L15P_T2_DQS_32 Sch=ja3_fpga
 set_property src_info {type:XDC file:1 line:187 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AV19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[3] }]; #IO_L15N_T2_DQS_32 Sch=ja4_fpga
+set_property -dict { PACKAGE_PIN AV19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_IN[3] }]; #IO_L15N_T2_DQS_32 Sch=ja4_fpga
 set_property src_info {type:XDC file:1 line:188 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AT20  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[4] }]; #IO_L16P_T2_32 Sch=ja7_fpga
+set_property -dict { PACKAGE_PIN AT20  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_OUT[0] }]; #IO_L16P_T2_32 Sch=ja7_fpga
 set_property src_info {type:XDC file:1 line:189 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AT19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[5] }]; #IO_L16N_T2_32 Sch=ja8_fpga
+set_property -dict { PACKAGE_PIN AT19  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_OUT[1] }]; #IO_L16N_T2_32 Sch=ja8_fpga
 set_property src_info {type:XDC file:1 line:190 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AV16  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[6] }]; #IO_L17P_T2_32 Sch=ja9_fpga
+set_property -dict { PACKAGE_PIN AV16  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_OUT[2] }]; #IO_L17P_T2_32 Sch=ja9_fpga
 set_property src_info {type:XDC file:1 line:191 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN AW16  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA[7] }]; #IO_L17N_T2_32 Sch=ja10_fpga
+set_property -dict { PACKAGE_PIN AW16  IOSTANDARD LVCMOS15 } [get_ports { JA_FPGA_OUT[3] }]; #IO_L17N_T2_32 Sch=ja10_fpga

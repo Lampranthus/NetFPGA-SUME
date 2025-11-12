@@ -73,6 +73,47 @@ function fpga_loopback {
 }
 
 # --------------------------------------------------
+# FUNCIÓN: fpga_random 
+# Envía mensaje para que la FPGA active o desactive el random mode
+# --------------------------------------------------
+function fpga_random {
+    if [ $# -ne 1 ]; then
+        echo "Uso: fpga_random <enable/disable>"
+        echo "Ejemplo: fpga_random enable"
+        echo "Ejemplo: fpga_random disable"
+        return 1
+    fi
+
+    local action="$1"
+    local message=""
+    
+    # Determinar el mensaje basado en la acción
+    case "$action" in
+        (enable|e|on|1)
+            message="RANDOM_E"
+            ;;
+        (disable|d|off|0)
+            message="RANDOM_D"
+            ;;
+        (*)
+            echo "Error: Acción no válida '$action'"
+            echo "Uso: fpga_random <enable/disable>"
+            return 1
+            ;;
+    esac
+
+    echo "Enviando comando de loopback: $message"
+    echo -n "$message" | nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    if [ $? -eq 0 ]; then
+        echo "✅ Comando '$message' enviado exitosamente a $FPGA_IP:$FPGA_PORT"
+    else
+        echo "❌ Error al enviar comando a $FPGA_IP:$FPGA_PORT"
+        return 1
+    fi
+}
+
+# --------------------------------------------------
 # FUNCIÓN: fpga_pkt_n
 # Configura el número de paquetes por pulso
 # Uso: fpga_pkt_n <número_de_paquetes>
@@ -345,6 +386,10 @@ function get_signal_name {
         7) echo "udp_tx_busy" ;;
         8) echo "udp_rx_busy" ;;
         9) echo "rx_loopb" ;;
+       10) echo "signal_in[0]";;
+       11) echo "signal_in[1]";;
+       12) echo "signal_in[2]";;
+       13) echo "signal_in[3]";;
         *) echo "rx_trigger" ;;
     esac
 }
@@ -377,6 +422,10 @@ function fpga_debug_signals {
         echo "  7: udp_tx_busy"
         echo "  8: udp_rx_busy"
         echo "  9: rx_loopb"
+        echo " 10: signal_in[0]"
+        echo " 11: signal_in[1]"
+        echo " 12: signal_in[2]"
+        echo " 13: signal_in[3]"
         echo "  otros: rx_trigger"
         echo ""
         echo "Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto"
@@ -448,5 +497,6 @@ function show_fpga_commands {
     echo "fpga_error_pkt_n      - Configura palabra de error"
     echo "fpga_loopback [e/d]   - Control loopback"
     echo "fpga_debug_signals [s]- Configura las señales de debug"
+    echo "fpga_random           - Control Random"
     echo "================================="
 }   

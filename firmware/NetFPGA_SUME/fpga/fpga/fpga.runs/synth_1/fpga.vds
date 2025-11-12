@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Oct 28 17:56:19 2025
-# Process ID         : 532034
+# Start of session at: Fri Nov  7 15:29:14 2025
+# Process ID         : 11208
 # Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1
 # Command line       : vivado -log fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
 # Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.vds
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
-# CPU Frequency      : 3266.978 MHz
+# CPU Frequency      : 605.000 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 32651 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41241 MB
-# Available Virtual  : 38918 MB
+# Available Virtual  : 39116 MB
 #-----------------------------------------------------------
 source fpga.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
@@ -29,15 +29,15 @@ Command: synth_design -top fpga -part xc7vx690tffg1761-3
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
-INFO: [Common 17-86] Your Synthesis license expires in 12 day(s)
+INFO: [Common 17-86] Your Synthesis license expires in 2 day(s)
 INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 8 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 532105
+INFO: [Synth 8-7075] Helper process launched with PID 11349
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2240.395 ; gain = 424.734 ; free physical = 23447 ; free virtual = 35666
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2238.508 ; gain = 421.797 ; free physical = 24393 ; free virtual = 35866
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:89]
 WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:91]
@@ -127,10 +127,10 @@ INFO: [Synth 8-6157] synthesizing module 'i2c_master' [/root/NetFPGA-SUME/firmwa
 INFO: [Synth 8-155] case statement is not full and has no default [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:331]
 INFO: [Synth 8-155] case statement is not full and has no default [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:636]
 INFO: [Synth 8-6155] done synthesizing module 'i2c_master' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:34]
-INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_0' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-532034-design-lab/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_0' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-532034-design-lab/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-532034-design-lab/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-532034-design-lab/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_0' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-11208-design-lab/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_0' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-11208-design-lab/realtime/ten_gig_eth_pcs_pma_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ten_gig_eth_pcs_pma_1' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-11208-design-lab/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ten_gig_eth_pcs_pma_1' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/.Xil/Vivado-11208-design-lab/realtime/ten_gig_eth_pcs_pma_1_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'fpga_core' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
 INFO: [Synth 8-6157] synthesizing module 'eth_mac_10g_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
@@ -427,15 +427,15 @@ WARNING: [Synth 8-7071] port 'm_status_depth' of module 'axis_async_fifo_adapter
 WARNING: [Synth 8-7071] port 'm_status_depth_commit' of module 'axis_async_fifo_adapter' is unconnected for instance 'rx_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
 WARNING: [Synth 8-7023] instance 'rx_fifo' of module 'axis_async_fifo_adapter' has 34 connections declared, but only 26 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:454]
 INFO: [Synth 8-6155] done synthesizing module 'eth_mac_10g_fifo' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:34]
-WARNING: [Synth 8-7071] port 'ptp_sample_clk' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_tag' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_valid' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_ready' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'tx_error_underflow' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7071] port 'ptp_ts_step' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
-WARNING: [Synth 8-7023] instance 'eth_mac_10g_fifo_inst' of module 'eth_mac_10g_fifo' has 41 connections declared, but only 33 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:765]
+WARNING: [Synth 8-7071] port 'ptp_sample_clk' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_tag' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_valid' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'm_axis_tx_ptp_ts_ready' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'tx_error_underflow' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'ptp_ts_96' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7071] port 'ptp_ts_step' of module 'eth_mac_10g_fifo' is unconnected for instance 'eth_mac_10g_fifo_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
+WARNING: [Synth 8-7023] instance 'eth_mac_10g_fifo_inst' of module 'eth_mac_10g_fifo' has 41 connections declared, but only 33 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:825]
 INFO: [Synth 8-6157] synthesizing module 'eth_axis_rx' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'eth_axis_rx' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:34]
@@ -556,17 +556,17 @@ INFO: [Synth 8-155] case statement is not full and has no default [/root/NetFPGA
 INFO: [Synth 8-6155] done synthesizing module 'udp_ip_tx_64' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_ip_tx_64.v:34]
 INFO: [Synth 8-6155] done synthesizing module 'udp_64' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_64.v:34]
 INFO: [Synth 8-6155] done synthesizing module 'udp_complete_64' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_complete_64.v:34]
-WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1058]
-WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1058]
-WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1058]
-WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1058]
-WARNING: [Synth 8-7023] instance 'rx_udp_payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1058]
+WARNING: [Synth 8-7071] port 'pause_req' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1118]
+WARNING: [Synth 8-7071] port 'pause_ack' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1118]
+WARNING: [Synth 8-7071] port 'status_depth' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1118]
+WARNING: [Synth 8-7071] port 'status_depth_commit' of module 'axis_fifo' is unconnected for instance 'rx_udp_payload_fifo' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1118]
+WARNING: [Synth 8-7023] instance 'rx_udp_payload_fifo' of module 'axis_fifo' has 25 connections declared, but only 21 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1118]
 INFO: [Synth 8-6155] done synthesizing module 'fpga_core' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:34]
-WARNING: [Synth 8-7071] port 'i2c_scl_i' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:765]
-WARNING: [Synth 8-7071] port 'i2c_scl_o' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:765]
-WARNING: [Synth 8-7071] port 'i2c_scl_t' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:765]
+WARNING: [Synth 8-7071] port 'i2c_scl_i' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:766]
+WARNING: [Synth 8-7071] port 'i2c_scl_o' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:766]
+WARNING: [Synth 8-7071] port 'i2c_scl_t' of module 'fpga_core' is unconnected for instance 'core_inst' [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:766]
 INFO: [Common 17-14] Message 'Synth 8-7071' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-7023] instance 'core_inst' of module 'fpga_core' has 47 connections declared, but only 41 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:765]
+WARNING: [Synth 8-7023] instance 'core_inst' of module 'fpga_core' has 48 connections declared, but only 42 given [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:766]
 INFO: [Synth 8-6155] done synthesizing module 'fpga' (0#1) [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga.v:34]
 WARNING: [Synth 8-6014] Unused sequential element last_scl_i_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/i2c_master.v:287]
 WARNING: [Synth 8-6014] Unused sequential element xgmii_rxc_d0_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_rx_64.v:342]
@@ -600,25 +600,25 @@ WARNING: [Synth 8-6014] Unused sequential element busy_reg_reg was removed.  [/r
 WARNING: [Synth 8-6014] Unused sequential element s_frame_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:267]
 WARNING: [Synth 8-6014] Unused sequential element send_frame_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:290]
 WARNING: [Synth 8-6014] Unused sequential element s_udp_payload_axis_tready_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/udp_checksum_gen_64.v:555]
-WARNING: [Synth 8-6014] Unused sequential element led_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:661]
-WARNING: [Synth 8-6014] Unused sequential element valid_last_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:663]
-WARNING: [Synth 8-3848] Net sfp_1_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:48]
-WARNING: [Synth 8-3848] Net sfp_2_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:49]
-WARNING: [Synth 8-3848] Net sfp_3_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:50]
-WARNING: [Synth 8-3848] Net sfp_4_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:51]
-WARNING: [Synth 8-3848] Net i2c_scl_o in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:58]
-WARNING: [Synth 8-3848] Net i2c_scl_t in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:59]
-WARNING: [Synth 8-3848] Net i2c_sda_o in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:61]
-WARNING: [Synth 8-3848] Net i2c_sda_t in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:62]
+WARNING: [Synth 8-6014] Unused sequential element led_reg_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:705]
+WARNING: [Synth 8-6014] Unused sequential element valid_last_reg was removed.  [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:707]
+WARNING: [Synth 8-3848] Net sfp_1_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:49]
+WARNING: [Synth 8-3848] Net sfp_2_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:50]
+WARNING: [Synth 8-3848] Net sfp_3_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:51]
+WARNING: [Synth 8-3848] Net sfp_4_led in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:52]
+WARNING: [Synth 8-3848] Net i2c_scl_o in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:59]
+WARNING: [Synth 8-3848] Net i2c_scl_t in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:60]
+WARNING: [Synth 8-3848] Net i2c_sda_o in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:62]
+WARNING: [Synth 8-3848] Net i2c_sda_t in module/entity fpga_core does not have driver. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:63]
 WARNING: [Synth 8-3917] design fpga has port PMOD_OE_B driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[7] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[6] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[5] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[4] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[3] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[2] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[1] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[0] driven by constant 1
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[3] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[2] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[1] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[0] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_2_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_3_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_4_led[1] driven by constant 0
@@ -736,18 +736,18 @@ WARNING: [Synth 8-7129] Port s_eth_payload_axis_tdest[14] in module eth_arb_mux 
 WARNING: [Synth 8-7129] Port s_eth_payload_axis_tdest[13] in module eth_arb_mux is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 3724.324 ; gain = 1908.664 ; free physical = 22047 ; free virtual = 34268
+Finished RTL Elaboration : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 3722.438 ; gain = 1905.727 ; free physical = 22999 ; free virtual = 34478
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 3724.324 ; gain = 1908.664 ; free physical = 22046 ; free virtual = 34268
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 3722.438 ; gain = 1905.727 ; free physical = 23001 ; free virtual = 34479
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 3724.324 ; gain = 1908.664 ; free physical = 22046 ; free virtual = 34268
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 3722.438 ; gain = 1905.727 ; free physical = 23001 ; free virtual = 34479
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3724.324 ; gain = 0.000 ; free physical = 22046 ; free virtual = 34268
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3722.438 ; gain = 0.000 ; free physical = 23004 ; free virtual = 34483
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -807,24 +807,24 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3850.320 ; gain = 0.000 ; free physical = 22047 ; free virtual = 34269
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3860.340 ; gain = 0.000 ; free physical = 23005 ; free virtual = 34500
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   MMCME2_BASE => MMCME2_ADV: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3862.242 ; gain = 0.000 ; free physical = 22044 ; free virtual = 34265
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3872.262 ; gain = 0.000 ; free physical = 23002 ; free virtual = 34497
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3862.242 ; gain = 2046.582 ; free physical = 21276 ; free virtual = 33498
+Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3872.262 ; gain = 2055.551 ; free physical = 22224 ; free virtual = 33719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx690tffg1761-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3870.246 ; gain = 2054.586 ; free physical = 21276 ; free virtual = 33498
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3880.266 ; gain = 2063.555 ; free physical = 22224 ; free virtual = 33719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1038,7 +1038,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for sfp_2_pcs_pma_inst. (constraint f
 Applied set_property KEEP_HIERARCHY = SOFT for sfp_3_pcs_pma_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for sfp_4_pcs_pma_inst. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3870.246 ; gain = 2054.586 ; free physical = 21260 ; free virtual = 33482
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 3880.266 ; gain = 2063.555 ; free physical = 22184 ; free virtual = 33679
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'i2c_master'
 INFO: [Synth 8-802] inferred FSM for state register 'phy_state_reg_reg' in module 'i2c_master'
@@ -1156,7 +1156,7 @@ STATE_WRITE_PAYLOAD_LAST |                               11 |                   
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'udp_ip_tx_64'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:58 ; elapsed = 00:00:57 . Memory (MB): peak = 3870.246 ; gain = 2054.586 ; free physical = 20035 ; free virtual = 32260
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:57 ; elapsed = 00:00:57 . Memory (MB): peak = 3880.266 ; gain = 2063.555 ; free physical = 20988 ; free virtual = 32487
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1191,7 +1191,7 @@ Detailed RTL Component Info :
 	   2 Input     14 Bit         XORs := 14    
 	   2 Input      2 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 698   
-	   4 Input      1 Bit         XORs := 54    
+	   4 Input      1 Bit         XORs := 55    
 	   5 Input      1 Bit         XORs := 38    
 	   6 Input      1 Bit         XORs := 61    
 	   3 Input      1 Bit         XORs := 145   
@@ -1230,7 +1230,7 @@ Detailed RTL Component Info :
 	               14 Bit    Wide XORs := 52    
 +---Registers : 
 	               74 Bit    Registers := 18    
-	               64 Bit    Registers := 33    
+	               64 Bit    Registers := 35    
 	               48 Bit    Registers := 32    
 	               36 Bit    Registers := 1     
 	               32 Bit    Registers := 30    
@@ -1250,7 +1250,7 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 21    
 	                3 Bit    Registers := 11    
 	                2 Bit    Registers := 21    
-	                1 Bit    Registers := 300   
+	                1 Bit    Registers := 301   
 +---RAMs : 
 	             592K Bit	(8192 X 74 bit)          RAMs := 4     
 	              24K Bit	(512 X 48 bit)          RAMs := 1     
@@ -1266,12 +1266,12 @@ Detailed RTL Component Info :
 	               48 Bit	(16 X 3 bit)          RAMs := 1     
 	               32 Bit	(16 X 2 bit)          RAMs := 1     
 +---Muxes : 
-	   2 Input   64 Bit        Muxes := 37    
+	   2 Input   64 Bit        Muxes := 38    
 	   7 Input   64 Bit        Muxes := 2     
 	   5 Input   64 Bit        Muxes := 1     
-	   3 Input   64 Bit        Muxes := 4     
+	   3 Input   64 Bit        Muxes := 1     
 	   6 Input   64 Bit        Muxes := 1     
-	   4 Input   64 Bit        Muxes := 4     
+	   4 Input   64 Bit        Muxes := 3     
 	   2 Input   48 Bit        Muxes := 21    
 	   6 Input   36 Bit        Muxes := 1     
 	   3 Input   36 Bit        Muxes := 1     
@@ -1358,10 +1358,10 @@ WARNING: [Synth 8-3917] design fpga has port DIR_JA[7] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[6] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[5] driven by constant 1
 WARNING: [Synth 8-3917] design fpga has port DIR_JA[4] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[3] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[2] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[1] driven by constant 1
-WARNING: [Synth 8-3917] design fpga has port DIR_JA[0] driven by constant 1
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[3] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[2] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[1] driven by constant 0
+WARNING: [Synth 8-3917] design fpga has port DIR_JA[0] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_2_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_3_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design fpga has port sfp_4_led[1] driven by constant 0
@@ -1386,7 +1386,7 @@ WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_st
 WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_state_reg_reg[5]) is unused and will be removed from module fpga.
 WARNING: [Synth 8-3332] Sequential element (si5324_i2c_master_inst/FSM_onehot_state_reg_reg[4]) is unused and will be removed from module fpga.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:21 . Memory (MB): peak = 3874.332 ; gain = 2058.672 ; free physical = 16420 ; free virtual = 28664
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:20 . Memory (MB): peak = 3884.352 ; gain = 2067.641 ; free physical = 17330 ; free virtual = 28850
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1439,13 +1439,13 @@ Start Applying XDC Timing Constraints
 WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
 WARNING: [Synth 8-3321] set_false_path : Empty to list for constraint at line 23 of /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:29 ; elapsed = 00:01:28 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:29 ; elapsed = 00:01:27 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17682 ; free virtual = 29210
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:33 ; elapsed = 00:01:32 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:33 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17699 ; free virtual = 29226
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1487,7 +1487,7 @@ Start Technology Mapping
 INFO: [Synth 8-7052] The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/ip_addr_mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance core_inst/udp_complete_inst/ip_complete_64_inst/arp_inst/arp_cache_inst/mac_addr_mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:34 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Technology Mapping : Time (s): cpu = 00:01:36 ; elapsed = 00:01:35 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17699 ; free virtual = 29227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1505,37 +1505,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:37 ; elapsed = 00:01:35 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17700 ; free virtual = 29228
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:37 ; elapsed = 00:01:35 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17700 ; free virtual = 29228
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17701 ; free virtual = 29228
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17701 ; free virtual = 29228
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17709 ; free virtual = 29237
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17709 ; free virtual = 29237
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1557,12 +1557,12 @@ Report Cell Usage:
 |3     |ten_gig_eth_pcs_pma_1 |     2|
 |5     |BUFG                  |     1|
 |6     |CARRY4                |   587|
-|7     |LUT1                  |   243|
-|8     |LUT2                  |   590|
-|9     |LUT3                  |  1925|
-|10    |LUT4                  |   927|
-|11    |LUT5                  |   983|
-|12    |LUT6                  |  1993|
+|7     |LUT1                  |   244|
+|8     |LUT2                  |   585|
+|9     |LUT3                  |  1942|
+|10    |LUT4                  |   950|
+|11    |LUT5                  |   974|
+|12    |LUT6                  |  2023|
 |13    |MMCME2_BASE           |     1|
 |14    |MUXF7                 |    45|
 |15    |MUXF8                 |     2|
@@ -1572,26 +1572,26 @@ Report Cell Usage:
 |20    |RAMB36E1              |    73|
 |22    |FDCE                  |    83|
 |23    |FDPE                  |    13|
-|24    |FDRE                  |  5730|
-|25    |FDSE                  |   216|
-|26    |IBUF                  |     8|
+|24    |FDRE                  |  5827|
+|25    |FDSE                  |   248|
+|26    |IBUF                  |    12|
 |27    |IBUFGDS               |     1|
 |28    |IOBUF                 |     2|
-|29    |OBUF                  |    49|
+|29    |OBUF                  |    45|
 +------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 16793 ; free virtual = 29037
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:01:37 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 17709 ; free virtual = 29237
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1470 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:33 ; elapsed = 00:01:36 . Memory (MB): peak = 3878.250 ; gain = 1924.672 ; free physical = 22146 ; free virtual = 34390
-Synthesis Optimization Complete : Time (s): cpu = 00:01:37 ; elapsed = 00:01:39 . Memory (MB): peak = 3878.250 ; gain = 2062.590 ; free physical = 22146 ; free virtual = 34390
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:34 ; elapsed = 00:01:35 . Memory (MB): peak = 3888.270 ; gain = 1921.734 ; free physical = 23095 ; free virtual = 34622
+Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:01:39 . Memory (MB): peak = 3888.270 ; gain = 2071.559 ; free physical = 23095 ; free virtual = 34622
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3878.250 ; gain = 0.000 ; free physical = 22146 ; free virtual = 34390
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3888.270 ; gain = 0.000 ; free physical = 23095 ; free virtual = 34622
 INFO: [Netlist 29-17] Analyzing 737 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3986.387 ; gain = 0.000 ; free physical = 22162 ; free virtual = 34405
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3996.406 ; gain = 0.000 ; free physical = 23103 ; free virtual = 34630
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 25 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
@@ -1600,15 +1600,15 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 4 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 17 instances
 
-Synth Design complete | Checksum: ac93927e
+Synth Design complete | Checksum: e2ae847e
 INFO: [Common 17-83] Releasing license: Synthesis
 171 Infos, 350 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:44 ; elapsed = 00:01:46 . Memory (MB): peak = 3986.387 ; gain = 2587.859 ; free physical = 22162 ; free virtual = 34405
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8957.479; main = 3007.279; forked = 6145.538
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 18486.211; main = 3986.391; forked = 14611.875
+synth_design: Time (s): cpu = 00:01:45 ; elapsed = 00:01:46 . Memory (MB): peak = 3996.406 ; gain = 2599.727 ; free physical = 23103 ; free virtual = 34630
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8968.174; main = 3012.679; forked = 6149.922
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 18502.359; main = 3996.410; forked = 14618.004
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 4010.398 ; gain = 0.000 ; free physical = 22163 ; free virtual = 34407
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4020.418 ; gain = 0.000 ; free physical = 23103 ; free virtual = 34631
 INFO: [Common 17-1381] The checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file fpga_utilization_synth.rpt -pb fpga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 28 17:58:07 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 15:31:02 2025...
