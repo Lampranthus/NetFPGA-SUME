@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Jan 22 19:47:53 2026
+# Process ID         : 50029
+# Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1
+# Command line       : vivado -log fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
+# Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.vds
+# Journal file       : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/vivado.jou
+# Running On         : design-lab
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.3 LTS
+# Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
+# CPU Frequency      : 3550.111 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 32651 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 41241 MB
+# Available Virtual  : 38137 MB
+#-----------------------------------------------------------
+source fpga.tcl -notrace

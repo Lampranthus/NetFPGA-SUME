@@ -28,7 +28,7 @@
 
 static volatile sig_atomic_t running = 1;
 
-// Estructura para cabecera IP (sin opciones)
+// Estructura para cabecera IP
 struct ip_header {
     uint8_t  ihl:4, version:4;
     uint8_t  tos;
@@ -59,7 +59,7 @@ uint64_t messages_since_last_test = 0; // Contador de mensajes desde último TES
 uint64_t last_test_packet = 0;         // Último paquete donde se detectó TEST
 uint64_t last_period = 0;              // Período anterior para detección de cambios
 
-// Función para calcular checksum (algoritmo estándar de Internet)
+// Función para calcular checksum
 uint16_t calculate_checksum(const void *data, int length) {
     const uint16_t *words = (const uint16_t *)data;
     uint32_t sum = 0;
@@ -292,10 +292,10 @@ int main(void) {
             
             // Línea 2: Rendimiento e información del TEST actual
             if (current_test_period > 0) {
-                printf("        Vel: %.1f pps (%.1f Mbps) | Periodo: %" PRIu64 " | Offset: %" PRIu64 "\n", 
+                printf("Vel: %.1f pps (%.1f Mbps) | Periodo: %" PRIu64 " | Offset: %" PRIu64 "\n", 
                        pps, mbps, current_test_period, current_test_offset);
             } else {
-                printf("        Vel: %.1f pps (%.1f Mbps) | Esperando primer TEST...\n", pps, mbps);
+                printf("Vel: %.1f pps (%.1f Mbps) | Esperando primer TEST...\n", pps, mbps);
             }
             
             clear_lines(2); // Dos líneas a limpiar

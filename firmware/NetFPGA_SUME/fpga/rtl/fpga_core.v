@@ -643,21 +643,6 @@ assign tx_udp_checksum = 0;
 
 //-------------------------------------------------------------------------------------
 
-/*
-//con fifo
-assign tx_udp_payload_axis_tdata = rx_loopb ? reg_fifo_udp_payload_axis_tdata : tx_fifo_udp_payload_axis_tdata;
-assign tx_udp_payload_axis_tkeep = rx_loopb ? reg_fifo_udp_payload_axis_tkeep : tx_fifo_udp_payload_axis_tkeep;
-assign tx_udp_payload_axis_tvalid = rx_loopb ? reg_fifo_udp_payload_axis_tvalid : tx_fifo_udp_payload_axis_tvalid;
-
-assign tx_fifo_udp_payload_axis_tready = rx_loopb ? 1'b1 : tx_udp_payload_axis_tready;
-assign reg_fifo_udp_payload_axis_tready = rx_loopb ? tx_udp_payload_axis_tready : 1'b1;
-
-assign tx_udp_payload_axis_tlast = rx_loopb ? reg_fifo_udp_payload_axis_tlast : tx_fifo_udp_payload_axis_tlast;
-assign tx_udp_payload_axis_tuser = rx_loopb ? reg_fifo_udp_payload_axis_tuser : tx_fifo_udp_payload_axis_tuser;
-*/
-
-
-//sin fifo en tx peor con fifo en rx
 assign tx_udp_payload_axis_tdata = rx_loopb ? reg_fifo_udp_payload_axis_tdata : tx_fifo_axis_tdata;
 assign tx_udp_payload_axis_tkeep = rx_loopb ? reg_fifo_udp_payload_axis_tkeep : tx_fifo_axis_tkeep;
 assign tx_udp_payload_axis_tvalid = rx_loopb ? reg_fifo_udp_payload_axis_tvalid : tx_fifo_axis_tvalid;
@@ -665,7 +650,6 @@ assign tx_fifo_axis_tready = tx_udp_payload_axis_tready;
 assign reg_fifo_udp_payload_axis_tready = rx_loopb ? tx_udp_payload_axis_tready : 1'b1;
 assign tx_udp_payload_axis_tlast = rx_loopb ? reg_fifo_udp_payload_axis_tlast : tx_fifo_axis_tlast;
 assign tx_udp_payload_axis_tuser = rx_loopb ? reg_fifo_udp_payload_axis_tuser : tx_fifo_axis_tuser;
-
 
 //---------------------------------------------------------------------------------
 
@@ -676,9 +660,7 @@ assign rx_udp_payload_axis_tready = (rx_fifo_udp_payload_axis_tready & match_con
 assign rx_fifo_udp_payload_axis_tlast = rx_udp_payload_axis_tlast;
 assign rx_fifo_udp_payload_axis_tuser = rx_udp_payload_axis_tuser;
 
-
-
-//optener ip
+//optener ip destino
 
 reg [31:0] tx_udp_ip_dest_ip = {8'd192, 8'd168, 8'd1,   8'd100};
 reg [15:0] tx_udp_source_port = 16'd1234;
@@ -696,36 +678,10 @@ always @(posedge clk) begin
     end
 end
 
-// Place first payload byte onto LEDs
-reg valid_last = 0;
-reg [7:0] led_reg = 0;
-
-always @(posedge clk) begin
-    if (rst) begin
-        led_reg <= 0;
-    end else begin
-        valid_last <= tx_udp_payload_axis_tvalid;
-        if (tx_udp_payload_axis_tvalid & ~valid_last) begin
-            led_reg <= tx_udp_payload_axis_tdata;
-        end
-    end
-end
-
 //debug signals //////////////////////////
 
 assign led[1] = rx_trigger;
 assign led[0] = rx_loopb;
-//assign JA_FPGA[0] = 1'b0;
-//assign JA_FPGA[1] = 1'b0;
-//assign JA_FPGA[2] = 1'b0;
-//assign JA_FPGA[3] = 1'b0;
-
-/*
-assign JA_FPGA[4] = tx_fifo_axis_tvalid;
-assign JA_FPGA[5] = tx_fifo_axis_tready;
-assign JA_FPGA[6] = tx_fifo_axis_tlast;
-assign JA_FPGA[7] = rx_loopb;
-*/
 
 reg [15:0] debug_signals = 16'h9654;
 
@@ -758,7 +714,8 @@ assign JA_FPGA_OUT[0] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[3:0] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[3:0] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[3:0] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[3:0] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[3:0] == 4'd13) ? JA_FPGA_IN[3] :
+                    (debug_signals[3:0] == 4'd14) ? rx_random : rx_trigger;
 
 assign JA_FPGA_OUT[1] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd1) ? tx_udp_hdr_ready :
@@ -773,7 +730,8 @@ assign JA_FPGA_OUT[1] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[7:4] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[7:4] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[7:4] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[7:4] == 4'd13) ? JA_FPGA_IN[3] :
+                    (debug_signals[7:4] == 4'd14) ? rx_random : rx_trigger;
 
 assign JA_FPGA_OUT[2] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd1) ? tx_udp_hdr_ready :
@@ -788,7 +746,8 @@ assign JA_FPGA_OUT[2] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[11:8] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[11:8] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[11:8] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[11:8] == 4'd13) ? JA_FPGA_IN[3] :
+                    (debug_signals[11:8] == 4'd14) ? rx_random : rx_trigger;
 
 assign JA_FPGA_OUT[3] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd1) ? tx_udp_hdr_ready :
@@ -803,7 +762,8 @@ assign JA_FPGA_OUT[3] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[15:12] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[15:12] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[15:12] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[15:12] == 4'd13) ? JA_FPGA_IN[3] : 
+                    (debug_signals[15:12] == 4'd13) ? rx_random : rx_trigger;
 
 assign sfp_2_txd = 64'h0707070707070707;
 assign sfp_2_txc = 8'hff;
@@ -1059,50 +1019,6 @@ udp_complete_inst (
     .subnet_mask(subnet_mask),
     .clear_arp_cache(1'b0)
 );
-
-/*
-axis_fifo #(
-    .DEPTH(16384),
-    .DATA_WIDTH(64),
-    .KEEP_ENABLE(1),
-    .KEEP_WIDTH(8),
-    .ID_ENABLE(0),
-    .DEST_ENABLE(0),
-    .USER_ENABLE(1),
-    .USER_WIDTH(1),
-    .FRAME_FIFO(1)
-)
-tx_udp_payload_fifo (
-    .clk(clk),
-    .rst(rst),
-
-    // AXI input
-    .s_axis_tdata(tx_fifo_axis_tdata),
-    .s_axis_tkeep(tx_fifo_axis_tkeep),
-    .s_axis_tvalid(tx_fifo_axis_tvalid),
-    .s_axis_tready(tx_fifo_axis_tready),
-    .s_axis_tlast(tx_fifo_axis_tlast),
-    .s_axis_tid(0),
-    .s_axis_tdest(0),
-    .s_axis_tuser(tx_fifo_axis_tuser),
-
-    // AXI output
-    .m_axis_tdata(tx_fifo_udp_payload_axis_tdata),
-    .m_axis_tkeep(tx_fifo_udp_payload_axis_tkeep),
-    .m_axis_tvalid(tx_fifo_udp_payload_axis_tvalid),
-    .m_axis_tready(tx_fifo_udp_payload_axis_tready),
-    .m_axis_tlast(tx_fifo_udp_payload_axis_tlast),
-    .m_axis_tid(),
-    .m_axis_tdest(),
-    .m_axis_tuser(tx_fifo_udp_payload_axis_tuser),
-
-    // Status
-    .status_overflow(),
-    .status_bad_frame(),
-    .status_good_frame()
-);
-*/
-
 
 axis_fifo #(
     .DEPTH(65536),

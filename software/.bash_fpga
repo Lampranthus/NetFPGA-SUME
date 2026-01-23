@@ -116,22 +116,30 @@ function fpga_random {
 # --------------------------------------------------
 # FUNCIÓN: fpga_pkt_n
 # Configura el número de paquetes por pulso
-# Uso: fpga_pkt_n <número_de_paquetes>
+# Uso: fpga_pkt_n <número_de_paquetes|max>
 # Ejemplo: fpga_pkt_n 256
+# Ejemplo: fpga_pkt_n max
 # --------------------------------------------------
 function fpga_pkt_n {
     if [ $# -ne 1 ]; then
-        echo "Uso: fpga_pkt_n <número_de_paquetes>"
+        echo "Uso: fpga_pkt_n <número_de_paquetes|max>"
         echo "Ejemplo: fpga_pkt_n 256"
+        echo "Ejemplo: fpga_pkt_n max"
         return 1
     fi
     
     local packets=$1
     local max_uint32=4294967295
     
+    # Si el parámetro es "max", usar el valor máximo
+    if [ "$packets" = "max" ]; then
+        packets=$max_uint32
+        echo "Usando número máximo de paquetes: $packets"
+    fi
+    
     # Validar que sea un número positivo dentro de 32 bits
     if ! [[ "$packets" =~ ^[0-9]+$ ]] || [ "$packets" -lt 1 ] || [ "$packets" -gt "$max_uint32" ]; then
-        echo "Error: El número debe estar entre 1 y $max_uint32"
+        echo "Error: El número debe estar entre 1 y $max_uint32, o usar 'max'"
         return 1
     fi
     
@@ -149,7 +157,13 @@ function fpga_pkt_n {
     nc -u -w 1 $FPGA_IP $FPGA_PORT
     
     local mb_size=$((packets * 8192 / 1024 / 1024))
-    echo " Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+    local gb_size=$(echo "scale=2; $packets * 8192 / 1024 / 1024 / 1024" | bc)
+    
+    if [ "$packets" -eq "$max_uint32" ]; then
+        echo "Configurado para MÁXIMO: $packets paquetes (~${gb_size} GB por pulso)"
+    else
+        echo "Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+    fi
 }
 
 # --------------------------------------------------
@@ -390,6 +404,7 @@ function get_signal_name {
        11) echo "signal_in[1]";;
        12) echo "signal_in[2]";;
        13) echo "signal_in[3]";;
+       14) echo "rx_random";;
         *) echo "rx_trigger" ;;
     esac
 }
@@ -426,6 +441,7 @@ function fpga_debug_signals {
         echo " 11: signal_in[1]"
         echo " 12: signal_in[2]"
         echo " 13: signal_in[3]"
+        echo " 14: rx_random"
         echo "  otros: rx_trigger"
         echo ""
         echo "Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto"
