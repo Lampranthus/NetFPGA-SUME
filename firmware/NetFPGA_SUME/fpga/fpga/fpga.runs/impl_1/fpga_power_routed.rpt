@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Fri Jan 23 12:44:18 2026
+| Date             : Fri Jan 23 17:24:54 2026
 | Host             : design-lab running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file fpga_power_routed.rpt -pb fpga_power_summary_routed.pb -rpx fpga_power_routed.rpx
 | Design           : fpga
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.339        |
+| Total On-Chip Power (W)  | 2.338        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.951        |
+| Dynamic (W)              | 1.950        |
 | Device Static (W)        | 0.388        |
 | Effective TJA (C/W)      | 1.1          |
 | Max Ambient (C)          | 97.3         |
@@ -53,20 +53,20 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.140 |       14 |       --- |             --- |
-| Slice Logic              |     0.073 |    28227 |       --- |             --- |
-|   LUT as Logic           |     0.058 |    10388 |    433200 |            2.40 |
+| Slice Logic              |     0.073 |    28166 |       --- |             --- |
+|   LUT as Logic           |     0.058 |    10309 |    433200 |            2.38 |
 |   LUT as Distributed RAM |     0.007 |      310 |    174200 |            0.18 |
-|   CARRY4                 |     0.005 |      767 |    108300 |            0.71 |
-|   Register               |     0.003 |    13794 |    866400 |            1.59 |
-|   F7/F8 Muxes            |    <0.001 |       62 |    433200 |            0.01 |
+|   CARRY4                 |     0.005 |      787 |    108300 |            0.73 |
+|   Register               |     0.003 |    13816 |    866400 |            1.59 |
+|   F7/F8 Muxes            |    <0.001 |       55 |    433200 |            0.01 |
 |   Others                 |     0.000 |      609 |       --- |             --- |
-| Signals                  |     0.095 |    22584 |       --- |             --- |
+| Signals                  |     0.093 |    22512 |       --- |             --- |
 | Block RAM                |     0.231 |     75.5 |      1470 |            5.14 |
 | MMCM                     |     0.107 |        1 |        20 |            5.00 |
 | I/O                      |     0.008 |       45 |       850 |            5.29 |
 | GTH                      |     1.298 |        4 |       --- |             --- |
 | Static Power             |     0.388 |          |           |                 |
-| Total                    |     2.339 |          |           |                 |
+| Total                    |     2.338 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.914 |       0.705 |      0.208 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.913 |       0.704 |      0.208 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.116 |       0.062 |      0.054 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -157,28 +157,28 @@ Table of Contents
 +-----------------------------------------------------+-----------+
 | Name                                                | Power (W) |
 +-----------------------------------------------------+-----------+
-| fpga                                                |     1.951 |
-|   core_inst                                         |     0.394 |
+| fpga                                                |     1.950 |
+|   core_inst                                         |     0.393 |
 |     eth_axis_rx_inst                                |     0.002 |
 |     eth_axis_tx_inst                                |     0.002 |
-|     eth_mac_10g_fifo_inst                           |     0.180 |
-|       eth_mac_10g_inst                              |     0.064 |
+|     eth_mac_10g_fifo_inst                           |     0.178 |
+|       eth_mac_10g_inst                              |     0.061 |
 |       rx_fifo                                       |     0.058 |
 |       tx_fifo                                       |     0.059 |
-|     rx_udp_payload_fifo                             |     0.058 |
+|     rx_udp_payload_fifo                             |     0.059 |
 |     udp_complete_inst                               |     0.111 |
 |       ip_arb_mux_inst                               |     0.002 |
 |       ip_complete_64_inst                           |     0.030 |
 |       udp_64_inst                                   |     0.079 |
-|   sfp_1_pcs_pma_inst                                |     0.370 |
-|     inst                                            |     0.370 |
-|       ten_gig_eth_pcs_pma_block_i                   |     0.367 |
+|   sfp_1_pcs_pma_inst                                |     0.368 |
+|     inst                                            |     0.368 |
+|       ten_gig_eth_pcs_pma_block_i                   |     0.366 |
 |       ten_gig_eth_pcs_pma_shared_clock_reset_block  |     0.002 |
-|   sfp_2_pcs_pma_inst                                |     0.354 |
-|     inst                                            |     0.354 |
+|   sfp_2_pcs_pma_inst                                |     0.355 |
+|     inst                                            |     0.355 |
 |       cable_pull_logic_i                            |     0.002 |
 |       gt0_gtwizard_10gbaser_multi_gt_i              |     0.325 |
-|       ten_gig_eth_pcs_pma_1_core                    |     0.023 |
+|       ten_gig_eth_pcs_pma_1_core                    |     0.024 |
 |       ten_gig_eth_pcs_pma_1_local_clock_reset_block |     0.002 |
 |   sfp_3_pcs_pma_inst                                |     0.353 |
 |     inst                                            |     0.353 |
@@ -192,7 +192,7 @@ Table of Contents
 |       gt0_gtwizard_10gbaser_multi_gt_i              |     0.325 |
 |       ten_gig_eth_pcs_pma_1_core                    |     0.023 |
 |       ten_gig_eth_pcs_pma_1_local_clock_reset_block |     0.002 |
-|   si5324_i2c_init_inst                              |     0.002 |
+|   si5324_i2c_init_inst                              |     0.003 |
 |   si5324_i2c_master_inst                            |     0.003 |
 +-----------------------------------------------------+-----------+
 

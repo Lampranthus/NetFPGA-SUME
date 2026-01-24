@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Fri Jan 23 12:44:16 2026
+| Date         : Fri Jan 23 17:24:52 2026
 | Host         : design-lab running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_bus_skew -warn_on_violation -file fpga_bus_skew_routed.rpt -pb fpga_bus_skew_routed.pb -rpx fpga_bus_skew_routed.rpx
 | Design       : fpga
@@ -24,16 +24,16 @@ Id  Position  From                            To                              Co
 --  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
 1   176       [get_cells {{core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}]
                                               [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}]
-                                                                              Slow              6.400       0.423      5.977
+                                                                              Slow              6.400       0.422      5.978
 2   178       [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}]
                                               [get_cells {core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}]
-                                                                              Slow              6.400       0.586      5.814
+                                                                              Slow              6.400       0.461      5.939
 3   182       [get_cells {{core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_reg_reg[*]} {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[*]}}]
                                               [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[*]}]
-                                                                              Slow              6.400       0.511      5.889
+                                                                              Slow              6.400       0.500      5.900
 4   184       [get_cells -quiet {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[*]}]
                                               [get_cells {core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[*]}]
-                                                                              Slow              6.400       0.539      5.861
+                                                                              Slow              6.400       0.629      5.771
 
 
 2. Bus Skew Report Per Constraint
@@ -46,26 +46,26 @@ Endpoints: 14
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[10]/D
-                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
-                                                                                                            Slow         0.423      5.977
+sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[4]/D
+                                                                                                            Slow         0.422      5.978
 
 
-Slack (MET) :             5.977ns  (requirement - actual skew)
-  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[10]/C
+Slack (MET) :             5.978ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[9]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[10]/D
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/C
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[4]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            6.400ns
-  Endpoint Relative Delay:    0.686ns
-  Reference Relative Delay:   0.263ns
+  Endpoint Relative Delay:    0.700ns
+  Reference Relative Delay:   0.278ns
   Relative CRPR:              0.000ns
-  Actual Bus Skew:            0.423ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+  Actual Bus Skew:            0.422ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -80,12 +80,12 @@ Endpoint path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.930     6.400    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X175Y462       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[10]/C
+                         net (fo=9868, routed)        1.869     6.339    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X168Y465       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X175Y462       FDRE (Prop_fdre_C_Q)         0.216     6.616 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[10]/Q
-                         net (fo=1, routed)           0.441     7.057    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg_n_0_[10]
-    SLICE_X176Y464       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[10]/D
+    SLICE_X168Y465       FDRE (Prop_fdre_C_Q)         0.232     6.571 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[9]/Q
+                         net (fo=1, routed)           0.332     6.903    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg_n_0_[9]
+    SLICE_X165Y466       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -98,15 +98,15 @@ Endpoint path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.507     4.943    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X176Y464       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[10]/C
-                         clock pessimism              1.407     6.350    
-    SLICE_X176Y464       FDRE (Setup_fdre_C_D)        0.021     6.371    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[10]
+                         net (fo=9868, routed)        1.446     4.882    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X165Y466       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]/C
+                         clock pessimism              1.407     6.289    
+    SLICE_X165Y466       FDRE (Setup_fdre_C_D)       -0.086     6.203    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[9]
   -------------------------------------------------------------------
-                         data arrival                           7.057    
-                         clock arrival                          6.371    
+                         data arrival                           6.903    
+                         clock arrival                          6.203    
   -------------------------------------------------------------------
-                         relative delay                         0.686    
+                         relative delay                         0.700    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -121,12 +121,12 @@ Reference path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.507     4.943    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X174Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/C
+                         net (fo=9868, routed)        1.449     4.885    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X165Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X174Y463       FDRE (Prop_fdre_C_Q)         0.204     5.147 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/Q
-                         net (fo=1, routed)           0.222     5.369    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg_n_0_[13]
-    SLICE_X174Y464       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
+    SLICE_X165Y463       FDRE (Prop_fdre_C_Q)         0.158     5.043 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg[4]/Q
+                         net (fo=1, routed)           0.221     5.264    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_reg_reg_n_0_[4]
+    SLICE_X164Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -139,15 +139,15 @@ Reference path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.927     6.397    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X174Y464       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/C
-                         clock pessimism             -1.434     4.963    
-    SLICE_X174Y464       FDRE (Hold_fdre_C_D)         0.143     5.106    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]
+                         net (fo=9868, routed)        1.870     6.340    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X164Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[4]/C
+                         clock pessimism             -1.436     4.904    
+    SLICE_X164Y463       FDRE (Hold_fdre_C_D)         0.082     4.986    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[4]
   -------------------------------------------------------------------
-                         data arrival                           5.369    
-                         clock arrival                          5.106    
+                         data arrival                           5.264    
+                         clock arrival                          4.986    
   -------------------------------------------------------------------
-                         relative delay                         0.263    
+                         relative delay                         0.278    
 
 
 
@@ -158,26 +158,26 @@ Endpoints: 14
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
-                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
-                                                                                                            Slow         0.586      5.814
+sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[12]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[10]/D
+                                                                                                            Slow         0.461      5.939
 
 
-Slack (MET) :             5.814ns  (requirement - actual skew)
-  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/C
+Slack (MET) :             5.939ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[12]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[12]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/C
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[10]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            6.400ns
-  Endpoint Relative Delay:    0.858ns
-  Reference Relative Delay:   0.272ns
+  Endpoint Relative Delay:    0.646ns
+  Reference Relative Delay:   0.184ns
   Relative CRPR:              0.000ns
-  Actual Bus Skew:            0.586ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+  Actual Bus Skew:            0.461ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -192,12 +192,12 @@ Endpoint path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.883     6.353    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X172Y465       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/C
+                         net (fo=9868, routed)        1.812     6.282    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X161Y465       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[12]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X172Y465       FDRE (Prop_fdre_C_Q)         0.254     6.607 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[8]/Q
-                         net (fo=1, routed)           0.583     7.189    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[8]
-    SLICE_X171Y462       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/D
+    SLICE_X161Y465       FDRE (Prop_fdre_C_Q)         0.216     6.498 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[12]/Q
+                         net (fo=1, routed)           0.444     6.941    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[12]
+    SLICE_X160Y465       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[12]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -210,15 +210,15 @@ Endpoint path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.465     4.901    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X171Y462       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]/C
-                         clock pessimism              1.433     6.334    
-    SLICE_X171Y462       FDRE (Setup_fdre_C_D)       -0.002     6.332    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[8]
+                         net (fo=9868, routed)        1.394     4.830    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X160Y465       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[12]/C
+                         clock pessimism              1.433     6.263    
+    SLICE_X160Y465       FDRE (Setup_fdre_C_D)        0.033     6.296    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[12]
   -------------------------------------------------------------------
-                         data arrival                           7.189    
-                         clock arrival                          6.332    
+                         data arrival                           6.941    
+                         clock arrival                          6.296    
   -------------------------------------------------------------------
-                         relative delay                         0.858    
+                         relative delay                         0.646    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -233,12 +233,12 @@ Reference path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.465     4.901    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X171Y461       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/C
+                         net (fo=9868, routed)        1.396     4.832    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X161Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X171Y461       FDRE (Prop_fdre_C_Q)         0.158     5.059 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/Q
-                         net (fo=1, routed)           0.250     5.309    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[1]
-    SLICE_X175Y461       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
+    SLICE_X161Y463       FDRE (Prop_fdre_C_Q)         0.173     5.005 r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[10]/Q
+                         net (fo=1, routed)           0.251     5.256    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg_n_0_[10]
+    SLICE_X162Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -251,15 +251,15 @@ Reference path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.930     6.400    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
-    SLICE_X175Y461       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/C
-                         clock pessimism             -1.407     4.993    
-    SLICE_X175Y461       FDRE (Hold_fdre_C_D)         0.044     5.037    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]
+                         net (fo=9868, routed)        1.867     6.337    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/coreclk_out
+    SLICE_X162Y463       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[10]/C
+                         clock pessimism             -1.407     4.930    
+    SLICE_X162Y463       FDRE (Hold_fdre_C_D)         0.142     5.072    core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[10]
   -------------------------------------------------------------------
-                         data arrival                           5.309    
-                         clock arrival                          5.037    
+                         data arrival                           5.256    
+                         clock arrival                          5.072    
   -------------------------------------------------------------------
-                         relative delay                         0.272    
+                         relative delay                         0.184    
 
 
 
@@ -271,25 +271,25 @@ Endpoints: 14
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
 sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/D
-                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[11]/D
-                                                                                                            Slow         0.511      5.889
+                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
+                                                                                                            Slow         0.500      5.900
 
 
-Slack (MET) :             5.889ns  (requirement - actual skew)
+Slack (MET) :             5.900ns  (requirement - actual skew)
   Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[7]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
   Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[11]/C
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[11]/D
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            6.400ns
-  Endpoint Relative Delay:    0.723ns
-  Reference Relative Delay:   0.212ns
+  Endpoint Relative Delay:    0.727ns
+  Reference Relative Delay:   0.227ns
   Relative CRPR:              0.000ns
-  Actual Bus Skew:            0.511ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+  Actual Bus Skew:            0.500ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -304,12 +304,12 @@ Endpoint path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.780     6.250    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X190Y441       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[7]/C
+                         net (fo=9868, routed)        1.936     6.406    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X185Y455       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X190Y441       FDRE (Prop_fdre_C_Q)         0.254     6.504 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[7]/Q
-                         net (fo=1, routed)           0.469     6.973    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg[7]
-    SLICE_X190Y440       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/D
+    SLICE_X185Y455       FDRE (Prop_fdre_C_Q)         0.216     6.622 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[7]/Q
+                         net (fo=1, routed)           0.478     7.100    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg[7]
+    SLICE_X185Y454       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -322,15 +322,15 @@ Endpoint path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.431     4.867    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X190Y440       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/C
-                         clock pessimism              1.360     6.227    
-    SLICE_X190Y440       FDRE (Setup_fdre_C_D)        0.023     6.250    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]
+                         net (fo=9868, routed)        1.514     4.950    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X185Y454       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]/C
+                         clock pessimism              1.433     6.383    
+    SLICE_X185Y454       FDRE (Setup_fdre_C_D)       -0.010     6.373    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[7]
   -------------------------------------------------------------------
-                         data arrival                           6.973    
-                         clock arrival                          6.250    
+                         data arrival                           7.100    
+                         clock arrival                          6.373    
   -------------------------------------------------------------------
-                         relative delay                         0.723    
+                         relative delay                         0.727    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -345,12 +345,12 @@ Reference path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.432     4.868    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X190Y442       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[11]/C
+                         net (fo=9868, routed)        1.513     4.949    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X186Y456       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X190Y442       FDRE (Prop_fdre_C_Q)         0.204     5.072 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[11]/Q
-                         net (fo=1, routed)           0.249     5.321    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg[11]
-    SLICE_X192Y442       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[11]/D
+    SLICE_X186Y456       FDRE (Prop_fdre_C_Q)         0.204     5.153 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg_reg[13]/Q
+                         net (fo=1, routed)           0.216     5.369    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_reg[13]
+    SLICE_X184Y456       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -363,15 +363,15 @@ Reference path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.829     6.299    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X192Y442       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[11]/C
-                         clock pessimism             -1.333     4.966    
-    SLICE_X192Y442       FDRE (Hold_fdre_C_D)         0.143     5.109    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[11]
+                         net (fo=9868, routed)        1.935     6.405    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X184Y456       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]/C
+                         clock pessimism             -1.407     4.998    
+    SLICE_X184Y456       FDRE (Hold_fdre_C_D)         0.144     5.142    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/rd_ptr_gray_sync1_reg_reg[13]
   -------------------------------------------------------------------
-                         data arrival                           5.321    
-                         clock arrival                          5.109    
+                         data arrival                           5.369    
+                         clock arrival                          5.142    
   -------------------------------------------------------------------
-                         relative delay                         0.212    
+                         relative delay                         0.227    
 
 
 
@@ -382,26 +382,26 @@ Endpoints: 14
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[11]/D
-                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
-                                                                                                            Slow         0.539      5.861
+sfp_mgt_refclk_p      sfp_mgt_refclk_p      core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
+                                                                            core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[9]/D
+                                                                                                            Slow         0.629      5.771
 
 
-Slack (MET) :             5.861ns  (requirement - actual skew)
-  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[11]/C
+Slack (MET) :             5.771ns  (requirement - actual skew)
+  Endpoint Source:        core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[11]/D
+  Endpoint Destination:   core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/C
+  Reference Source:       core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[9]/C
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
-  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
+  Reference Destination:  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[9]/D
                             (rising edge-triggered cell FDRE clocked by sfp_mgt_refclk_p)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            6.400ns
-  Endpoint Relative Delay:    0.842ns
+  Endpoint Relative Delay:    0.932ns
   Reference Relative Delay:   0.303ns
   Relative CRPR:              0.000ns
-  Actual Bus Skew:            0.539ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+  Actual Bus Skew:            0.629ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -416,12 +416,12 @@ Endpoint path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.831     6.301    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X197Y442       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[11]/C
+                         net (fo=9868, routed)        1.938     6.408    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X190Y453       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X197Y442       FDRE (Prop_fdre_C_Q)         0.198     6.499 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[11]/Q
-                         net (fo=1, routed)           0.515     7.013    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[11]
-    SLICE_X198Y440       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[11]/D
+    SLICE_X190Y453       FDRE (Prop_fdre_C_Q)         0.232     6.640 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[1]/Q
+                         net (fo=1, routed)           0.592     7.232    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[1]
+    SLICE_X191Y454       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -434,15 +434,15 @@ Endpoint path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.482     4.918    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X198Y440       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[11]/C
-                         clock pessimism              1.333     6.251    
-    SLICE_X198Y440       FDRE (Setup_fdre_C_D)       -0.079     6.172    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[11]
+                         net (fo=9868, routed)        1.515     4.951    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X191Y454       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]/C
+                         clock pessimism              1.434     6.385    
+    SLICE_X191Y454       FDRE (Setup_fdre_C_D)       -0.085     6.300    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[1]
   -------------------------------------------------------------------
-                         data arrival                           7.013    
-                         clock arrival                          6.172    
+                         data arrival                           7.232    
+                         clock arrival                          6.300    
   -------------------------------------------------------------------
-                         relative delay                         0.842    
+                         relative delay                         0.932    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -457,12 +457,12 @@ Reference path:
                                                       1.285     1.285 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.079     3.364    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.072     3.436 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.479     4.915    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X196Y439       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/C
+                         net (fo=9868, routed)        1.515     4.951    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X189Y454       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[9]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X196Y439       FDRE (Prop_fdre_C_Q)         0.204     5.119 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[4]/Q
-                         net (fo=1, routed)           0.211     5.329    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[4]
-    SLICE_X195Y439       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/D
+    SLICE_X189Y454       FDRE (Prop_fdre_C_Q)         0.158     5.109 r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg_reg[9]/Q
+                         net (fo=1, routed)           0.206     5.315    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_sync_commit_reg[9]
+    SLICE_X189Y455       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[9]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sfp_mgt_refclk_p rise edge)
@@ -475,13 +475,13 @@ Reference path:
                                                       2.135     2.135 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/ibufds_inst/O
                          net (fo=2, routed)           2.255     4.390    sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk
     BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.080     4.470 r  sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/coreclk_bufg_inst/O
-                         net (fo=9846, routed)        1.829     6.299    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
-    SLICE_X195Y439       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]/C
-                         clock pessimism             -1.361     4.938    
-    SLICE_X195Y439       FDRE (Hold_fdre_C_D)         0.089     5.027    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[4]
+                         net (fo=9868, routed)        1.938     6.408    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/coreclk_out
+    SLICE_X189Y455       FDRE                                         r  core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[9]/C
+                         clock pessimism             -1.434     4.974    
+    SLICE_X189Y455       FDRE (Hold_fdre_C_D)         0.038     5.012    core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst/wr_ptr_commit_sync_reg_reg[9]
   -------------------------------------------------------------------
-                         data arrival                           5.329    
-                         clock arrival                          5.027    
+                         data arrival                           5.315    
+                         clock arrival                          5.012    
   -------------------------------------------------------------------
                          relative delay                         0.303    
 

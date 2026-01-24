@@ -230,6 +230,60 @@ function fpga_error_pkt_n {
 }
 
 # --------------------------------------------------
+# FUNCIÓN: fpga_udp_lenght
+# Configura la longitud de cada paquete udp en multiplos de 64 bits
+# Uso: fpga_udp_lenght <longitud_de_paquetes>
+# Ejemplo: fpga_udp_lenght 8192
+# --------------------------------------------------
+function fpga_udp_lenght {
+    if [ $# -ne 1 ]; then
+        echo "Uso: fpga_udp_lenght <longitud_de_paquetes>"
+        echo "Ejemplo: fpga_udp_lenght 1024"
+        return 1
+    fi
+    
+    local udp_lenght=$1
+    local tx_udp_lenght=$(( (udp_lenght * 8) + 8 ))
+    local udp_original=$((tx_udp_lenght - 8))
+    local max_lenght=1024
+
+    # Validar que posicion en paquete sea un número positivo dentro del rango 0-1023
+    if ! [[ "$udp_lenght" =~ ^[0-9]+$ ]] || [ "$udp_lenght" -gt "$max_lenght" ]; then
+        echo "Error: La longitud debe estar entre 0 y $max_lenght"
+        return 1
+    fi
+
+    # Convertir posición a 2 bytes en BIG-ENDIAN
+    local udp_lenght_byte1=$(( (udp_lenght >> 8)  & 0xFF ))  # MSB
+    local udp_lenght_byte0=$(( (udp_lenght >> 0)  & 0xFF ))  # LSB
+
+    # Convertir posición a 2 bytes en BIG-ENDIAN
+    local tx_udp_lenght_byte1=$(( (tx_udp_lenght >> 8)  & 0xFF ))  # MSB
+    local tx_udp_lenght_byte0=$(( (tx_udp_lenght >> 0)  & 0xFF ))  # LSB
+    
+    echo "Configurando: longitud del paquete udp a $udp_original bytes"
+    echo "Bytes posición (big-endian): $(printf '\\x%02x\\x%02x' $tx_udp_lenght_byte1 $tx_udp_lenght_byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de posición
+    printf "LENGTH\x$(printf '%02x' $tx_udp_lenght_byte1)\x$(printf '%02x' $tx_udp_lenght_byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+
+    # Pequeña pausa entre comandos
+    sleep 0.1
+
+    echo "Configurando: longitud del paquete udp a $udp_lenght  palabra de 64 bits"
+    echo "Bytes posición (big-endian): $(printf '\\x%02x\\x%02x' $udp_lenght_byte1 $udp_lenght_byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de posición
+    printf "WORDS#\x$(printf '%02x' $udp_lenght_byte1)\x$(printf '%02x' $udp_lenght_byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    echo "Configuración enviada: Nueva longitud del paquete udp $udp_original bytes"
+}
+
+# --------------------------------------------------
 # FUNCIÓN: fpga_trigger  
 # Envía pulso de trigger a la FPGA
 # Uso: fpga_trigger
@@ -514,5 +568,6 @@ function show_fpga_commands {
     echo "fpga_loopback [e/d]   - Control loopback"
     echo "fpga_debug_signals [s]- Configura las señales de debug"
     echo "fpga_random           - Control Random"
+    echo "fpga_udp_lenght <n>   - Configurar longitud de paquete"
     echo "================================="
 }   

@@ -220,7 +220,6 @@ wire [31:0] tx_udp_ip_source_ip;
 //wire [31:0] tx_udp_ip_dest_ip;
 //wire [15:0] tx_udp_source_port;
 //wire [15:0] tx_udp_dest_port;
-reg [15:0] tx_udp_length = 16'd8200;
 wire [15:0] tx_udp_checksum;
 wire [63:0] tx_udp_payload_axis_tdata;
 wire [7:0] tx_udp_payload_axis_tkeep;
@@ -411,7 +410,7 @@ reg [15:0] pkt_e_p = 16'd128; //por defecto en la posición 128
 
 always @(posedge clk) begin
     if (rst) begin
-        pkt_e_p <= 16'd0;
+        pkt_e_p <= 16'd128; //por defecto en la posición 128
     end else begin
         if (rx_reg[47:0] == 48'h23505F525245) begin  // "ERR_P#" en little-endian
            // Invertir el orden de los bytes
@@ -421,10 +420,42 @@ always @(posedge clk) begin
     end
 end
 
+//message length variable////////////////////////// selecciona el la longitud de bytes del mensaje udp
+
+reg [15:0] tx_udp_length = 16'd8200; //defaul 8192+8 bytes JUMBO frames
+
+always @(posedge clk) begin
+    if (rst) begin
+        tx_udp_length <= 16'd8200;
+    end else begin
+        if (rx_reg[47:0] == 48'h4854474E454C) begin  // "LENGTH" en little-endian
+           // Invertir el orden de los bytes
+           tx_udp_length <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "HTGNEL", mantiene el estado actual
+    end
+end
+
+//64 words number ////////////////////////// selecciona numero de palabras de 64 bits por mensaje
+
+reg [15:0] n_bytes = 16'd1024; // 1024 palabras de 64 bits = 8192 bytes
+
+always @(posedge clk) begin
+    if (rst) begin
+        n_bytes <= 16'd1024; 
+    end else begin
+        if (rx_reg[47:0] == 48'h235344524F57) begin  // "WORDS#" en little-endian
+           // Invertir el orden de los bytes
+           n_bytes <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "#SDROW", mantiene el estado actual
+    end
+end
+
 //transmision de paquetes de bytes
 
-reg [10:0] cont_reg = 11'd0;
-reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes MTU fixed
+reg [15:0] cont_reg = 16'd0;
+
 
 reg [31:0] cont_err_reg = 32'd0;
 
@@ -527,7 +558,7 @@ always @(posedge clk) begin
             if (tx_fifo_axis_tready) begin
                 tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
                 
-                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
+                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
                 end else begin
                     tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
