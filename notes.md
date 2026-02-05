@@ -162,3 +162,13 @@ desactivar firewall
 ```bash
 sudo ufw disable
 ```
+Coalensce
+---
+Parametros de Coalensce
+```bash
+sudo ethtool -c enp4s0
+```
+DESHABILITAR INTERRUPT COALESCING COMPLETAMENTE para interrupciones instantaneas
+```bash
+sudo ethtool -C enp4s0 rx-usecs 0
+```
