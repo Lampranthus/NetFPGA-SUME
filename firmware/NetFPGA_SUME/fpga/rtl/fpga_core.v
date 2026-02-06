@@ -220,7 +220,7 @@ wire [31:0] tx_udp_ip_source_ip;
 //wire [31:0] tx_udp_ip_dest_ip;
 //wire [15:0] tx_udp_source_port;
 //wire [15:0] tx_udp_dest_port;
-reg [15:0] tx_udp_length = 16'd8200;
+reg [15:0] tx_udp_length;
 wire [15:0] tx_udp_checksum;
 wire [63:0] tx_udp_payload_axis_tdata;
 wire [7:0] tx_udp_payload_axis_tkeep;
@@ -325,7 +325,7 @@ end
 
 //ramdom command //////////////////////////
 
-reg rx_random = 0;
+reg rx_random;
 
 always @(posedge clk) begin
     if (rst) begin
@@ -350,7 +350,7 @@ end
 
 //start, stop //////////////////////////
 
-reg rx_trigger = 0;
+reg rx_trigger;
 
 always @(posedge clk) begin
     if (rst) begin
@@ -375,7 +375,7 @@ end
 
 //pack number //////////////////////////
 
-reg [31:0] pkt_n = 32'd128; //por defecto ~1MB por cada pulso recibido de datos (128*8192)B = 1048576B
+reg [31:0] pkt_n; //por defecto ~1MB por cada pulso recibido de datos (128*8192)B = 1048576B
 
 always @(posedge clk) begin
     if (rst) begin
@@ -391,7 +391,7 @@ end
 
 //error test message number ////////////////////////// introduce 8 bytes de error cada e mensajes
 
-reg [31:0] pkt_e = 32'd0; //por defecto sin mensaje de test, ya que el conteo comienza desde 1
+reg [31:0] pkt_e; //por defecto sin mensaje de test, ya que el conteo comienza desde 1
 
 always @(posedge clk) begin
     if (rst) begin
@@ -407,11 +407,11 @@ end
 
 //error test message number position ////////////////////////// posición de los 8 bytes de error en el mensaje de error
 
-reg [15:0] pkt_e_p = 16'd128; //por defecto en la posición 128
+reg [15:0] pkt_e_p; //por defecto en la posición 128
 
 always @(posedge clk) begin
     if (rst) begin
-        pkt_e_p <= 16'd0;
+        pkt_e_p <= 16'd128;
     end else begin
         if (rx_reg[47:0] == 48'h23505F525245) begin  // "ERR_P#" en little-endian
            // Invertir el orden de los bytes
@@ -421,10 +421,41 @@ always @(posedge clk) begin
     end
 end
 
+//message length variable////////////////////////// selecciona el la longitud de bytes del mensaje udp
+
+reg [15:0] tx_udp_length; //defaul 8192+8 bytes JUMBO frames
+
+always @(posedge clk) begin
+    if (rst) begin
+        tx_udp_length <= 16'd8200;
+    end else begin
+        if (rx_reg[47:0] == 48'h4854474E454C) begin  // "LENGTH" en little-endian
+           // Invertir el orden de los bytes
+           tx_udp_length <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "HTGNEL", mantiene el estado actual
+    end
+end
+
+//64 words number ////////////////////////// selecciona numero de palabras de 64 bits por mensaje
+
+reg [15:0] n_bytes; // 1024 palabras de 64 bits = 8192 bytes
+
+always @(posedge clk) begin
+    if (rst) begin
+        n_bytes <= 16'd1024; 
+    end else begin
+        if (rx_reg[47:0] == 48'h235344524F57) begin  // "WORDS#" en little-endian
+           // Invertir el orden de los bytes
+           n_bytes <= {rx_reg[55:48], rx_reg[63:56]};
+        end
+        // Si no es "#SDROW", mantiene el estado actual
+    end
+end
+
 //transmision de paquetes de bytes
 
 reg [10:0] cont_reg = 11'd0;
-reg [10:0] n_bytes = 11'd1024; // 1024 palabras de 64 bits = 8192 bytes MTU fixed
 
 reg [31:0] cont_err_reg = 32'd0;
 
@@ -437,7 +468,7 @@ wire tx_fifo_axis_tready;
 reg tx_fifo_axis_tlast = 0;
 reg tx_fifo_axis_tuser = 0;
 
-reg [4:0] off_cycles = 5'd20; // ciclos de reoloj de separacion entre paquetes
+reg [4:0] off_cycles = 5'd20; // ciclos de reoloj de separacion entre paquetes, 20 ciclos no hay error en tx_ready
 reg [4:0] off_cycles_reg = 5'd0;
 
 reg [31:0] pkt_n_reg = 32'd0;
@@ -500,7 +531,7 @@ always @(posedge clk) begin
             if (tx_fifo_axis_tready) begin
                 state <= 3'd2;
                 // Primer dato aceptado y ligiendo segunda palabra
-                tx_fifo_axis_tdata <= {pkt_n_reg, pkt_n}; //esto se aplicara en el siguiente ciclo, sera la segunda palabra enviada
+                tx_fifo_axis_tdata <= {pkt_n_reg, (pkt_n - 32'd1)}; //esto se aplicara en el siguiente ciclo, sera la segunda palabra enviada
                 cont_reg <= cont_reg + 1;
             end
 
@@ -509,22 +540,22 @@ always @(posedge clk) begin
         else if (state == 3'd2) begin
         
             if (tx_fifo_axis_tready) begin
-                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
-                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
-                end else begin
-                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
-                    tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
-                end
-
                 cont_reg <= cont_reg + 1;
-                
                 if (cont_reg == (n_bytes - 2)) begin
                     state <= 3'd3;
                     tx_fifo_axis_tdata <= time_stamp; //eligiendo ultima palabra
                     tx_fifo_axis_tlast <= 1;
                     pkt_n_reg <= pkt_n_reg + 1;
+                end else if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
+                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
+                end else if(rx_random) begin
+                    tx_fifo_axis_tdata <= random_data;
+                end else begin
+                    tx_fifo_axis_tdata <= tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
                 end
             end
+
         end
         // Estado 3: Último dato del paquete
         else if (state == 3'd3) begin
@@ -781,9 +812,9 @@ eth_mac_10g_fifo #(
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
     .MIN_FRAME_LENGTH(64), //payload minimo
-    .TX_FIFO_DEPTH(65536),
+    .TX_FIFO_DEPTH(9000),
     .TX_FRAME_FIFO(1),
-    .RX_FIFO_DEPTH(65536),
+    .RX_FIFO_DEPTH(9000),
     .RX_FRAME_FIFO(1)
 )
 eth_mac_10g_fifo_inst (
@@ -1069,7 +1100,7 @@ tx_udp_payload_fifo (
 
 
 axis_fifo #(
-    .DEPTH(65536),
+    .DEPTH(9000),
     .DATA_WIDTH(64),
     .KEEP_ENABLE(1),
     .KEEP_WIDTH(8),

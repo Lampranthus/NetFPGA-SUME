@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Fri Feb  6 12:35:35 2026
+| Date         : Fri Feb  6 15:20:52 2026
 | Host         : design-lab running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_utilization -file fpga_utilization_synth.rpt -pb fpga_utilization_synth.pb
 | Design       : fpga
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 5998 |     0 |          0 |    433200 |  1.38 |
-|   LUT as Logic             | 5914 |     0 |          0 |    433200 |  1.37 |
-|   LUT as Memory            |   84 |     0 |          0 |    174200 |  0.05 |
-|     LUT as Distributed RAM |   84 |     0 |            |           |       |
+| Slice LUTs*                | 6209 |     0 |          0 |    433200 |  1.43 |
+|   LUT as Logic             | 6193 |     0 |          0 |    433200 |  1.43 |
+|   LUT as Memory            |   16 |     0 |          0 |    174200 | <0.01 |
+|     LUT as Distributed RAM |   16 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            | 6234 |     0 |          0 |    866400 |  0.72 |
-|   Register as Flip Flop    | 6234 |     0 |          0 |    866400 |  0.72 |
+| Slice Registers            | 6146 |     0 |          0 |    866400 |  0.71 |
+|   Register as Flip Flop    | 6146 |     0 |          0 |    866400 |  0.71 |
 |   Register as Latch        |    0 |     0 |          0 |    866400 |  0.00 |
-| F7 Muxes                   |   54 |     0 |          0 |    216600 |  0.02 |
+| F7 Muxes                   |   46 |     0 |          0 |    216600 |  0.02 |
 | F8 Muxes                   |    2 |     0 |          0 |    108300 | <0.01 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -61,8 +61,8 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |            - |
 | 13    |          Yes |           - |          Set |
 | 83    |          Yes |           - |        Reset |
-| 249   |          Yes |         Set |            - |
-| 5889  |          Yes |       Reset |            - |
+| 251   |          Yes |         Set |            - |
+| 5799  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -72,11 +72,11 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +-------------------+------+-------+------------+-----------+-------+
 |     Site Type     | Used | Fixed | Prohibited | Available | Util% |
 +-------------------+------+-------+------------+-----------+-------+
-| Block RAM Tile    | 75.5 |     0 |          0 |      1470 |  5.14 |
-|   RAMB36/FIFO*    |   73 |     0 |          0 |      1470 |  4.97 |
-|     RAMB36E1 only |   73 |       |            |           |       |
-|   RAMB18          |    5 |     0 |          0 |      2940 |  0.17 |
-|     RAMB18E1 only |    5 |       |            |           |       |
+| Block RAM Tile    |   25 |     0 |          0 |      1470 |  1.70 |
+|   RAMB36/FIFO*    |   19 |     0 |          0 |      1470 |  1.29 |
+|     RAMB36E1 only |   19 |       |            |           |       |
+|   RAMB18          |   12 |     0 |          0 |      2940 |  0.41 |
+|     RAMB18E1 only |   12 |       |            |           |       |
 +-------------------+------+-------+------------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -157,25 +157,23 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       | 5889 |        Flop & Latch |
-| LUT6       | 2085 |                 LUT |
-| LUT3       | 1989 |                 LUT |
-| LUT5       |  962 |                 LUT |
-| LUT4       |  920 |                 LUT |
-| CARRY4     |  603 |          CarryLogic |
-| LUT2       |  598 |                 LUT |
-| FDSE       |  249 |        Flop & Latch |
-| LUT1       |  245 |                 LUT |
-| RAMD32     |  102 |  Distributed Memory |
+| FDRE       | 5799 |        Flop & Latch |
+| LUT6       | 2093 |                 LUT |
+| LUT3       | 1845 |                 LUT |
+| LUT5       | 1246 |                 LUT |
+| LUT4       |  905 |                 LUT |
+| CARRY4     |  600 |          CarryLogic |
+| LUT2       |  585 |                 LUT |
+| LUT1       |  292 |                 LUT |
+| FDSE       |  251 |        Flop & Latch |
 | FDCE       |   83 |        Flop & Latch |
-| RAMB36E1   |   73 |        Block Memory |
-| MUXF7      |   54 |               MuxFx |
+| MUXF7      |   46 |               MuxFx |
 | OBUF       |   45 |                  IO |
-| RAMS32     |   34 |  Distributed Memory |
+| RAMB36E1   |   19 |        Block Memory |
 | RAMD64E    |   16 |  Distributed Memory |
 | IBUF       |   14 |                  IO |
 | FDPE       |   13 |        Flop & Latch |
-| RAMB18E1   |    5 |        Block Memory |
+| RAMB18E1   |   12 |        Block Memory |
 | OBUFT      |    2 |                  IO |
 | MUXF8      |    2 |               MuxFx |
 | MMCME2_ADV |    1 |               Clock |

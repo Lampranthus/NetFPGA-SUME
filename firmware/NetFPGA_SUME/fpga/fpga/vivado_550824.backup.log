@@ -1,0 +1,128 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Fri Feb  6 15:18:06 2026
+# Process ID         : 550824
+# Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga
+# Command line       : vivado -mode batch -source run_synth.tcl -tclargs -jobs 16
+# Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/vivado.log
+# Journal file       : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/vivado.jou
+# Running On         : design-lab
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.3 LTS
+# Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
+# CPU Frequency      : 5546.269 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 32651 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 41241 MB
+# Available Virtual  : 39641 MB
+#-----------------------------------------------------------
+source run_synth.tcl
+# set_param general.maxThreads 16
+# set_param synth.maxThreads 8
+# set_param place.maxThreads 16
+# set_param route.maxThreads 16
+# open_project fpga.xpr
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+# reset_run synth_1
+INFO: [Project 1-1161] Replacing file /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp with file /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/fpga.dcp
+# launch_runs -jobs 16 synth_1
+[Fri Feb  6 15:18:08 2026] Launched synth_1...
+Run output will be captured here: /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Fri Feb  6 15:18:08 2026] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log fpga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga.tcl
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Feb  6 15:18:09 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source fpga.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.srcs/utils_1/imports/synth_1/fpga.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top fpga -part xc7vx690tffg1761-3
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Synthesis license expires in 15 day(s)
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 8 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 551228
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2238.664 ; gain = 419.828 ; free physical = 25283 ; free virtual = 35914
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:89]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:91]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:93]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:95]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_rx.v:97]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:85]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:87]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:89]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:91]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'arp_eth_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/arp_eth_tx.v:93]
+WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:145]
+WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_async_fifo' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_async_fifo.v:147]
+WARNING: [Synth 8-11065] parameter 'ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:137]
+WARNING: [Synth 8-11065] parameter 'OUTPUT_FIFO_ADDR_WIDTH' becomes localparam in 'axis_fifo' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/rtl/axis_fifo.v:139]
+WARNING: [Synth 8-11065] parameter 'EMPTY_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:91]
+WARNING: [Synth 8-11065] parameter 'MIN_LEN_WIDTH' becomes localparam in 'axis_xgmii_tx_64' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/axis_xgmii_tx_64.v:92]
+WARNING: [Synth 8-11065] parameter 'CL_S_COUNT' becomes localparam in 'eth_arb_mux' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_arb_mux.v:90]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:80]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:82]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:84]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:86]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_rx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_rx.v:88]
+WARNING: [Synth 8-11065] parameter 'BYTE_LANES' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:79]
+WARNING: [Synth 8-11065] parameter 'HDR_SIZE' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:81]
+WARNING: [Synth 8-11065] parameter 'CYCLE_COUNT' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:83]
+WARNING: [Synth 8-11065] parameter 'PTR_WIDTH' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:85]
+WARNING: [Synth 8-11065] parameter 'OFFSET' becomes localparam in 'eth_axis_tx' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_axis_tx.v:87]
+WARNING: [Synth 8-11065] parameter 'MAC_CTRL_ENABLE' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:186]
+WARNING: [Synth 8-11065] parameter 'TX_USER_WIDTH_INT' becomes localparam in 'eth_mac_10g' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g.v:187]
+WARNING: [Synth 8-11065] parameter 'KEEP_WIDTH' becomes localparam in 'eth_mac_10g_fifo' with formal parameter declaration list [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/rtl/eth_mac_10g_fifo.v:138]
+CRITICAL WARNING: [Synth 8-9339] data object 'tx_udp_length' is already declared [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:426]
+INFO: [Synth 8-6826] previous declaration of 'tx_udp_length' is from here [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:223]
+CRITICAL WARNING: [Synth 8-11152] second declaration of 'tx_udp_length' is ignored [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:426]
+ERROR: [Synth 8-36] 'off_cycles' is not declared [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:589]
+INFO: [Synth 8-10285] module 'fpga_core' is ignored due to previous errors [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v:1143]
+INFO: [Synth 8-9084] Verilog file '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v' ignored due to errors
+ERROR: [Synth 8-12188] Failed to read verilog '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/rtl/fpga_core.v'
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2309.602 ; gain = 490.766 ; free physical = 25260 ; free virtual = 35891
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+14 Infos, 30 Warnings, 2 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Fri Feb  6 15:18:18 2026...
+[Fri Feb  6 15:18:29 2026] synth_1 finished
+ERROR: [Vivado 12-13638] Failed runs(s) : 'synth_1'
+wait_on_runs: Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1481.039 ; gain = 0.000 ; free physical = 26630 ; free virtual = 37262
+ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
+
+    while executing
+"wait_on_run synth_1"
+    (file "run_synth.tcl" line 8)
+INFO: [Common 17-206] Exiting Vivado at Fri Feb  6 15:18:29 2026...

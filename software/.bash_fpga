@@ -116,22 +116,30 @@ function fpga_random {
 # --------------------------------------------------
 # FUNCIÓN: fpga_pkt_n
 # Configura el número de paquetes por pulso
-# Uso: fpga_pkt_n <número_de_paquetes>
+# Uso: fpga_pkt_n <número_de_paquetes|max>
 # Ejemplo: fpga_pkt_n 256
+# Ejemplo: fpga_pkt_n max
 # --------------------------------------------------
 function fpga_pkt_n {
     if [ $# -ne 1 ]; then
-        echo "Uso: fpga_pkt_n <número_de_paquetes>"
+        echo "Uso: fpga_pkt_n <número_de_paquetes|max>"
         echo "Ejemplo: fpga_pkt_n 256"
+        echo "Ejemplo: fpga_pkt_n max"
         return 1
     fi
     
     local packets=$1
     local max_uint32=4294967295
     
+    # Si el parámetro es "max", usar el valor máximo
+    if [ "$packets" = "max" ]; then
+        packets=$max_uint32
+        echo "Usando número máximo de paquetes: $packets"
+    fi
+    
     # Validar que sea un número positivo dentro de 32 bits
     if ! [[ "$packets" =~ ^[0-9]+$ ]] || [ "$packets" -lt 1 ] || [ "$packets" -gt "$max_uint32" ]; then
-        echo "Error: El número debe estar entre 1 y $max_uint32"
+        echo "Error: El número debe estar entre 1 y $max_uint32, o usar 'max'"
         return 1
     fi
     
@@ -149,7 +157,13 @@ function fpga_pkt_n {
     nc -u -w 1 $FPGA_IP $FPGA_PORT
     
     local mb_size=$((packets * 8192 / 1024 / 1024))
-    echo " Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+    local gb_size=$(echo "scale=2; $packets * 8192 / 1024 / 1024 / 1024" | bc)
+    
+    if [ "$packets" -eq "$max_uint32" ]; then
+        echo "Configurado para MÁXIMO: $packets paquetes (~${gb_size} GB por pulso)"
+    else
+        echo "Configurado para $packets paquetes (~${mb_size} MB por pulso)"
+    fi
 }
 
 # --------------------------------------------------
@@ -213,6 +227,60 @@ function fpga_error_pkt_n {
     nc -u -w 1 $FPGA_IP $FPGA_PORT
     
     echo "Configuración enviada: Error cada $packets paquetes en posición $poss"
+}
+
+# --------------------------------------------------
+# FUNCIÓN: fpga_udp_lenght
+# Configura la longitud de cada paquete udp en multiplos de 64 bits
+# Uso: fpga_udp_lenght <longitud_de_paquetes>
+# Ejemplo: fpga_udp_lenght 8192
+# --------------------------------------------------
+function fpga_udp_lenght {
+    if [ $# -ne 1 ]; then
+        echo "Uso: fpga_udp_lenght <longitud_de_paquetes>"
+        echo "Ejemplo: fpga_udp_lenght 1024"
+        return 1
+    fi
+    
+    local udp_lenght=$1
+    local tx_udp_lenght=$(( (udp_lenght * 8) + 8 ))
+    local udp_original=$((tx_udp_lenght - 8))
+    local max_lenght=1024
+
+    # Validar que posicion en paquete sea un número positivo dentro del rango 0-1023
+    if ! [[ "$udp_lenght" =~ ^[0-9]+$ ]] || [ "$udp_lenght" -gt "$max_lenght" ]; then
+        echo "Error: La longitud debe estar entre 0 y $max_lenght"
+        return 1
+    fi
+
+    # Convertir posición a 2 bytes en BIG-ENDIAN
+    local udp_lenght_byte1=$(( (udp_lenght >> 8)  & 0xFF ))  # MSB
+    local udp_lenght_byte0=$(( (udp_lenght >> 0)  & 0xFF ))  # LSB
+
+    # Convertir posición a 2 bytes en BIG-ENDIAN
+    local tx_udp_lenght_byte1=$(( (tx_udp_lenght >> 8)  & 0xFF ))  # MSB
+    local tx_udp_lenght_byte0=$(( (tx_udp_lenght >> 0)  & 0xFF ))  # LSB
+    
+    echo "Configurando: longitud del paquete udp a $udp_original bytes"
+    echo "Bytes posición (big-endian): $(printf '\\x%02x\\x%02x' $tx_udp_lenght_byte1 $tx_udp_lenght_byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de posición
+    printf "LENGTH\x$(printf '%02x' $tx_udp_lenght_byte1)\x$(printf '%02x' $tx_udp_lenght_byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+
+    # Pequeña pausa entre comandos
+    sleep 0.1
+
+    echo "Configurando: longitud del paquete udp a $udp_lenght  palabra de 64 bits"
+    echo "Bytes posición (big-endian): $(printf '\\x%02x\\x%02x' $udp_lenght_byte1 $udp_lenght_byte0)"
+    echo "Enviando a: $FPGA_IP:$FPGA_PORT"
+    
+    # Enviar comando de posición
+    printf "WORDS#\x$(printf '%02x' $udp_lenght_byte1)\x$(printf '%02x' $udp_lenght_byte0)" | \
+    nc -u -w 1 $FPGA_IP $FPGA_PORT
+    
+    echo "Configuración enviada: Nueva longitud del paquete udp $udp_original bytes"
 }
 
 # --------------------------------------------------
@@ -390,6 +458,7 @@ function get_signal_name {
        11) echo "signal_in[1]";;
        12) echo "signal_in[2]";;
        13) echo "signal_in[3]";;
+       14) echo "rx_random";;
         *) echo "rx_trigger" ;;
     esac
 }
@@ -426,6 +495,7 @@ function fpga_debug_signals {
         echo " 11: signal_in[1]"
         echo " 12: signal_in[2]"
         echo " 13: signal_in[3]"
+        echo " 14: rx_random"
         echo "  otros: rx_trigger"
         echo ""
         echo "Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto"
@@ -498,5 +568,6 @@ function show_fpga_commands {
     echo "fpga_loopback [e/d]   - Control loopback"
     echo "fpga_debug_signals [s]- Configura las señales de debug"
     echo "fpga_random           - Control Random"
+    echo "fpga_udp_lenght <n>   - Configurar longitud de paquete"
     echo "================================="
 }   
