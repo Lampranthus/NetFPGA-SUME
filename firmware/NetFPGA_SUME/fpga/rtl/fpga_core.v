@@ -442,12 +442,15 @@ reg [4:0] off_cycles_reg = 5'd0;
 
 reg [31:0] pkt_n_reg = 32'd0;
 reg [2:0] state = 3'd0;
+reg ocupado;
 
 reg [63:0] random_data;
 // Linear-feedback shift register de 64 bits usando polinomio máximo x^64 + x^63 + x^61 + x^60 + 1
 reg [63:0] lfsr;
 
 wire feedback;
+
+reg [63:0] time_stamp;
 
 // Feedback para polinomio máximo de 64 bits
 assign feedback = lfsr[63] ^ lfsr[62] ^ lfsr[60] ^ lfsr[59];
@@ -464,6 +467,13 @@ always @(posedge clk) begin
     end
 
     if (rst) begin
+        time_stamp <= 64'd0; // Semilla inicial (no todos ceros)
+    end else begin
+        // Generar nuevo valor cada ciclo de reloj
+        time_stamp <= time_stamp + 64'd1;
+    end
+
+    if (rst) begin
         state <=  3'd0;
         tx_fifo_axis_tdata <= 64'd0;
         tx_fifo_axis_tdata_reg <= 64'd0;
@@ -472,79 +482,45 @@ always @(posedge clk) begin
         tx_fifo_axis_tlast <= 0;
         pkt_n_reg <= 0;
         off_cycles_reg <= 5'd0;
+        ocupado <= 0; 
     end else begin
        // Estado 0: Esperando pulso
         if (state == 3'd0) begin
         
-            tx_fifo_axis_tvalid <= 0;
-            tx_fifo_axis_tlast <= 0;
-            cont_reg <= 0;
-            pkt_n_reg <= 0;
-            tx_fifo_axis_tdata <= rx_random ? random_data : 64'd0;
-            tx_fifo_axis_tdata_reg <= 64'd0;
-            off_cycles_reg <= 5'd0;
-        
-            if (rx_trigger && pulse_trigg && ~rx_loopb) begin
+            if ((rx_trigger && pulse_trigg && ~rx_loopb) || ocupado) begin
+                ocupado <= 1; //empieza el envio de los paquetes
                 state <= 3'd1;
                 tx_fifo_axis_tvalid <= 1; //tvalid 1 en el siguiente ciclo
-
-                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
-
-                if ((pkt_e == 1) && (pkt_e_p == 0)) begin // si se eligio el dato 0 de cada mensaje
-                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
-                end else begin
-                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
-                end
-
+                tx_fifo_axis_tdata <= time_stamp; // primera palabra del mensaje
             end
         end 
-        // Estado 1: Esperando tready para primer dato
+        // Estado 1: Enviando primera palabra del mensaje
         else if (state == 3'd1) begin
-        
-            tx_fifo_axis_tvalid <= 1;  // Mantener tvalid activo
-            tx_fifo_axis_tlast <= 0;
  
             if (tx_fifo_axis_tready) begin
                 state <= 3'd2;
-                // Primer dato aceptado
-                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
-                
-                if ((pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 1))) begin // si se eligio el dato 1 de cada pkt_e mensajes
-                    tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de errors 
-                end else begin
-                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
-                end
-                
+                // Primer dato aceptado y ligiendo segunda palabra
+                tx_fifo_axis_tdata <= {pkt_n_reg, pkt_n}; //esto se aplicara en el siguiente ciclo, sera la segunda palabra enviada
                 cont_reg <= cont_reg + 1;
             end
+
         end 
-        // Estado 2: Transmitir datos normales
+        // Estado 2: Enviando segunda palabra y el resto
         else if (state == 3'd2) begin
         
-            tx_fifo_axis_tvalid <= 1;
-            tx_fifo_axis_tlast <= 0;
-        
             if (tx_fifo_axis_tready) begin
-                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
-                
                 if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (cont_reg == pkt_e_p[10:0]))) begin // si se eligio el dato pkt_e_p < n_bytes - 1 de cada pkt_e mensajes 
                     tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
                 end else begin
                     tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
+                    tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
                 end
 
                 cont_reg <= cont_reg + 1;
                 
                 if (cont_reg == (n_bytes - 2)) begin
                     state <= 3'd3;
-                    tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1;
-                    
-                    if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p[10:0] == (n_bytes - 1)))) begin // si se eligio el ultimo dato de cada pkt_e mensajes 
-                        tx_fifo_axis_tdata <= tx_axis_tdata_test; // 8 bytes de error
-                    end else begin
-                        tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
-                    end
-
+                    tx_fifo_axis_tdata <= time_stamp; //eligiendo ultima palabra
                     tx_fifo_axis_tlast <= 1;
                     pkt_n_reg <= pkt_n_reg + 1;
                 end
@@ -553,32 +529,24 @@ always @(posedge clk) begin
         // Estado 3: Último dato del paquete
         else if (state == 3'd3) begin
         
-            tx_fifo_axis_tvalid <= 1;
-            tx_fifo_axis_tlast <= 1;
-        
             if (pkt_n_reg == (pkt_n) || ~rx_trigger) begin
+                cont_reg <= 0;
+                pkt_n_reg <= 0;
+                tx_fifo_axis_tdata_reg <= 64'd0;
+                off_cycles_reg <= 5'd0;
+                ocupado <= 0; //fin ocupado para volver a estado 0 y esperar otro triger
                 state <= 3'd0; //si se llego al numero de mensajes volver a estado 0 para esperar otro pulso
                 tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
+                tx_fifo_axis_tvalid <= 0;//bajar tvalid
             end else begin
                 state <= 3'd4; //si no se llego al numero de mensaje ir al estado 4 para esperar a que baje tready
                 tx_fifo_axis_tlast <= 0;//bajar last en el siguiente ciclo
                 tx_fifo_axis_tvalid <= 0;//bajar tvalid
-                tx_fifo_axis_tdata_reg <= tx_fifo_axis_tdata_reg + 64'd1; 
-                
-                if ( (pkt_e != 0) && (((pkt_n_reg + 1) % pkt_e == 0) && (pkt_e_p == 0))) begin // si se eligio el dato 0 de cada pkt_e mensajes 
-                    tx_fifo_axis_tdata <= tx_axis_tdata_test; //8 bytes de error
-                end else begin
-                    tx_fifo_axis_tdata <= rx_random ? random_data : tx_fifo_axis_tdata_reg;
-                end
-
                 cont_reg <= 0; //resetear cont_reg
             end
         end
          // Estado 4: esperando que tready baje para enviar otro mensaje
         else if (state == 3'd4) begin
-        
-            tx_fifo_axis_tvalid <= 0;// mantener tvalid abajo
-            tx_fifo_axis_tlast <= 0;
         
             if (~tx_fifo_axis_tready) begin 
                 state <= 3'd5; //cuando baje tready ir al estado 5 para esperas ciclos de separacion
@@ -587,12 +555,8 @@ always @(posedge clk) begin
          // Estado 5: esperando ciclos de separacion para enviar el siguiente mensaje
         else if (state == 3'd5) begin
         
-            tx_fifo_axis_tvalid <= 0;// mantener tvalid abajo
-            tx_fifo_axis_tlast <= 0;
-        
             if (off_cycles_reg == (off_cycles - 1)) begin 
-                state <= 3'd1; //cuando baje tready ir al estado 1 para esperar a que tready suba
-                tx_fifo_axis_tvalid <= 1;//subir tvalid tvalid en el siguiente ciclo de reloj
+                state <= 3'd0; //volver al estado 0 con ocupado en 1 para seguir enviando datos
                 off_cycles_reg <= 0; //reiniciando off_cycles_reg
             end else begin
                 off_cycles_reg <= off_cycles_reg + 1; 
@@ -816,7 +780,7 @@ eth_mac_10g_fifo #(
     .DATA_WIDTH(64),
     .ENABLE_PADDING(1),
     .ENABLE_DIC(1),
-    .MIN_FRAME_LENGTH(64),
+    .MIN_FRAME_LENGTH(64), //payload minimo
     .TX_FIFO_DEPTH(65536),
     .TX_FRAME_FIFO(1),
     .RX_FIFO_DEPTH(65536),
