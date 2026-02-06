@@ -172,3 +172,7 @@ DESHABILITAR INTERRUPT COALESCING COMPLETAMENTE para interrupciones instantaneas
 ```bash
 sudo ethtool -C enp4s0 rx-usecs 0
 ```
+Ver drops del kernel
+```bash
+sudo ip -s link show enp4s0
+```
