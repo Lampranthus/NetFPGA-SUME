@@ -176,3 +176,7 @@ Ver drops del kernel
 ```bash
 sudo ip -s link show enp4s0
 ```
+Ver estadisticas de tarjeta de red
+```bash
+sudo ethtool -g enp4s0
+```
