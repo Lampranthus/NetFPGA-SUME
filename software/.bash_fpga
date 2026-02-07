@@ -156,14 +156,8 @@ function fpga_pkt_n {
     printf "PKT#\x$(printf '%02x' $byte3)\x$(printf '%02x' $byte2)\x$(printf '%02x' $byte1)\x$(printf '%02x' $byte0)" | \
     nc -u -w 1 $FPGA_IP $FPGA_PORT
     
-    local mb_size=$((packets * 8192 / 1024 / 1024))
-    local gb_size=$(echo "scale=2; $packets * 8192 / 1024 / 1024 / 1024" | bc)
-    
-    if [ "$packets" -eq "$max_uint32" ]; then
-        echo "Configurado para MÁXIMO: $packets paquetes (~${gb_size} GB por pulso)"
-    else
-        echo "Configurado para $packets paquetes (~${mb_size} MB por pulso)"
-    fi
+    echo "Configurado para $packets paquetes."
+
 }
 
 # --------------------------------------------------
