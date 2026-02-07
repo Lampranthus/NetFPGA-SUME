@@ -180,3 +180,8 @@ Ver estadisticas de tarjeta de red
 ```bash
 sudo ethtool -g enp4s0
 ```
+Configurar nic
+```bash
+sudo ethtool -G enp4s0 tx 8192
+sudo ethtool -G enp4s0 rx 8192
+```
