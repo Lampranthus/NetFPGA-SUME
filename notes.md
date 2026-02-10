@@ -380,7 +380,8 @@ sudo ethtool -G enp4s0 rx 8192
 ```
 Para capturar tráfico UDP desde/hacia 192.168.1.128 en tu interfaz enp4s0
 ```bash
-sudo tcpdump -i enp4s0 -s 0 -w tcpdump.pcap host 192.168.1.128 and udp
+sudo tshark -r tcpdump.pcap -d udp.port==9999,data -Y "udp.port == 9999" -T fields -e data |   tr -d '\r' |   awk '{print substr($0,16,16)}' > bytes_s
+in_rtcp.txt
 ```
 Función: Extrae una subcadena (substring) del string
 
