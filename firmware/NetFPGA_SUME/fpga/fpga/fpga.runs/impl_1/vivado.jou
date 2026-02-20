@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Fri Feb  6 15:21:17 2026
-# Process ID         : 554438
+# Start of session at: Wed Feb 11 16:51:35 2026
+# Process ID         : 231571
 # Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1
 # Command line       : vivado -log fpga.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fpga.tcl -notrace
 # Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga.vdi
@@ -13,12 +13,12 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
-# CPU Frequency      : 5548.582 MHz
+# CPU Frequency      : 5537.373 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 32651 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41241 MB
-# Available Virtual  : 39108 MB
+# Available Virtual  : 38748 MB
 #-----------------------------------------------------------
 source fpga.tcl -notrace

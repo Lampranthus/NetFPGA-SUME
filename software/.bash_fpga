@@ -433,31 +433,6 @@ function fpga_load {
 }
 
 # --------------------------------------------------
-# FUNCIÓN AUXILIAR: get_signal_name
-# Devuelve el nombre legible de la señal según su índice
-# --------------------------------------------------
-function get_signal_name {
-    case $1 in
-        0) echo "tx_udp_hdr_valid" ;;
-        1) echo "tx_udp_hdr_ready" ;;
-        2) echo "rx_udp_hdr_valid" ;;
-        3) echo "rx_udp_hdr_ready" ;;
-        4) echo "tx_udp_payload_axis_tvalid" ;;
-        5) echo "tx_fifo_axis_tready" ;;
-        6) echo "tx_udp_payload_axis_tlast" ;;
-        7) echo "udp_tx_busy" ;;
-        8) echo "udp_rx_busy" ;;
-        9) echo "rx_loopb" ;;
-       10) echo "signal_in[0]";;
-       11) echo "signal_in[1]";;
-       12) echo "signal_in[2]";;
-       13) echo "signal_in[3]";;
-       14) echo "rx_random";;
-        *) echo "rx_trigger" ;;
-    esac
-}
-
-# --------------------------------------------------
 # FUNCIÓN: fpga_debug_signals
 # Configura las señales de debug en los pines JA_FPGA[7:4]
 # Uso: fpga_debug_signals <JA7> <JA6> <JA5> <JA4>
@@ -473,27 +448,7 @@ function get_signal_name {
 # --------------------------------------------------
 function fpga_debug_signals {
     if [ $# -ne 4 ]; then
-        echo "Uso: fpga_debug_signals <JA7> <JA6> <JA5> <JA4>"
-        echo "Donde cada valor puede ser:"
-        echo "  0: tx_udp_hdr_valid"
-        echo "  1: tx_udp_hdr_ready" 
-        echo "  2: rx_udp_hdr_valid"
-        echo "  3: rx_udp_hdr_ready"
-        echo "  4: tx_udp_payload_axis_tvalid"
-        echo "  5: tx_fifo_axis_tready"
-        echo "  6: tx_udp_payload_axis_tlast"
-        echo "  7: udp_tx_busy"
-        echo "  8: udp_rx_busy"
-        echo "  9: rx_loopb"
-        echo " 10: signal_in[0]"
-        echo " 11: signal_in[1]"
-        echo " 12: signal_in[2]"
-        echo " 13: signal_in[3]"
-        echo " 14: rx_random"
-        echo "  otros: rx_trigger"
-        echo ""
         echo "Ejemplo: fpga_debug_signals 9 6 5 4  # Valores por defecto"
-        echo "Ejemplo: fpga_debug_signals 7 8 0 2  # Monitorizar busy flags y headers"
         return 1
     fi
     
@@ -519,10 +474,10 @@ function fpga_debug_signals {
     
     echo "--------------------------------------------------"
     echo "Configurando debug signals:"
-    echo "  JA_FPGA[4]: $ja4 → $(get_signal_name $ja4)"
-    echo "  JA_FPGA[5]: $ja5 → $(get_signal_name $ja5)"
-    echo "  JA_FPGA[6]: $ja6 → $(get_signal_name $ja6)"
-    echo "  JA_FPGA[7]: $ja7 → $(get_signal_name $ja7)"
+    echo "  JA_FPGA[4]: $ja4"
+    echo "  JA_FPGA[5]: $ja5"
+    echo "  JA_FPGA[6]: $ja6"
+    echo "  JA_FPGA[7]: $ja7"
     echo "--------------------------------------------------"
     echo "  Valor combinado: 0x$(printf '%04x' $debug_value)"
     echo "  Bytes enviados (little-endian): 0x$(printf '%02x' $byte_high) 0x$(printf '%02x' $byte_low)"

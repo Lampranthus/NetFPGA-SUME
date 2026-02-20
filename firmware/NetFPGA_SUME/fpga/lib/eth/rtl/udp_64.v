@@ -353,7 +353,7 @@ end else begin
     assign tx_udp_payload_axis_tdata = s_udp_payload_axis_tdata;
     assign tx_udp_payload_axis_tkeep = s_udp_payload_axis_tkeep;
     assign tx_udp_payload_axis_tvalid = s_udp_payload_axis_tvalid;
-    assign s_udp_payload_axis_tready = tx_udp_payload_axis_tready;
+    assign s_udp_payload_axis_tready = tx_udp_payload_axis_tready; //sospecha
     assign tx_udp_payload_axis_tlast = s_udp_payload_axis_tlast;
     assign tx_udp_payload_axis_tuser = s_udp_payload_axis_tuser;
 

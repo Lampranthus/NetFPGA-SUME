@@ -1,0 +1,1959 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Feb 11 16:51:31 2026
+# Process ID         : 231338
+# Current directory  : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga
+# Command line       : vivado -mode batch -source run_impl.tcl -tclargs -jobs 16
+# Log file           : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/vivado.log
+# Journal file       : /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/vivado.jou
+# Running On         : design-lab
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.3 LTS
+# Processor Detail   : AMD Ryzen 7 9700X 8-Core Processor
+# CPU Frequency      : 5499.989 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 32651 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 41241 MB
+# Available Virtual  : 39294 MB
+#-----------------------------------------------------------
+source run_impl.tcl
+# set_param general.maxThreads 16
+# set_param synth.maxThreads 8
+# set_param place.maxThreads 16
+# set_param route.maxThreads 16
+# open_project fpga.xpr
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+# reset_run impl_1
+# launch_runs -jobs 16 impl_1
+[Wed Feb 11 16:51:34 2026] Launched impl_1...
+Run output will be captured here: /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/runme.log
+# wait_on_run impl_1
+[Wed Feb 11 16:51:34 2026] Waiting for impl_1 to finish...
+
+*** Running vivado
+    with args -log fpga.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source fpga.tcl -notrace
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Wed Feb 11 16:51:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source fpga.tcl -notrace
+Command: link_design -top fpga -part xc7vx690tffg1761-3
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
+INFO: [Project 1-454] Reading design checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/ten_gig_eth_pcs_pma_0.dcp' for cell 'sfp_1_pcs_pma_inst'
+INFO: [Project 1-454] Reading design checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/ten_gig_eth_pcs_pma_1.dcp' for cell 'sfp_2_pcs_pma_inst'
+Netlist sorting complete. Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.1 . Memory (MB): peak = 1843.547 ; gain = 0.000 ; free physical = 24258 ; free virtual = 36159
+INFO: [Netlist 29-17] Analyzing 1078 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0.xdc] for cell 'sfp_1_pcs_pma_inst/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0.xdc:70]
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0.xdc] for cell 'sfp_1_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_2_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_2_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_3_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_3_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_4_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1.xdc] for cell 'sfp_4_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
+CRITICAL WARNING: [Netlist 29-177] Cannot set property 'BITSTREAM.CONFIG.OVERTEMPSHUTDOWN' because the property does not exist. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:9]
+Resolution: Create this property using create_property command before setting it.
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:112]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:114]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+WARNING: [Vivado 12-584] No ports matched 'get_ports'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc]
+Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+Inserting timing constraints for ethernet MAC with FIFO instance core_inst/eth_mac_10g_fifo_inst
+WARNING: [Vivado 12-180] No cells matched '.*/rx_sync_reg_[1234]_reg\[\d+\]'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl:23]
+WARNING: [Vivado 12-180] No cells matched '.*/tx_sync_reg_[1234]_reg\[\d+\]'. [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl:23]
+Finished Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/syn/vivado/eth_mac_fifo.tcl]
+Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+Inserting timing constraints for axis_async_fifo instance core_inst/eth_mac_10g_fifo_inst/rx_fifo/fifo_inst
+INFO: [Timing 38-2] Deriving generated clocks [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
+Inserting timing constraints for axis_async_fifo instance core_inst/eth_mac_10g_fifo_inst/tx_fifo/fifo_inst
+Finished Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/axis_async_fifo.tcl]
+Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+Inserting timing constraints for sync_reset instance sync_reset_125mhz_inst
+Inserting timing constraints for sync_reset instance sync_reset_156mhz_inst
+Inserting timing constraints for sync_reset instance sync_reset_sfp_inst
+Finished Sourcing Tcl File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/lib/eth/lib/axis/syn/vivado/sync_reset.tcl]
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_clocks.xdc] for cell 'sfp_1_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_0/synth/ten_gig_eth_pcs_pma_0_clocks.xdc] for cell 'sfp_1_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_2_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_2_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_3_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_3_pcs_pma_inst/inst'
+Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_4_pcs_pma_inst/inst'
+Finished Parsing XDC File [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.gen/sources_1/ip/ten_gig_eth_pcs_pma_1/synth/ten_gig_eth_pcs_pma_1_clocks.xdc] for cell 'sfp_4_pcs_pma_inst/inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-1687] 8 scoped IP constraints or related sub-commands were skipped due to synthesis logic optimizations usually triggered by constant connectivity or unconnected output pins. To review the skipped constraints and messages, run the command 'set_param netlist.IPMsgFiltering false' before opening the design.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3010.184 ; gain = 0.000 ; free physical = 23425 ; free virtual = 35326
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 106 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 92 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 8 instances
+
+22 Infos, 10 Warnings, 1 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 3010.184 ; gain = 1547.082 ; free physical = 23425 ; free virtual = 35326
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.36 . Memory (MB): peak = 3084.949 ; gain = 74.766 ; free physical = 23326 ; free virtual = 35227
+
+Starting Cache Timing Information Task
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.92 ; elapsed = 00:00:00.25 . Memory (MB): peak = 3084.949 ; gain = 0.000 ; free physical = 23322 ; free virtual = 35223
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34947
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34947
+Phase 1 Initialization | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34947
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.97 ; elapsed = 00:00:00.17 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34946
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34946
+Phase 2 Timer Update And Timing Data Collection | Checksum: 20f1091ec
+
+Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.19 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23045 ; free virtual = 34946
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 3 inverters resulting in an inversion of 12 pins
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 294a34732
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+Retarget | Checksum: 294a34732
+INFO: [Opt 31-389] Phase Retarget created 1234 cells and removed 1609 cells
+INFO: [Opt 31-1021] In phase Retarget, 10 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 284e3cc4e
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.54 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+Constant propagation | Checksum: 284e3cc4e
+INFO: [Opt 31-389] Phase Constant propagation created 40 cells and removed 596 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 328 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+INFO: [Opt 31-120] Instance sfp_4_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i (ten_gig_eth_pcs_pma_1_ten_gig_eth_pcs_pma_v6_0_28_elastic_buffer_wrapper_HD180) has been optimized to an empty box cell during sweep but it has constraints that prevent its removal. Empty box cells do not impact the implementation flow but they have no functional relevance.
+Resolution: If this is not expected, please check for DONT_TOUCH properties or timing constraint set on the empty box cell or on nets connected to the cell. If found, remove the relevant DONT_TOUCH property or timing constraint and re-run opt_design.
+INFO: [Opt 31-120] Instance sfp_3_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i (ten_gig_eth_pcs_pma_1_ten_gig_eth_pcs_pma_v6_0_28_elastic_buffer_wrapper_HD41) has been optimized to an empty box cell during sweep but it has constraints that prevent its removal. Empty box cells do not impact the implementation flow but they have no functional relevance.
+Resolution: If this is not expected, please check for DONT_TOUCH properties or timing constraint set on the empty box cell or on nets connected to the cell. If found, remove the relevant DONT_TOUCH property or timing constraint and re-run opt_design.
+INFO: [Opt 31-120] Instance sfp_2_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_1_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i (ten_gig_eth_pcs_pma_1_ten_gig_eth_pcs_pma_v6_0_28_elastic_buffer_wrapper) has been optimized to an empty box cell during sweep but it has constraints that prevent its removal. Empty box cells do not impact the implementation flow but they have no functional relevance.
+Resolution: If this is not expected, please check for DONT_TOUCH properties or timing constraint set on the empty box cell or on nets connected to the cell. If found, remove the relevant DONT_TOUCH property or timing constraint and re-run opt_design.
+Phase 5 Sweep | Checksum: 2e2bcefde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.86 . Memory (MB): peak = 3321.902 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+Sweep | Checksum: 2e2bcefde
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 6886 cells
+INFO: [Opt 31-1021] In phase Sweep, 1881 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 2e2bcefde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.91 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+BUFG optimization | Checksum: 2e2bcefde
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 2e2bcefde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.92 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+Shift Register Optimization | Checksum: 2e2bcefde
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 30f672020
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.94 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+Post Processing Netlist | Checksum: 30f672020
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 1d27aaa42
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3353.918 ; gain = 0.000 ; free physical = 23043 ; free virtual = 34944
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 1d27aaa42
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+Phase 9 Finalization | Checksum: 1d27aaa42
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |            1234  |            1609  |                                             10  |
+|  Constant propagation         |              40  |             596  |                                            328  |
+|  Sweep                        |               0  |            6886  |                                           1881  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 1d27aaa42
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3353.918 ; gain = 32.016 ; free physical = 23043 ; free virtual = 34944
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 35 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 24 newly gated: 3 Total Ports: 70
+Ending PowerOpt Patch Enables Task | Checksum: 2c3e8f5e0
+
+Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22687 ; free virtual = 34588
+Ending Power Optimization Task | Checksum: 2c3e8f5e0
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 3969.527 ; gain = 615.609 ; free physical = 22687 ; free virtual = 34588
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 1a72a8893
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.45 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22677 ; free virtual = 34578
+Ending Final Cleanup Task | Checksum: 1a72a8893
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22677 ; free virtual = 34578
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22677 ; free virtual = 34578
+Ending Netlist Obfuscation Task | Checksum: 1a72a8893
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22677 ; free virtual = 34578
+INFO: [Common 17-83] Releasing license: Implementation
+87 Infos, 10 Warnings, 1 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 3969.527 ; gain = 959.344 ; free physical = 22677 ; free virtual = 34578
+INFO: [Vivado 12-24828] Executing command : report_drc -file fpga_drc_opted.rpt -pb fpga_drc_opted.pb -rpx fpga_drc_opted.rpx
+Command: report_drc -file fpga_drc_opted.rpt -pb fpga_drc_opted.pb -rpx fpga_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22685 ; free virtual = 34586
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22685 ; free virtual = 34586
+Writing XDEF routing.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34587
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34588
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34588
+Wrote Device Cache: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22680 ; free virtual = 34587
+Write Physdb Complete: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22679 ; free virtual = 34587
+INFO: [Common 17-1381] The checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_opt.dcp' has been generated.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 16 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22668 ; free virtual = 34574
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 14f70e12b
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22668 ; free virtual = 34574
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22668 ; free virtual = 34574
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: b5022080
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22668 ; free virtual = 34574
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 145ef6042
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22665 ; free virtual = 34571
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 145ef6042
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22665 ; free virtual = 34571
+Phase 1 Placer Initialization | Checksum: 145ef6042
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22665 ; free virtual = 34571
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 1996c685d
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22733 ; free virtual = 34639
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: e45e7c7f
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22732 ; free virtual = 34638
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: e45e7c7f
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22732 ; free virtual = 34638
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 145fe3f94
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:10 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 2.5 Global Place Phase2
+
+Phase 2.5.1 UpdateTiming Before Physical Synthesis
+Phase 2.5.1 UpdateTiming Before Physical Synthesis | Checksum: 1983d2150
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:11 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 2.5.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 6 LUTNM shape to break, 1320 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 4, two critical 2, total 6, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 571 nets or LUTs. Breaked 6 LUTs, combined 565 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-46] Identified 10 candidate nets for critical-cell optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1401] No candidate cells found for Shift Register optimization.
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            6  |            565  |                   571  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Cell                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            6  |            565  |                   571  |           0  |          10  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.5.2 Physical Synthesis In Placer | Checksum: 19cbb12dc
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:12 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+Phase 2.5 Global Place Phase2 | Checksum: 15c8cd71b
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:12 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+Phase 2 Global Placement | Checksum: 15c8cd71b
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:12 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 15931ae11
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:13 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1dc55d43c
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:14 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22758 ; free virtual = 34664
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1a77f7ffd
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:14 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22758 ; free virtual = 34664
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1c5a5c6e9
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:14 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22758 ; free virtual = 34664
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 22241647b
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:15 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22765 ; free virtual = 34671
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 206a4464a
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:18 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1e724eb44
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:18 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1a707ad1b
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:18 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22759 ; free virtual = 34665
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 16d4adad2
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:19 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22762 ; free virtual = 34669
+Phase 3 Detail Placement | Checksum: 16d4adad2
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:19 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22762 ; free virtual = 34669
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 118279f2e
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 16 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-39.456 | TNS=-6297.126 |
+Phase 1 Physical Synthesis Initialization | Checksum: f80b4a88
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.21 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22751 ; free virtual = 34657
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: edf708d4
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.28 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22751 ; free virtual = 34657
+Phase 4.1.1.1 BUFG Insertion | Checksum: 118279f2e
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:21 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22751 ; free virtual = 34657
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-38.945. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1930c6457
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+Phase 4.1 Post Commit Optimization | Checksum: 1930c6457
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1930c6457
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1930c6457
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+Phase 4.3 Placer Reporting | Checksum: 1930c6457
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1a846930e
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+Ending Placer Task | Checksum: ca6c632a
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+154 Infos, 10 Warnings, 1 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:07 ; elapsed = 00:00:33 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22739 ; free virtual = 34645
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file fpga_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22737 ; free virtual = 34643
+INFO: [Vivado 12-24828] Executing command : report_io -file fpga_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22719 ; free virtual = 34626
+INFO: [Vivado 12-24828] Executing command : report_utilization -file fpga_utilization_placed.rpt -pb fpga_utilization_placed.pb
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22719 ; free virtual = 34630
+Wrote PlaceDB: Time (s): cpu = 00:00:00.97 ; elapsed = 00:00:00.41 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22679 ; free virtual = 34613
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22679 ; free virtual = 34613
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22679 ; free virtual = 34614
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22679 ; free virtual = 34616
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22671 ; free virtual = 34610
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.47 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22671 ; free virtual = 34610
+INFO: [Common 17-1381] The checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_placed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.84 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34598
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 3.46s |  WALL: 0.91s
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34598
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 16 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6136.015 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1c916bc4e
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.81 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34598
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6136.015 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 1c916bc4e
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.86 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22684 ; free virtual = 34598
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6136.015 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[21].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[21]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[21]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6135.902 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[52].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[52]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[52]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6135.789 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[55].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[55]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[55]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.972 | TNS=-6135.676 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[8].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[8]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[8]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.968 | TNS=-6135.563 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[27].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[27]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[27]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.968 | TNS=-6135.456 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[29].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[29]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[29]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.968 | TNS=-6135.349 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[40].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[40]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[40]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.968 | TNS=-6135.242 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[7].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[7]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[7]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.952 | TNS=-6135.135 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[31].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[31]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[31]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.952 | TNS=-6135.102 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[34].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[34]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[34]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.952 | TNS=-6135.069 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[43].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[43]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[43]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.952 | TNS=-6135.036 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[47].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[47]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[47]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6135.003 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[12].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[12]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[12]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6134.992 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[15].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[15]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[15]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6134.981 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[20].  Re-placed instance tx_timer_reg[20]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[20]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6136.618 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[21].  Re-placed instance tx_timer_reg[21]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[21]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6138.268 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[22].  Re-placed instance tx_timer_reg[22]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[22]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6139.968 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[23].  Re-placed instance tx_timer_reg[23]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6141.616 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[24].  Re-placed instance tx_timer_reg[24]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[24]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6143.290 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[25].  Re-placed instance tx_timer_reg[25]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[25]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6144.899 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[26].  Re-placed instance tx_timer_reg[26]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[26]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6146.591 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[16].  Re-placed instance tx_timer_reg[16]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[16]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6148.342 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[17].  Re-placed instance tx_timer_reg[17]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[17]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6150.101 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[18].  Re-placed instance tx_timer_reg[18]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[18]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6151.864 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[19].  Re-placed instance tx_timer_reg[19]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[19]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6153.670 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[4].  Re-placed instance tx_timer_reg[4]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6155.240 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[5].  Re-placed instance tx_timer_reg[5]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6156.731 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[6].  Re-placed instance tx_timer_reg[6]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[6]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6158.450 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[7].  Re-placed instance tx_timer_reg[7]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[7]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6160.242 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[12].  Re-placed instance tx_timer_reg[12]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[12]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6161.930 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[13].  Re-placed instance tx_timer_reg[13]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[13]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6163.580 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[26].  Re-placed instance tx_timer_reg[26]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[26]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6163.605 |
+INFO: [Physopt 32-702] Processed net tx_timer_reg[25]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[6].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[6]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[6]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6163.443 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[7].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[7]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6162.849 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[5]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6158.727 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[4]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6156.118 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6155.353 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[5]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6152.080 |
+INFO: [Physopt 32-81] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6151.889 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[3].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[3]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6151.380 |
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[20]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[16]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[12]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[8]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[4]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[0]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0.  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_1
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6145.172 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6144.407 |
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0.  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_1
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6145.694 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6145.424 |
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[3].  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[3]
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6144.794 |
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0.  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_1
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6142.067 |
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-710] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_4_n_0. Critical path length was reduced through logic transformation on cell core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_4_comp.
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6142.489 |
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-710] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_5_n_0. Critical path length was reduced through logic transformation on cell core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[16]_i_5_comp.
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6142.668 |
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0 was not replicated.
+INFO: [Physopt 32-81] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Replicated 2 times.
+INFO: [Physopt 32-735] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6140.499 |
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0_repN_2 was not replicated.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0_repN_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_reg_4[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk_p_buffed. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_mgt_refclk_p. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[39].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[39]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[39]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.949 | TNS=-6140.488 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[6].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[6]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[6]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.943 | TNS=-6140.477 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[14].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[14]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[14]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.943 | TNS=-6140.472 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[23].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[23]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.943 | TNS=-6140.467 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[41].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[41]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[41]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.943 | TNS=-6140.462 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[45].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg[45]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[45]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.938 | TNS=-6140.457 |
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net core_inst/pkt_n_reg_reg[4].  Re-placed instance core_inst/pkt_n_reg_reg[4]
+INFO: [Physopt 32-735] Processed net core_inst/pkt_n_reg_reg[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.911 | TNS=-6136.326 |
+INFO: [Physopt 32-663] Processed net core_inst/pkt_n_reg_reg[0].  Re-placed instance core_inst/pkt_n_reg_reg[0]
+INFO: [Physopt 32-735] Processed net core_inst/pkt_n_reg_reg[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.905 | TNS=-6135.408 |
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[12]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/pkt_n_reg_reg[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_32_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_166_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 20 pins.
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata[63]_i_251_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.900 | TNS=-6134.694 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata[63]_i_74_n_0.  Re-placed instance core_inst/tx_fifo_axis_tdata[63]_i_74
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata[63]_i_74_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.897 | TNS=-6134.274 |
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_74_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_73_n_6. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_22_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_46_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_103_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 18 pins.
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata[63]_i_370_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.847 | TNS=-6126.625 |
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_189_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_273_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_430_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_338_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_438_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_390_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_480_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_439_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_522_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_481_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_565_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_523_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_607_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_566_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_608_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_691_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_650_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_692_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_776_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_735_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_818_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_777_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_819_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_903_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_861_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_945_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_904_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_987_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_946_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1029_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_988_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1030_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1073_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1115_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1198_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1157_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1199_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1283_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1242_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1325_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1284_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1363_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1326_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1410_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1368_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1452_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1411_n_3. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1515_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1407_n_5. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-735] Processed net core_inst/udp_complete_inst/udp_64_inst/udp_checksum_gen_64_inst/payload_fifo/sync_reg_reg[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.824 | TNS=-6124.051 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[0].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[0]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.824 | TNS=-6123.801 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[1].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[1]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.824 | TNS=-6123.551 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[2].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[2]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.824 | TNS=-6123.301 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[3].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[3]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.813 | TNS=-6123.051 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[4].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[4]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.813 | TNS=-6122.812 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[5].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[5]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.813 | TNS=-6122.573 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[6].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[6]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[6]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.813 | TNS=-6122.346 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[7].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[7]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[7]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.803 | TNS=-6122.119 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[52].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[52]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[52]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.803 | TNS=-6121.902 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[53].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[53]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[53]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.803 | TNS=-6121.685 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[54].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[54]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[54]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.803 | TNS=-6121.478 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[55].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[55]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[55]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6121.271 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[60].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[60]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[60]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6121.065 |
+INFO: [Physopt 32-663] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[61].  Re-placed instance core_inst/tx_fifo_axis_tdata_reg_reg[61]
+INFO: [Physopt 32-735] Processed net core_inst/tx_fifo_axis_tdata_reg_reg[61]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6120.859 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[14].  Re-placed instance tx_timer_reg[14]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[14]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6122.537 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[15].  Re-placed instance tx_timer_reg[15]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[15]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6124.195 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[0].  Re-placed instance tx_timer_reg[0]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6125.381 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[1].  Re-placed instance tx_timer_reg[1]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6126.660 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[2].  Re-placed instance tx_timer_reg[2]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6128.004 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[3].  Re-placed instance tx_timer_reg[3]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6129.377 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[20].  Re-placed instance rx_timer_reg[20]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[20]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6130.934 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[21].  Re-placed instance rx_timer_reg[21]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[21]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6132.588 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[22].  Re-placed instance rx_timer_reg[22]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[22]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6134.360 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[23].  Re-placed instance rx_timer_reg[23]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6136.144 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[10].  Re-placed instance tx_timer_reg[10]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[10]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6137.819 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[11].  Re-placed instance tx_timer_reg[11]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[11]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6139.534 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[8].  Re-placed instance tx_timer_reg[8]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[8]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6141.200 |
+INFO: [Physopt 32-663] Processed net tx_timer_reg[9].  Re-placed instance tx_timer_reg[9]
+INFO: [Physopt 32-735] Processed net tx_timer_reg[9]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6143.060 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[12].  Re-placed instance rx_timer_reg[12]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[12]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6144.506 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[13].  Re-placed instance rx_timer_reg[13]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[13]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6146.053 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[14].  Re-placed instance rx_timer_reg[14]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[14]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6147.648 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[15].  Re-placed instance rx_timer_reg[15]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[15]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6149.339 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[16].  Re-placed instance rx_timer_reg[16]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[16]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6150.940 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[17].  Re-placed instance rx_timer_reg[17]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[17]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6152.677 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[23].  Re-placed instance rx_timer_reg[23]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6152.882 |
+INFO: [Physopt 32-663] Processed net rx_timer_reg[17].  Re-placed instance rx_timer_reg[17]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[17]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-38.802 | TNS=-6152.495 |
+INFO: [Common 17-14] Message 'Physopt 32-619' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-663] Processed net rx_timer_reg[23].  Re-placed instance rx_timer_reg[23]
+INFO: [Physopt 32-735] Processed net rx_timer_reg[23]. Optimization improves timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[23]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[5].  Re-placed instance sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out_reg[5]
+INFO: [Physopt 32-735] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-663] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[2].  Re-placed instance sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out_reg[2]
+INFO: [Physopt 32-735] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[2]. Optimization improves timing on the net.
+INFO: [Common 17-14] Message 'Physopt 32-735' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-663] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[7].  Re-placed instance sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out_reg[7]
+INFO: [Physopt 32-663] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[3].  Re-placed instance sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out_reg[3]
+INFO: [Physopt 32-663] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[1].  Re-placed instance sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out_reg[1]
+INFO: [Physopt 32-663] Processed net tx_timer_reg[9].  Re-placed instance tx_timer_reg[9]
+INFO: [Physopt 32-663] Processed net tx_timer_reg[9].  Re-placed instance tx_timer_reg[9]
+INFO: [Physopt 32-702] Processed net tx_timer_reg[9]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_edge. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0_repN_2.  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_1_replica
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0_repN_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg_8_sn_1.  Re-placed instance core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_1
+INFO: [Common 17-14] Message 'Physopt 32-663' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_active_prev_reg_0[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_mgt_refclk_p. Optimizations did not improve timing on the net.
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22683 ; free virtual = 34597
+Phase 3 Critical Path Optimization | Checksum: 1a2109a45
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:07 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22683 ; free virtual = 34597
+
+Phase 4 Critical Path Optimization
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/pkt_n_reg_reg[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_5_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_5_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_5_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_4_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_12_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_12_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_12_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[12]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_59_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_59_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_59_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_20_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_61_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_61_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_61_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_30_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_58_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_30_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_30_comp.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_20_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_20_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_17_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/tx_fifo_axis_tdata[63]_i_17_n_0. Critical path length was reduced through logic transformation on cell core_inst/tx_fifo_axis_tdata[63]_i_17_comp.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_62_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 21 pins.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_79_n_0_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 12 pins.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_35_n_0_repN_1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_92_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_89_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net core_inst/tx_fifo_axis_tdata[63]_i_77_n_0. Replicated 1 times.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 22 pins.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_165_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_250_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_139_n_4. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_75_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_73_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_156_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_22_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_23_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_36_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_37_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_83_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_118_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_208_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_157_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_152_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_46_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_47_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_50_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_93_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_98_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_171_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_213_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_245_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_240_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_103_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_104_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_107_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_112_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_179_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_184_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_258_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_301_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_315_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_189_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_190_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_193_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_198_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_203_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_263_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_268_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_323_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_367_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_273_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_274_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_277_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_282_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_287_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_292_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_328_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_333_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_375_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_430_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_338_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_339_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_342_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_347_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_352_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_357_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_362_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_380_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_385_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_438_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_390_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_391_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_394_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_399_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_404_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_409_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_414_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_419_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_431_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_480_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_439_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_440_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_443_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_448_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_453_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_458_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_463_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_468_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_473_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_522_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_481_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_482_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_485_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_490_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_495_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_500_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_505_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_510_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_515_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_565_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_523_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_524_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_527_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_532_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_537_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_542_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_547_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_552_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_557_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_607_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_566_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_567_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_570_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_575_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_580_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_585_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_590_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_595_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_600_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_608_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_609_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_612_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_617_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_622_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_627_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_632_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_637_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_642_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_691_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_650_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_651_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_654_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_659_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_664_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_669_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_674_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_679_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_684_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_692_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_693_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_696_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_701_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_706_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_711_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_716_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_721_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_726_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_776_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_735_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_736_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_739_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_744_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_749_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_754_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_759_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_764_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_769_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_818_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_777_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_778_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_781_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_786_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_791_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_796_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_801_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_806_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_811_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_819_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_820_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_823_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_828_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_833_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_838_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_843_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_848_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_853_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_903_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_861_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_862_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_865_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_870_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_875_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_880_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_885_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_890_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_895_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_945_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_904_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_905_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_908_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_913_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_918_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_923_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_928_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_933_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_938_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_987_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_946_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_947_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_950_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_955_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_960_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_965_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_970_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_975_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_980_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1029_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_988_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_989_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_992_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_997_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1002_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1007_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1012_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1017_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1022_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1030_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1031_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1034_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1039_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1044_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1049_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1054_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1059_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1064_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1073_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1074_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1077_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1082_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1087_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1092_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1097_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1102_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1107_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1115_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1116_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1119_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1124_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1129_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1134_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1139_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1144_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1149_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1198_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1157_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1158_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1161_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1166_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1171_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1176_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1181_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1186_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1191_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1199_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1200_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1203_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1208_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1213_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1218_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1223_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1228_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1233_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1283_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1242_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1243_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1246_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1251_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1256_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1261_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1266_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1271_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1276_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1325_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1284_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1285_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1288_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1293_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1298_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1303_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1308_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1313_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1363_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1326_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1327_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1330_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1335_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1340_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1345_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1350_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1355_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1360_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1410_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1368_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1369_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1372_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1377_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1382_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1387_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1392_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1397_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1402_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1452_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1411_n_3. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1412_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1415_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1420_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1425_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1430_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1435_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1440_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1445_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1515_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1407_n_5. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1238_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1069_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_900_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_731_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_562_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_427_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_241_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/udp_complete_inst/udp_64_inst/udp_checksum_gen_64_inst/payload_fifo/sync_reg_reg[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_shared_clock_reset_block/refclk_p_buffed. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_mgt_refclk_p. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net tx_blink_enable. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sync_reset_sfp_inst/Q[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[26]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-81] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[5]. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net tx_timer_reg[9]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[5]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[4]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg[0]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[2]_0_repN_2 was not replicated.
+INFO: [Physopt 32-702] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/xgmii_txc_reg_reg[7]_0[4]_repN. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer_reg_8_sn_1. Critical path length was reduced through logic transformation on cell core_inst/eth_mac_10g_fifo_inst/eth_mac_10g_inst/axis_xgmii_tx_inst/tx_timer[0]_i_1_comp.
+INFO: [Physopt 32-81] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[2]. Replicated 1 times.
+INFO: [Physopt 32-702] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[20]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[16]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[12]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[8]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[4]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[0]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer[0]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-571] Net rx_active_now was not replicated.
+INFO: [Physopt 32-702] Processed net rx_active_now. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net rx_active_prev_i_2_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net rx_active_prev_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[24]_i_1_n_5. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg_n_0_[12]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/pkt_n_reg_reg[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_7_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_28_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_62_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_165_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_250_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_139_n_4. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_156_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_22_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_46_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_103_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_189_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_273_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_430_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_338_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_438_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_390_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_480_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_439_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_522_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_481_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_565_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_523_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_607_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_566_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_608_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_691_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_650_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_692_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_776_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_735_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_818_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_777_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_819_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_903_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_861_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_945_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_904_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_987_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_946_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1029_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_988_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1030_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1073_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1115_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1198_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1157_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1199_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1283_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1242_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1325_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1284_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1363_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1326_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1410_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1368_n_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1452_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1411_n_3. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata[63]_i_1515_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/tx_fifo_axis_tdata_reg[63]_i_1407_n_5. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net core_inst/udp_complete_inst/udp_64_inst/udp_checksum_gen_64_inst/payload_fifo/sync_reg_reg[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_mgt_refclk_p. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net tx_blink_enable. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sync_reset_sfp_inst/Q[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[26]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_block_i/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/ebuff_gen.rx_elastic_buffer_i/rx_elastic_buffer_i/idle_insert_i/ctrl_out[4]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer[0]_i_10_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_active_now. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_active_prev_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net rx_timer_reg[24]_i_1_n_5. Optimizations did not improve timing on the net.
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+Phase 4 Critical Path Optimization | Checksum: 2096f67ec
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:16 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-38.613 | TNS=-6107.095 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          0.359  |         28.920  |            6  |              0  |                   160  |           0  |           2  |  00:00:15  |
+|  Total          |          0.359  |         28.920  |            6  |              0  |                   160  |           0  |           3  |  00:00:15  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+Ending Physical Synthesis Task | Checksum: 1adeb1c5a
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:16 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+INFO: [Common 17-83] Releasing license: Implementation
+1021 Infos, 10 Warnings, 1 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:01:06 ; elapsed = 00:00:17 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22693 ; free virtual = 34607
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22696 ; free virtual = 34614
+Wrote PlaceDB: Time (s): cpu = 00:00:00.97 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22671 ; free virtual = 34612
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22671 ; free virtual = 34612
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22667 ; free virtual = 34609
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22667 ; free virtual = 34610
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22667 ; free virtual = 34612
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.47 . Memory (MB): peak = 3969.527 ; gain = 0.000 ; free physical = 22667 ; free virtual = 34612
+INFO: [Common 17-1381] The checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx690t'
+INFO: [Common 17-86] Your Implementation license expires in 10 day(s)
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 16 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: aa34f9eb ConstDB: 0 ShapeSum: 317d63b3 RouteDB: 3f19ac85
+Post Restoration Checksum: NetGraph: c1268346 | NumContArr: d9cf616b | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 32047d9eb
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:21 . Memory (MB): peak = 4143.828 ; gain = 174.301 ; free physical = 22259 ; free virtual = 34180
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 32047d9eb
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:21 . Memory (MB): peak = 4143.828 ; gain = 174.301 ; free physical = 22259 ; free virtual = 34180
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 32047d9eb
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:21 . Memory (MB): peak = 4143.828 ; gain = 174.301 ; free physical = 22259 ; free virtual = 34180
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 298207c59
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:24 . Memory (MB): peak = 4469.344 ; gain = 499.816 ; free physical = 21921 ; free virtual = 33842
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-36.224| TNS=-5694.380| WHS=-1.891 | THS=-1764.563|
+
+
+Phase 2.4 Update Timing for Bus Skew
+
+Phase 2.4.1 Update Timing
+Phase 2.4.1 Update Timing | Checksum: 260b13d2f
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 4469.344 ; gain = 499.816 ; free physical = 21921 ; free virtual = 33842
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-36.224| TNS=-6079.721| WHS=-2.201 | THS=-115.401|
+
+Phase 2.4 Update Timing for Bus Skew | Checksum: 26c43b846
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:25 . Memory (MB): peak = 4469.344 ; gain = 499.816 ; free physical = 21921 ; free virtual = 33842
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 22832
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 22832
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 1ac920e87
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:25 . Memory (MB): peak = 4492.062 ; gain = 522.535 ; free physical = 21898 ; free virtual = 33819
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 1ac920e87
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:25 . Memory (MB): peak = 4492.062 ; gain = 522.535 ; free physical = 21898 ; free virtual = 33819
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 281b4d5bb
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:36 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21247 ; free virtual = 33168
+Phase 4 Initial Routing | Checksum: 281b4d5bb
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:36 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21247 ; free virtual = 33168
+INFO: [Route 35-580] Design has 112 pins with tight setup and hold constraints.
+
+The top 5 pins with tight setup and hold constraints:
+
++====================+===================+=======================+
+| Launch Setup Clock | Launch Hold Clock | Pin                   |
++====================+===================+=======================+
+| sfp_mgt_refclk_p   | sfp_mgt_refclk_p  | rx_timer_reg[3]/D     |
+| sfp_mgt_refclk_p   | sfp_mgt_refclk_p  | rx_timer_reg[2]/D     |
+| sfp_mgt_refclk_p   | sfp_mgt_refclk_p  | rx_timer_reg[1]/D     |
+| sfp_mgt_refclk_p   | sfp_mgt_refclk_p  | rx_timer_reg[0]/D     |
+| sfp_mgt_refclk_p   | sfp_mgt_refclk_p  | rx_blink_enable_reg/D |
++--------------------+-------------------+-----------------------+
+
+File with complete list of pins: tight_setup_hold_pins.txt
+
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 1893
+ Number of Nodes with overlaps = 139
+ Number of Nodes with overlaps = 59
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-38.292| TNS=-7034.536| WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 13d4be303
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:00:46 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21255 ; free virtual = 33176
+
+Phase 5.2 Global Iteration 1
+ Number of Nodes with overlaps = 978
+ Number of Nodes with overlaps = 108
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-38.251| TNS=-7101.356| WHS=N/A    | THS=N/A    |
+
+Phase 5.2 Global Iteration 1 | Checksum: 23a242ffd
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:00:48 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+Phase 5 Rip-up And Reroute | Checksum: 23a242ffd
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:00:48 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1ee801c86
+
+Time (s): cpu = 00:01:42 ; elapsed = 00:00:48 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-38.091| TNS=-6896.391| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 6.1 Delay CleanUp | Checksum: 2142bc75c
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 2142bc75c
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+Phase 6 Delay and Skew Optimization | Checksum: 2142bc75c
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-38.091| TNS=-6810.114| WHS=0.054  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 20c44216f
+
+Time (s): cpu = 00:01:46 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+Phase 7 Post Hold Fix | Checksum: 20c44216f
+
+Time (s): cpu = 00:01:46 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.701577 %
+  Global Horizontal Routing Utilization  = 0.678545 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 79.2793%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 70.2703%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 61.7647%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 61.7647%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 8 Route finalize | Checksum: 20c44216f
+
+Time (s): cpu = 00:01:46 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 20c44216f
+
+Time (s): cpu = 00:01:46 ; elapsed = 00:00:49 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21259 ; free virtual = 33180
+
+Phase 10 Depositing Routes
+INFO: [Route 35-467] Router swapped GT pin sfp_1_pcs_pma_inst/inst/ten_gig_eth_pcs_pma_gt_common_block/gthe2_common_0_i/GTREFCLK0 to physical pin GTHE2_COMMON_X1Y9/GTNORTHREFCLK0
+Phase 10 Depositing Routes | Checksum: 29ed469ca
+
+Time (s): cpu = 00:01:47 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21260 ; free virtual = 33181
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 29ed469ca
+
+Time (s): cpu = 00:01:47 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21260 ; free virtual = 33181
+
+Phase 12 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-38.091| TNS=-6810.114| WHS=0.054  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 12 Post Router Timing | Checksum: 29ed469ca
+
+Time (s): cpu = 00:01:48 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21260 ; free virtual = 33181
+Total Elapsed time in route_design: 49.88 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: d1ae3174
+
+Time (s): cpu = 00:01:48 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21260 ; free virtual = 33181
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: d1ae3174
+
+Time (s): cpu = 00:01:48 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21260 ; free virtual = 33181
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+1040 Infos, 11 Warnings, 1 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:49 ; elapsed = 00:00:50 . Memory (MB): peak = 5129.062 ; gain = 1159.535 ; free physical = 21269 ; free virtual = 33190
+INFO: [Vivado 12-24828] Executing command : report_drc -file fpga_drc_routed.rpt -pb fpga_drc_routed.pb -rpx fpga_drc_routed.rpx
+Command: report_drc -file fpga_drc_routed.rpt -pb fpga_drc_routed.pb -rpx fpga_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 16 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_drc_routed.rpt.
+report_drc completed successfully
+INFO: [Vivado 12-24828] Executing command : report_methodology -file fpga_methodology_drc_routed.rpt -pb fpga_methodology_drc_routed.pb -rpx fpga_methodology_drc_routed.rpx
+Command: report_methodology -file fpga_methodology_drc_routed.rpt -pb fpga_methodology_drc_routed.pb -rpx fpga_methodology_drc_routed.rpx
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 16 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file fpga_timing_summary_routed.rpt -pb fpga_timing_summary_routed.pb -rpx fpga_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:44]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:51]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:105]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:109]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:111]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:113]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:115]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:117]
+INFO: [Constraints 18-632] set_output_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:125]
+INFO: [Constraints 18-632] set_input_delay: No clock object specified, the clocks will be automatically identified [/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga.xdc:127]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -3, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 16 CPUs
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [Vivado 12-24838] Running report commands "report_bus_skew, report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file fpga_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file fpga_bus_skew_routed.rpt -pb fpga_bus_skew_routed.pb -rpx fpga_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -3, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 16 CPUs
+INFO: [Vivado 12-24828] Executing command : report_route_status -file fpga_route_status.rpt -pb fpga_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_power -file fpga_power_routed.rpt -pb fpga_power_summary_routed.pb -rpx fpga_power_routed.rpx
+Command: report_power -file fpga_power_routed.rpt -pb fpga_power_summary_routed.pb -rpx fpga_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+1080 Infos, 13 Warnings, 2 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file fpga_clock_utilization_routed.rpt
+generate_parallel_reports: Time (s): cpu = 00:00:37 ; elapsed = 00:00:08 . Memory (MB): peak = 5249.121 ; gain = 120.059 ; free physical = 21240 ; free virtual = 33183
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21240 ; free virtual = 33186
+Wrote PlaceDB: Time (s): cpu = 00:00:00.95 ; elapsed = 00:00:00.41 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21218 ; free virtual = 33188
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21218 ; free virtual = 33188
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.08 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21210 ; free virtual = 33182
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21210 ; free virtual = 33184
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21202 ; free virtual = 33178
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 5249.121 ; gain = 0.000 ; free physical = 21202 ; free virtual = 33178
+INFO: [Common 17-1381] The checkpoint '/root/NetFPGA-SUME/firmware/NetFPGA_SUME/fpga/fpga/fpga.runs/impl_1/fpga_routed.dcp' has been generated.
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 11 16:53:50 2026...
+[Wed Feb 11 16:54:05 2026] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00.46 ; elapsed = 00:02:31 . Memory (MB): peak = 1479.070 ; gain = 0.000 ; free physical = 25138 ; free virtual = 37089
+# open_run impl_1
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1843.648 ; gain = 0.000 ; free physical = 24769 ; free virtual = 36720
+INFO: [Netlist 29-17] Analyzing 936 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1960.148 ; gain = 4.000 ; free physical = 24647 ; free virtual = 36598
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2846.789 ; gain = 0.000 ; free physical = 23901 ; free virtual = 35853
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2846.789 ; gain = 0.000 ; free physical = 23898 ; free virtual = 35849
+Read PlaceDB: Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.31 . Memory (MB): peak = 2857.750 ; gain = 10.961 ; free physical = 23874 ; free virtual = 35825
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2857.750 ; gain = 0.000 ; free physical = 23874 ; free virtual = 35825
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2871.500 ; gain = 13.750 ; free physical = 23866 ; free virtual = 35817
+Read Physdb Files: Time (s): cpu = 00:00:00.55 ; elapsed = 00:00:00.38 . Memory (MB): peak = 2871.500 ; gain = 24.711 ; free physical = 23866 ; free virtual = 35817
+Restored from archive | CPU: 0.590000 secs | Memory: 29.828789 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.57 ; elapsed = 00:00:00.4 . Memory (MB): peak = 2871.500 ; gain = 31.648 ; free physical = 23866 ; free virtual = 35817
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2871.500 ; gain = 0.000 ; free physical = 23866 ; free virtual = 35817
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 56 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+open_run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2871.500 ; gain = 1392.430 ; free physical = 23866 ; free virtual = 35817
+# report_utilization -file fpga_utilization.rpt
+# report_utilization -hierarchical -file fpga_utilization_hierarchical.rpt
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 11 16:54:16 2026...

@@ -724,8 +724,25 @@ assign JA_FPGA[7] = rx_loopb;
 
 reg [15:0] debug_signals = 16'h9654;
 
+//udp complete debug signals
 wire udp_tx_busy;
 wire udp_rx_busy;
+
+wire ip_rx_busy;
+wire ip_tx_busy;
+wire ip_rx_error_header_early_termination;
+wire ip_rx_error_payload_early_termination;
+wire ip_rx_error_invalid_header;
+wire ip_rx_error_invalid_checksum;
+wire ip_tx_error_payload_early_termination;
+wire ip_tx_error_arp_failed;
+wire udp_rx_error_header_early_termination;
+wire udp_rx_error_payload_early_termination;
+wire udp_tx_error_payload_early_termination;
+
+wire rx_fifo_overflow;
+wire tx_fifo_overflow;
+////////////////////////////////////////
 
 always @(posedge clk) begin
     if (rst) begin
@@ -753,7 +770,8 @@ assign JA_FPGA_OUT[0] = (debug_signals[3:0] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[3:0] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[3:0] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[3:0] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[3:0] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[3:0] == 4'd13) ? JA_FPGA_IN[3] :
+                    (debug_signals[3:0] == 4'd14) ? ip_tx_busy : rx_trigger;
 
 assign JA_FPGA_OUT[1] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd1) ? tx_udp_hdr_ready :
@@ -768,7 +786,8 @@ assign JA_FPGA_OUT[1] = (debug_signals[7:4] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[7:4] == 4'd10) ? JA_FPGA_IN[0] :
                     (debug_signals[7:4] == 4'd11) ? JA_FPGA_IN[1] :
                     (debug_signals[7:4] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[7:4] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[7:4] == 4'd13) ? JA_FPGA_IN[3] :
+                    (debug_signals[7:4] == 4'd14) ? ip_rx_busy : rx_trigger;
 
 assign JA_FPGA_OUT[2] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd1) ? tx_udp_hdr_ready :
@@ -780,10 +799,11 @@ assign JA_FPGA_OUT[2] = (debug_signals[11:8] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[11:8] == 4'd7) ? udp_tx_busy :
                     (debug_signals[11:8] == 4'd8) ? udp_rx_busy :
                     (debug_signals[11:8] == 4'd9) ? rx_loopb :
-                    (debug_signals[11:8] == 4'd10) ? JA_FPGA_IN[0] :
-                    (debug_signals[11:8] == 4'd11) ? JA_FPGA_IN[1] :
-                    (debug_signals[11:8] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[11:8] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[11:8] == 4'd10) ? ip_tx_error_payload_early_termination :
+                    (debug_signals[11:8] == 4'd11) ? ip_tx_error_arp_failed :
+                    (debug_signals[11:8] == 4'd12) ? udp_tx_error_payload_early_termination :
+                    (debug_signals[11:8] == 4'd13) ? tx_fifo_overflow :
+                    (debug_signals[11:8] == 4'd14) ? rx_fifo_overflow : rx_trigger;
 
 assign JA_FPGA_OUT[3] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd1) ? tx_udp_hdr_ready :
@@ -794,11 +814,12 @@ assign JA_FPGA_OUT[3] = (debug_signals[15:12] == 4'd0) ? tx_udp_hdr_valid :
                     (debug_signals[15:12] == 4'd6) ? tx_udp_payload_axis_tlast :
                     (debug_signals[15:12] == 4'd7) ? udp_tx_busy :
                     (debug_signals[15:12] == 4'd8) ? udp_rx_busy :
-                    (debug_signals[15:12] == 4'd9) ? rx_loopb :     // loop valor inicial en 7
-                    (debug_signals[15:12] == 4'd10) ? JA_FPGA_IN[0] :
-                    (debug_signals[15:12] == 4'd11) ? JA_FPGA_IN[1] :
-                    (debug_signals[15:12] == 4'd12) ? JA_FPGA_IN[2] :
-                    (debug_signals[15:12] == 4'd13) ? JA_FPGA_IN[3] : rx_trigger;
+                    (debug_signals[15:12] == 4'd9) ? rx_loopb :     // loop valor inicial en 9
+                    (debug_signals[15:12] == 4'd10) ? udp_rx_error_payload_early_termination :
+                    (debug_signals[15:12] == 4'd11) ? ip_rx_error_header_early_termination :
+                    (debug_signals[15:12] == 4'd12) ? ip_rx_error_invalid_header :
+                    (debug_signals[15:12] == 4'd13) ? ip_rx_error_invalid_checksum :
+                    (debug_signals[15:12] == 4'd14) ? udp_rx_error_header_early_termination : rx_trigger;
 
 assign sfp_2_txd = 64'h0707070707070707;
 assign sfp_2_txc = 8'hff;
@@ -844,12 +865,12 @@ eth_mac_10g_fifo_inst (
     .xgmii_txd(sfp_1_txd),
     .xgmii_txc(sfp_1_txc),
 
-    .tx_fifo_overflow(),
+    .tx_fifo_overflow(tx_fifo_overflow),
     .tx_fifo_bad_frame(),
     .tx_fifo_good_frame(),
     .rx_error_bad_frame(),
     .rx_error_bad_fcs(),
-    .rx_fifo_overflow(),
+    .rx_fifo_overflow(rx_fifo_overflow),
     .rx_fifo_bad_frame(),
     .rx_fifo_good_frame(),
 
@@ -1034,19 +1055,19 @@ udp_complete_inst (
     .m_udp_payload_axis_tlast(rx_udp_payload_axis_tlast),
     .m_udp_payload_axis_tuser(rx_udp_payload_axis_tuser),
     // Status signals
-    .ip_rx_busy(),
-    .ip_tx_busy(),
+    .ip_rx_busy(ip_rx_busy),
+    .ip_tx_busy(ip_tx_busy),
     .udp_rx_busy(udp_rx_busy),
     .udp_tx_busy(udp_tx_busy),
-    .ip_rx_error_header_early_termination(),
-    .ip_rx_error_payload_early_termination(),
-    .ip_rx_error_invalid_header(),
-    .ip_rx_error_invalid_checksum(),
-    .ip_tx_error_payload_early_termination(),
-    .ip_tx_error_arp_failed(),
-    .udp_rx_error_header_early_termination(),
-    .udp_rx_error_payload_early_termination(),
-    .udp_tx_error_payload_early_termination(),
+    .ip_rx_error_header_early_termination(ip_rx_error_header_early_termination),
+    .ip_rx_error_payload_early_termination(ip_rx_error_payload_early_termination),
+    .ip_rx_error_invalid_header(ip_rx_error_invalid_header),
+    .ip_rx_error_invalid_checksum(ip_rx_error_invalid_checksum),
+    .ip_tx_error_payload_early_termination(ip_tx_error_payload_early_termination),
+    .ip_tx_error_arp_failed(ip_tx_error_arp_failed),
+    .udp_rx_error_header_early_termination(udp_rx_error_header_early_termination),
+    .udp_rx_error_payload_early_termination(udp_rx_error_payload_early_termination),
+    .udp_tx_error_payload_early_termination(udp_tx_error_payload_early_termination),
     // Configuration
     .local_mac(local_mac),
     .local_ip(local_ip),
@@ -1139,6 +1160,8 @@ rx_udp_payload_fifo (
     .status_bad_frame(),
     .status_good_frame()
 );
+
+
 
 endmodule
 
