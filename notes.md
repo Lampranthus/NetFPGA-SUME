@@ -399,3 +399,11 @@ String: $0 (todo el string hex)
 Inicio: posición 16
 
 Longitud: 16 caracteres
+
+Setear la mac de la fpga
+---
+
+```bash
+sudo arp -s 192.168.1.128 02:00:00:00:00:00
+```
+
