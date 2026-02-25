@@ -406,4 +406,8 @@ Setear la mac de la fpga
 ```bash
 sudo arp -s 192.168.1.128 02:00:00:00:00:00
 ```
+Latencya ARP
+```bash
+sudo arping -I enp4s0 -c 10 192.168.1.128
+```
 
