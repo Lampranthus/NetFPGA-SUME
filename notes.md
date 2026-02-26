@@ -410,4 +410,21 @@ Latencya ARP
 ```bash
 sudo arping -I enp4s0 -c 10 192.168.1.128
 ```
-
+Test PC FPGA PC loopback
+---
+Capura en una terminal
+```bash
+sudo tcpdump -i enp4s0 -s 0 -w 8192Bloop.pcap host 192.168.1.128 and udp
+```
+Envio en otra terminal
+```bash
+hping3 192.168.1.128 -2 -p 1234 -d 8192 --fast -c 1000
+```
+formateo de .pcap
+```bash
+sudo tshark -r 512Bloop.pcap -Y "udp" -T fields -e frame.time_epoch -e ip.src > tiempos_512B.txt
+```
+extraccione de Round-Trip Time del loopback
+```bash
+awk '{if($2=="192.168.1.100"){ida=$1}else{print ($1-ida)*1000000}}' tiempos_512B.txt > rtts_512B.txt
+```
