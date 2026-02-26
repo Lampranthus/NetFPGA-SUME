@@ -428,3 +428,17 @@ extraccione de Round-Trip Time del loopback
 ```bash
 awk '{if($2=="192.168.1.100"){ida=$1}else{print ($1-ida)*1000000}}' tiempos_512B.txt > rtts_512B.txt
 ```
+RTT test
+---
+Comportamiento con usecs 0 
+-
+<img width="4200" height="2400" alt="rtt_vs_payload" src="https://github.com/user-attachments/assets/35481cf7-3fd6-4287-8287-63a77a9e4c9c" />
+
+Comportamiento con rx-usecs 1 tx-usecs 0
+-
+<img width="4200" height="2400" alt="rtt_vs_payload" src="https://github.com/user-attachments/assets/b870c07b-589c-4ce0-b873-d384a5695485" />
+
+
+
+
+
