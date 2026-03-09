@@ -438,6 +438,14 @@ Comportamiento con rx-usecs 1 tx-usecs 0
 -
 <img width="4200" height="2400" alt="rtt_vs_payload" src="https://github.com/user-attachments/assets/b870c07b-589c-4ce0-b873-d384a5695485" />
 
+USB PPS
+---
+La fpga envia un "." a la pc cada pps
+```bash
+screen /dev/ttyUSB1 115200
+```
+para cancelar es ctl+A y K.
+
 
 
 
